@@ -1,0 +1,68 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+% \usepackage{appendix}
+% \usepackage{listings}
+% \usepackage{courier}
+% \usepackage{color}
+
+
+% \lstset{style=mystyle}
+
+
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+
+\subsection{Discussion}\label{sec:discussion}
+% What is done in this work, including data analysis part.
+In our application of the LMJM (a linear mixed sub-model for the longitudinal process and a PH sub-model for the survival process) to Huntington's Disease, there are two limitations: first, the normality assumption of the random errors in the linear mixed model (LMM) was not realistic, and no obvious transformation of the longitudinal outcome to produce residual normality was applicable. This limitation is confirmed by our simulation studies where the LMJM tends to provide biased estimates to model parameters when the longitudinal data are non-normal. Consequently, predictive accuracy of the LMJM is negatively impacted. Second, the LMJM only models the conditional mean of the outcome. However, in our (and other) clinical research application(s), it may be more clinically relevant to consider the tails of the outcome distribution, e.g., the upper tail of TMS is at higher risk of developing HD.
+
+Our proposed quantile regression joint models (QRJM) uses a linear quantile mixed model (LQMM) for the longitudinal process, improves both inference and the ability to make accurate dynamic predictions. The quantile-based estimators are more robust against skewness in the data, and as a result, our approach provides the flexibility to use median or quantile regression instead of mean regression when outliers and skewness are present in the longitudinal process. Moreover, the QRJM provides quantile-specific parameter estimates at a set of different quantiles and the researchers can choose the quantiles of interest and the corresponding inference results. The simulation studies and data application suggest that the QRJM not only inherits the good properties of an LMJM, but adds flexibility to the modeling procedure.
+
+% Method summary and software.
+% Limitation and
+% Further work.
+In this work, we develop a Bayesian algorithm to fit the proposed QRJM model and make dynamic predictions using the location-scale representation of the asymmetric Laplace distribution (ALD) for the longitudinal quantile regression. The Bayesian algorithm, which is straightforwardly implemented in \textsf{JAGS} software, uses a piecewise constant baseline hazard function in the survival sub-model. However, other functional forms can also be considered and the integration of the hazard function can be approximated using numerical integration such as Simpson's rule. In the real data application, we illustrate the flexibility of the QRJM and its advantages over the LMJM by jointly modeling the risk of developing HD and five commonly used early predictors of the disease. The QRJM is able to provide more insight into the disease progression and the association between the two disease processes in terms of various quantile-based estimations and dynamic predictions.
+
+The novel application of our proposed QRJM in making personalized dynamic predictions of survival probability finds practical importance in many clinical applications. Event prediction using commonly collected biomarkers can provide clinicians with continuously updated ``disease progression'' information potentially allowing them to make appropriately timed intervention decisions for individual subjects. Subject-specific dynamic predictions models play an important role in the ongoing transformation of traditional medicine to patient-centric care. While in traditional medicine, treatments prescribed are guided by population-based experience, i.e., the average treatment effect in the entire population, such ``one-size-fits-all'' approaches are criticized for resulting in low efficacy and high adverse drug reactions in many clinical studies. Utilizing the dynamic predictions based on the proposed QRJM framework, we obtain subject-specific predictions of event risk that would actually allow physicians to target or tailor medical treatment based on a specific patient profile.
+
+In summary, the QRJM is a good alternative to the LMJM when either the normality assumption of the errors term is concerned or the conditional quantiles are more relevant to research question. When the interest lies in the prediction of future survival probability, the ``best'' quantile may be chosen based on the predictive accuracy criteria. Other model selection methods or methods, e.g., Bayesian model averaging, to incorporate multiple regression results from different quantiles into a single prediction solution can be a potential direction for future work. However, in our opinion, the choice of specific quantile(s) should be more clinically oriented rather than be a statistical task.
+
+
+% A question arises naturally from using quantile regression is which quantile should we choose? The answer is not unique and should depend on the specific research aim.
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

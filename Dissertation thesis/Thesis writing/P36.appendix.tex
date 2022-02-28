@@ -1,0 +1,226 @@
+% \documentclass[12pt]{article}
+% \usepackage[text={7.1 in, 8 in}, top=1.75in, left=0.69in]{geometry}
+% \usepackage[round]{natbib}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \floatstyle{plaintop}
+% \restylefloat{table}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% % \usepackage{subcaption}
+% \usepackage{subfig}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{hyperref}
+% \usepackage{courier}
+% \usepackage{color}
+% \usepackage{setspace}
+% \usepackage{rotating} % rotate table by some degree
+% \usepackage{rotfloat}
+% \usepackage{mwe}
+% \usepackage{listings}
+% \usepackage{titling}
+% \usepackage{lipsum}
+% \usepackage[export]{adjustbox}
+
+
+
+
+% \graphicspath{{figures/}}
+
+% \begin{document}
+% \author{\small{\bf Ming Yang, Sheng Luo,
+% and Stacia M. DeSantis}\\
+% \small{Department of Biostatistics, The University of Texas Health Science Center at Houston}}
+% \date{}
+% \title{\large{\bf Web-based Supplementary Material for ``Model Estimation and Dynamic Prediction in Joint Modeling Using Longitudinal Quantile Regression''}}
+% \maketitle{}
+
+% \thispagestyle{lscape}
+% \begin{landscape}
+
+\subsection*{Appendices}
+\addcontentsline{toc}{subsection}{Appendices}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+\setcounter{subsubsection}{0}
+\subsubsection{Additional Simulation Results}\label{apped:p3_sim}
+\doublespacing
+% \begin{sidewaystable}[H]
+\begin{table}[H]
+\centering
+\caption{Simulation study: Inference results for data generated from various error distributions\textsuperscript{*}.}
+\label{tab:p3sim_inference}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccccccccccccccccc}
+\hline
+& \multicolumn{4}{c}{$ALD$(0, 1, 0.25)} & & \multicolumn{4}{c}{$ALD$(0, 1, 0.50)} & & \multicolumn{4}{c}{$ALD$(0, 1, 0.75)}& & \multicolumn{4}{c}{$\mathcal{N}$(0, 1)}\\
+\hline
+& Bias & SE & MSE & CP & & Bias & SE &  MSE & CP & & Bias & SE & MSE & CP & & Bias & SE & MSE & CP\\
+&  \multicolumn{12}{l}{Coefficients for longitudinal process}\\
+$\beta_1$ & $-$0.001 & 0.064 & 0.004 & 0.920 & & $-$0.001 & 0.061 & 0.004 & 0.920 & & $-$0.005 & 0.064 & 0.005 & 0.940 & & 0.000 & 0.054 & 0.003 & 0.930 \\
+$\beta_2$ & $-$0.003 & 0.116 & 0.011 & 0.970 & & $-$0.002 & 0.113 & 0.011 & 0.965 & & $-$0.001 & 0.116 & 0.015 & 0.920 & & 0.006 & 0.106 & 0.012 & 0.940 \\
+$\beta_3$ & 0.020 & 0.048 & 0.003 & 0.950 & & 0.015 & 0.044 & 0.002 & 0.950 & & 0.027 & 0.048 & 0.003 & 0.900 & & 0.009 & & 0.009 & 0.027 & 0.001 & 0.920\\
+$\sigma$ & 0.001 & 0.022 & 0.001 & 0.970 & & 0.002 & 0.022 & 0.001 & 0.940 & & 0.003 & 0.022 & 0.001 & 0.940 & & $-$ & $-$ & $-$ & $-$ \\
+&  \multicolumn{12}{l}{Coefficients for recurrent event process}\\
+$\gamma$ & 0.007 & 0.052 & 0.004 & 0.920 & & 0.008 & 0.050 & 0.003 & 0.915 & & 0.005 & 0.052 & 0.002 & 0.955 & & $-$0.007 & 0.037 & 0.002 & 0.930 \\
+$r_0$ & $-$0.017 & 0.093 & 0.008 & 0.940 & & $-$0.016 & 0.087 & 0.008 & 0.940 & & $-$0.003 & 0.096 & 0.010 & 0.935 & & 0.022 & 0.063 & 0.006 & 0.900 \\
+$\alpha$ & 0.003 & 0.051& 0.003 & 0.950  & & 0.003 & 0.047 & 0.003 & 0.940 & & 0.001 & 0.051 & 0.003 & 0.940 & & $-$0.014 & 0.033 & 0.002 & 0.850 \\
+\hline
+\multicolumn{16}{l}{\textsuperscript{*}\footnotesize{data are fitted with true model for ALD distributed error and with ALD(0, 1, 0.50) for standard normal error.}}\\
+\end{tabular}
+
+}
+\end{table}
+% \end{sidewaystable}
+% \end{landscape}
+% \restoregeometry
+% \pagestyle{plain}
+
+
+% \thispagestyle{lscape}
+% \begin{landscape}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+\doublespacing
+
+\setcounter{subsubsection}{1}
+\subsubsection{Study Cohort Characteristics}
+\begin{table}[H]
+\centering
+\caption{Baseline characteristics of study cohort with stratification by SBP level}
+\label{tab:p3cht_baseline}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llcccc}
+\hline
+& & \multicolumn{3}{c}{SBP groups (mm Hg)} \\
+\cline{3-5}
+ Characteristics\textsuperscript{$\dagger$} & Total ($n=$ 657) & $<$ 120 ($n=$ 133, 20.2\%)  & [120, 140) ($n=$ 217, 33.0\%)& $\ge$ 140 ($n=$ 307, 46.7\%) & $p$-value\textsuperscript{*}\\
+ \hline
+ Age & 56.4 (5.8) & 55.0 (5.7) & 55.7 (6.0) & 57.4 (5.4) & $<$0.001\\
+ SBP & 135.9 (18.5) & 110.5 (6.9) & 129.2 (5.7) & 151.6 (11.2) & $<$0.001\\
+ Cholesterol (mg/dL)& 215.9 (41.7) & 215.1 (42.1) & 214.0 (42.0) & 217.6 (41.7) & 0.60 \\
+ Gender (male) & 341 (51.9) & 64 (48.1) & 117 (53.9) & 160 (52.1) & 0.57\\
+ Ever smoke (yes) & 379 (57.5) & 81 (60.9) & 126 (58.1) & 172 (56.0) & 0.63\\
+ Hypertension medication (yes) & 445 (67.7) & 132 (99.2) & 196 (90.3) & 117 (38.1) & $<$0.001\\
+ Diabetes (yes) & 90 (13.7) & 15 (11.3) & 27 (12.4) & 48 (15.6) & 0.38\\
+   \hline
+   \multicolumn{6}{l}{\textsuperscript{$\dagger$}\footnotesize{mean (sd) for continuous variables and frequency (percentage) for categorical variables.}}\\
+   \multicolumn{6}{l}{\textsuperscript{*}\footnotesize{Comparing three SBP groups; ANOVA test for continuous variables and $\chi^2$ test for categorical variables.}}\\
+\end{tabular}
+}
+\end{table}
+
+% \end{landscape}
+% \restoregeometry
+% \pagestyle{plain}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+
+\subsubsection{Inference Results for ARIC Data}\label{sec:p3data_inference}
+Inference results for five different quantiles (0.05, 0.25, 0.50, 0.75, and 0.95) are shown in Table~\ref{p3realdata_inference}. In the longitudinal SBP process, older participants generally have higher SBP level and this effect of baseline age is consistently positive across five quantiles of SBP. For example, one year increase in baseline age is associated with 0.036 (95\% CI: (0.026, 0.047)) unit increase in the median (i.e., $\tau=0.50$) of standardized SBP in the study cohort when controlling for other covariates. Total cholesterol level is negatively associated with SBP; however, the effects are not significant for all five quantiles. In general, people who took hypertension medications have significantly lower SBP and the effect of taking hypertension medications increases as the SBP level increases. It is interesting to see that time has a significantly positive effect on higher quantile of SBP (i.e., $\tau=0.75$ and 0.95) while for lower quantiles ($\tau=0.05$, 0.25, and 0.50) the effect is not significant. This can be an important indication that among the hypertension patients who originally have higher SBP deteriorate even faster than those with lower SBP.
+
+In the recurrent CHD event process, we see all positive association between the five conditional quantiles of SBP and the risk of CHD event, which coincide with our expectation as well as previous studies using ARIC data. While the degree of association varies among the conditional quantiles and is strongest on the conditional median of SBP (relative risk:1.25, 95\% CI: (1.02, 1.53)) in our case. For other regression covariates, diabetic patients are at significantly higher risk of having recurrent CHD event compared with non-diabetic. For example, when controlling for other factors, at $\tau=0.5$ the risk of having additional CHD event is 2.6 times higher ($\exp(0.95)$, 95\% CI: (1.57, 4.45)) for people with diabetes than those who are free of the disease. Although, males and ever smokers are also at higher risk of experiencing CHD events, the effects are not statistically significant compared with females and never smokers respectively.
+
+\newpage
+% \thispagestyle{lscape}
+% \pagestyle{lscape}
+% \begin{landscape}
+% \doublespacing
+% \begin{sidewaystable}[H]
+\begin{table}[H]
+\centering
+\caption{ARIC data analysis: Parameter estimation and 95\% credible interval (in parenthesis) from the QRJM at five quantiles with SBP as the longitudinal biomarker.}
+\label{p3realdata_inference}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccc}
+  \hline
+  & $\tau=0.05$ & $\tau=0.25$ & $\tau=0.50$ & $\tau=0.75$ & $\tau=0.95$\\
+\hline
+\multicolumn{6}{l}{{Coefficients for longitudinal SBP process}}  \\
+  Intercept & $-$0.374  & $-$0.023  & 0.447  & 0.872  &1.187 \\
+  & ($-$0.478, $-$0.274) & ($-$0.118, 0.074) & (0.352, 0.554) & (0.775, 0.978) & (1.079, 1.300)\\
+  Age$_0$ & 0.035 & 0.034  & 0.037  & 0.040  & 0.043 \\
+  & (0.026, 0.044) & (0.025, 0.044) & (0.028, 0.047) & (0.030, 0.050) & (0.031, 0.052)\\
+  Total cholesterol (mg/dL) & $-$0.020  & $-$0.026  & $-$0.022 & $-$0.013 & $-$0.022 \\
+  & ($-$0.073, 0.033) & ($-$0.081, 0.032) & ($-$0.078, 0.037) & ($-$0.073, 0.047) & ($-$0.076, 0.032)\\
+  Hypertension medicine & $-$0.583  & $-$0.652 & $-$0.725 & $-$0.730 & $-$0.787\\
+  &  ($-$0.710, $-$0.467) & ($-$0.773, $-$0.538) &  ($-$0.842, $-$0.609) &  ($-$0.868, $-$0.593) &  ($-$0.924, $-$0.660)\\
+  Follow-  up time (yr) & 0.008  & 0.006 & 0.011  & 0.016  & 0.019 \\
+  &($-$0.003, 0.018) & ($-$0.006, 0.019) & ($-$0.001, 0.022) & (0.004, 0.029) & (0.005, 0.033)\\\\
+  \multicolumn{6}{l}{{Coefficients for recurrent CHD process}}  \\
+  Male & 0.191  & 0.185  &  0.160  & 0.132  & 0.110 \\
+  & ($-$0.152, 0.548) & ($-$0.170, 0.528) &  ($-$0.187, 0.507) & ($-$0.205, 0.477) & ($-$0.234, 0.458)\\
+  Ever smoke & 0.291 & 0.271 & 0.216 & 0.165 & 0.163\\
+  & ($-$0.044, 0.641) & ($-$0.070, 0.613) &  ($-$0.121, 0.552) & ($-$0.177, 0.493) &  ($-$0.184, 0.485)\\
+  Diabetes & 0.918 & 0.895 & 0.850 & 0.811 & 0.818\\
+  & (0.424, 1.399) & (0.409, 1.376) & (0.381, 1.349) & (0.352, 1.318) & (0.333, 1.301)\\
+  Association & 0.163 & 0.207  & 0.226  &  0.205  &0.162 \\
+  &  ($-$0.003, 0.332) &  (0.011, 0.405) &  (0.019, 0.428) &   (0.034, 0.374) & (0.028, 0.288)\\
+   \hline
+\end{tabular}
+}
+\end{table}
+% \end{sidewaystable}
+% \end{landscape}
+% \restoregeometry
+% \pagestyle{plain}
+
+
+
+\subsubsection{\textsf{JAGS} Model File for Bayesian Inference}
+\textsf{JAGS} model file to fit QRJM of longitudinal and recurrent event data.
+{\scriptsize
+\begin{verbatim}
+model{
+      k1 <- (1-2*qt)/(qt*(1-qt))
+      k2 <- 2/(qt*(1-qt))
+
+      # prior of random effects
+      for (i in 1:I){ # I: unique subject id
+        # prior for random effects
+          u[i] ~ dnorm(0, tau)
+      } # end of loop i
+
+      # longitudinal process, BQR mixed model using ALD representation
+      for (j in 1:N_l){ # N_l: number of longitudinal observations
+          er[j] ~ dexp(sigma)
+          mu[j] <- beta1*X1_l[j] + beta2[X2_l[j]] + beta3*t[j] + u[id_l[j]]
+          			+ k1*er[j]
+          prec[j] <- sigma/(k2*er[j])
+          y[j] ~ dnorm(mu[j], prec[j])
+      } #end of j loop
+
+    # recurrent events part, baseline hazard is set to constant c
+      for(k in 1:I){
+        for (l in (s[k]+1):s[k+1]){
+          m1[l] <- beta1*X1[k]+beta2[X2[k]]+beta3*Ri1[l]+u[id_r[l]]
+          m2[l] <- beta1*X1[k]+beta2[X2[k]]+beta3*Ri2[l]+u[id_r[l]]
+          res[l] <- (exp(gamma*W[k]+alpha*m2[l])
+                       -exp(gamma*W[k]+alpha*m1[l]))/(alpha*beta3)
+          S[l] <- exp(-c*res[l])
+          risk[l] <- c*exp(gamma*W[k] + alpha*m2[l])
+          L[l] <- pow(risk[l], event[l])*S[l]/1E+08
+          zeros[l] ~ dpois(-log(L[l]))
+        } # end of l loop
+      }#end of k loop
+
+    # priors for other parameters
+      alpha ~ dnorm(0, 0.001)
+      beta1 ~ dnorm(0, 0.001)
+      beta2[1] <- 0
+      beta2[2] ~ dnorm(0, 0.001)
+      beta3 ~ dnorm(0, 0.001)
+      gamma ~ dnorm(0, 0.001)
+      sigma ~ dgamma(0.001, 0.01)
+      c ~ dunif(0.01, 10)
+      tau <- pow(var, -2)
+      var ~ dunif(0, 1000)
+  }
+\end{verbatim}
+}

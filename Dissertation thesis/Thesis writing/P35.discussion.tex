@@ -1,0 +1,61 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+% \usepackage{appendix}
+% \usepackage{listings}
+% \usepackage{courier}
+% \usepackage{color}
+
+
+% \lstset{style=mystyle}
+
+
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+
+\subsection{Discussion}\label{sec:p3discussion}
+In this work, we develop a Bayesian algorithm to make subject-specific dynamic predictions of recurrent event probability based on a new version of JM that uses LQMM for the longitudinal outcome , i.e. QRJM. Derivation of the Bayesian algorithm is based on the location-scale representation of the ALD for the longitudinal quantile regression. The Bayesian algorithm, which is straightforwardly implemented in \textsf{JAGS} software, uses a piecewise constant baseline hazard function in the recurrent events submodel. However, other functional forms can also be considered and the integration of the hazard function can be approximated using numerical integration such as Simpson's rule. Moreover, our predictions of recurrent event probability are based on the entire longitudinal trajectory as well as the recurrent events history of a subject and can be dynamically updated when new data from either (or both) outcome is available. In the real data application, we illustrate the flexibility of the QRJM and its advantages over the LMJM by jointly modeling the risk of CHD recurrences and longitudinal SBP measurements. QRJM is able to provide more insight into the disease progression and the association between the two disease processes in terms of various quantile-based estimations and dynamic predictions.
+
+The significance of current work can be interpreted from two perspectives. First of all, the idea of personalized dynamic predictions of recurrent event probability finds its practical importance in disease control and prevention. Event prediction using commonly collected biomarkers can provide clinicians with continuously updated ``disease progression'' information potentially allowing them to make appropriately timed intervention decisions for individual subjects. Utilizing the dynamic predictions based on the proposed QRJM framework, we obtain subject-specific predictions of event risk that would actually allow physicians to target or tailor medical treatment based on a specific patient profile. In addition, our novel extension of traditional JM with LQMM adds more flexibility to the modeling framework and allows us to investigate specific subgroup of patients of interest. One one hand, patients with extremer biomarker measurements are usually at higher risk of disease thus deserve additional attention in health care. On the other hand, if treatment effect on tails of the outcome is significantly different from the average effect, treatment strategy should also be adjust accordingly to achieve better clinical outcome.
+
+In summary, the QRJM proposed in this paper is a good alternative to the LMJM when either the normality assumption of the errors term is concerned or the conditional quantiles are more relevant to research question. And the dynamic predictions algorithm can be a highly potent tool in personalized disease control and prevention. The current version of QRJM uses LQMM and Cox PHM for the longitudinal and recurrent event processes respectively. However, other functional forms for both outcomes can also be considered to extend the proposed method. For example, in the longitudinal process, nonlinear QR \citep{koenker1996interior} or even nonparametric QR \citep{le2005nonparametric} models can be used to free the assumption of linearity. In the recurrent events submodel, accelerated failure time model can be considered when the proportionality assumption is violated and counting process approach is another nonparametric option.
+
+% In summary, the QRJM is a good alternative to the LMJM when either the normality assumption of the errors term is concerned or the conditional quantiles are more relevant to research question. When the interest lies in the prediction of future recurrent event probability, the ``best'' quantile may be chosen based on the predictive accuracy criteria. Other model selection methods or methods, e.g., Bayesian model averaging, to incorporate multiple regression results from different quantiles into a single prediction solution can be a potential direction for future work. However, in our opinion, the choice of specific quantile(s) should be more clinically oriented rather than be a statistical task.
+
+% A question arises naturally from using quantile regression is which quantile should we choose? The answer is not unique and should depend on the specific research aim.
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

@@ -1,0 +1,64 @@
+% This file was created with JabRef 2.10.
+% Encoding: Cp1252
+
+
+@Article{kim2012joint,
+  Title                    = {Joint models of longitudinal data and recurrent events with informative terminal event},
+  Author                   = {Kim, Sehee and Zeng, Donglin and Chambless, Lloyd and Li, Yi},
+  Journal                  = {Statistics in biosciences},
+  Year                     = {2012},
+  Number                   = {2},
+  Pages                    = {262--281},
+  Volume                   = {4},
+
+  Publisher                = {Springer}
+}
+
+@Article{liang2009joint,
+  Title                    = {Joint modeling and analysis of longitudinal data with informative observation times},
+  Author                   = {Liang, Yu and Lu, Wenbin and Ying, Zhiliang},
+  Journal                  = {Biometrics},
+  Year                     = {2009},
+  Number                   = {2},
+  Pages                    = {377--384},
+  Volume                   = {65},
+
+  Publisher                = {Wiley Online Library}
+}
+
+@Article{liu2009joint,
+  Title                    = {Joint analysis of correlated repeated measures and recurrent events processes in the presence of death, with application to a study on acquired immune deficiency syndrome},
+  Author                   = {Liu, Lei and Huang, Xuelin},
+  Journal                  = {Journal of the Royal Statistical Society: Series C (Applied Statistics)},
+  Year                     = {2009},
+  Number                   = {1},
+  Pages                    = {65--81},
+  Volume                   = {58},
+
+  Publisher                = {Wiley Online Library}
+}
+
+@Article{liu2008analysis,
+  Title                    = {Analysis of longitudinal data in the presence of informative observational times and a dependent terminal event, with application to medical cost data},
+  Author                   = {Liu, Lei and Huang, Xuelin and O'Quigley, John},
+  Journal                  = {Biometrics},
+  Year                     = {2008},
+  Number                   = {3},
+  Pages                    = {950--958},
+  Volume                   = {64},
+
+  Publisher                = {Wiley Online Library}
+}
+
+@Article{sun2007regression,
+  Title                    = {Regression analysis of longitudinal data in the presence of informative observation and censoring times},
+  Author                   = {Sun, Jianguo and Sun, Liuquan and Liu, Dandan},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2007},
+  Number                   = {480},
+  Pages                    = {1397--1406},
+  Volume                   = {102},
+
+  Publisher                = {Taylor \& Francis}
+}
+

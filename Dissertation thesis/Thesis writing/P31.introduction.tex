@@ -1,0 +1,90 @@
+% \documentclass{article}
+% \usepackage[top=1.25in, bottom=1.1in, left=1.25in, right=1in]{geometry}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+
+% %\usepackage{Sweave}
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+\subsection{Introduction}
+
+% JM in one or two sentences then talk about only the longitudinal part. Talk about the motivating data before introducing QR.
+
+% Medical background of longitudinal and recurrent event data. Introduce the JM in analyzing these two types of data jointly.
+
+% at least two longitudinal sequences of perhaps different data types are jointly recorded has received less attention so far, especially when one or more of the sequences consist of time-to-event data.
+
+Joint analysis of longitudinal and time-to-event outcomes has been studied by many authors. However, majority of the literature focuses on JM of longitudinal and a single time-to-event (e.g. death) outcomes. For example, \cite{self1992modeling, tsiatis1995modeling, wulfsohn1997joint} developed the JM methods for survival analysis with a time dependent covariate measured with error. Despite the popularity of repeated time-to-event or recurrent event data, such as hospital readmissions, multiple cardiovascular diseases (e.g. stroke, heart failure, etc.), and cancer recurrences, etc., joint analysis of longitudinal and recurrent event outcomes has received less attention so far. To our knowledge, \cite{henderson2000joint} developed a shared random effects JM for longitudinal and recurrent event data. \cite{kim2012joint} considered a JM of longitudinal and recurrent event data with informative terminal event. And \cite{efendi2013joint} proposed a JM of longitudinal data and recurrent events that accommodates overdispersion. Moreover, disease recurrence is always one of the important clinical outcomes in longitudinal biomedical studies, which can be used to monitor disease progression and health condition of the patients. Predictions of future event probability based on historical data attracts increasing interest recently. Accurate predictions of disease probability can play an important role in disease intervention and prevention. The JM framework offers a novel way of making such personalized dynamic predictions of future event-free probability \citep{rizopoulos2011dynamic,taylor2013real}. However, so far, there is little work has been done on the dynamic predictions of event recurrences under the JM framework. 
+
+
+In this paper, we propose a Gibbs sampling algorithm for making subject-specific predictions of the risk of event recurrence based on a new JM framework. Differently from conventional JM, we develop a quantile regression joint models (QRJM) framework that uses linear quantile mixed model (LQMM) in modeling the longitudinal continuous outcome; while the Cox proportional hazard model (PHM) is used for recurrent event outcome. There are several advantages of quantile regression (QR) based methods over the mean regression models (e.g. linear mixed model or LMM). First of all, LMM assumes normal error in the data; however, it is common that this normality assumption is violated in reality and no suitable transformation can be found. This is especially true when working with longitudinal data as the skewness changes over time. Moreover, LMM only models covariate effects on the conditional mean of the outcome; however, in many clinical settings it is more desirable to make inference at lower or higher quantiles of the outcome. For example, researchers used quantile regression QR to study risk factors of lower birth weight, in which they found several effects on the lower quantiles were significantly different from the mean effects \citep{koenker2001quantile}. This feature of QR find its great importance in biomedical studies, where individuals with extremer biomarker measurements are often at higher risk of disease or death. To our knowledge, \cite{farcomeni2015longitudinal} is the first one to incorporate an LQMM into a JM of longitudinal and terminal event data. However, there is little work has been do to use LQMM in the joint analysis with recurrent event data so far.
+
+
+The development of the Gibbs sampler is based on the fact that minimizing the original QR loss function is equivalent to maximizing the likelihood function of the asymmetric Laplace distribution (ALD) \citep{yu2001bayesian}. It is relatively easy to make subject-specific predictions from the posterior samples of the fixed effects and the posterior predictive distributions of the random effects, which are direct results of our sampling algorithm. In addition, implemented through the MCMC technique, the uncertainty of the predictive inference is fully captured in the posterior distribution. We conduct extensive simulation studies to validate the proposed JM in model inference as well in making predictions. After that we apply the proposed algorithm to the Atherosclerosis Risk in Communities Study (ARIC) data \citep{aric1989atherosclerosis}, in which we investigate various covariate effects on different quantiles of the systolic blood pressure (SBP), its association with the recurrence of coronary heart disease (CHD), and make dynamic predictions of future recurrent CHD probability using historical SBP measures and recurrent CHD data. Moreover, such predictions can be dynamically updated whenever new data from either longitudinal or time-to-event outcome are available.
+
+% Ignoring the dependence between the longitudinal and recurrent event processes and the fit models for these two outcomes separately will lead to loss of information and result in biased or inefficient inference results. 
+% Traditional survival model with time-varying covariate may not be appropriate to use due to its limiting assumption of external time-dependent covariates that are not related to the event mechanism. This is especially true when we are interested in making predictions of the time-to-event outcome in the future, when the longitudinal biomarker is impossible to observe. Instead, joint models (JM) of longitudinal and time-to-event data overcome this limitation and can be used to model the association of the two processes simultaneously, based on which predictions of future event probability can also be made.
+
+% By accommodating such joint processes, the simultaneous effects of covariates on the repeated instances of the same sequence, but also across sequences, can be modeled and examined. Also, subtle association processes, within a sequence as well as across sequences, can be made an integral part of the models.
+
+
+%  WHY jm
+% They overcome the time-dependent Cox model’s limiting assumptions of external time-varying covariates not related to the failure mechanism and diminish the linear mixed-effects models’ bias related to ignoring the association between longitudinal and time-to-event processes.
+
+% 1. An internal time-dependent covariate is one where the change of the covariate over time is related to the behavior of the individual. For example, blood pressure, disease complications, etc.
+% 2. An external or ancillary time-dependent covariate is one whose path is generated externally. For example, levels of air pollution.
+
+
+% The key rule for time dependent covariates in a Cox model is simple and essentially the same as that for gambling: you cannot look into the future. A covariate may change in any way based on past data or outcomes, but it may not reach forward in time.
+
+
+% literature review of JM: longitudinal and terminal, longitudinal and recurrent, recurrent and terminal or trivariate model.
+
+
+
+
+% The development of the Gibbs sampler is based on the fact that minimizing the original QR loss function is equivalent to maximizing the likelihood function of the so-called asymmetric Laplace distribution (ALD) \citep{yu2001bayesian}. Moreover, the ALD can be further reparameterized using a location-scale mixture representation that leads to a combination of normal and exponential distributions \citep{kotz2001laplace, kozumi2011gibbs}.
+
+
+
+% Accurate predictions of disease probability in the future can assist physicians to make specific treatment plan so that potential disease can be postponed or prevented in advance.  Our proposed Bayesian algorithm can be easily extended to make such dynamic predictions. A key feature of the dynamic predictions framework is that the predictive measures can be dynamically updated as additional longitudinal measurements and recurrent events information become available for the target subjects, providing instantaneous risk assessment.
+
+
+% We applied the proposed model to the data derived from the Atherosclerosis Risk in Communities Study (ARIC). ARIC is a prospective epidemiologic study conducted to investigate the etiology of atherosclerosis and its clinical outcomes, and variation in cardiovascular risk factors, medical care, and disease by race, gender, location, and date.
+
+
+
+
+%paper organization
+The rest of this paper is organized as follows. In Section \ref{sec:p3methods}, we give details of the proposed statistical model and the Bayesian algorithms used for model inference and dynamic predictions. In Section \ref{sec:p3simulation}, we present simulation studies to validate the proposed methods. In Section \ref{sec:p3data}, we apply the proposed methods to the ARIC data to make dynamic predictions of CHD risk. We conclude the paper with a discussion in Section \ref{sec:p3discussion}.
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+% \end{document}
+

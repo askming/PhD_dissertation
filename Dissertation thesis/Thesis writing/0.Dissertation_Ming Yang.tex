@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, left=1.25in, right=1.0in, top=1.25in, bottom=1.1in]{geometry} %% set margins are the template
+% \usepackage{mathptmx}
+\usepackage{fullpage,setspace}
+\usepackage{hyperref, url}
+\usepackage[hang,flushmargin]{footmisc} %control footnote indent
+\usepackage{amssymb,amsmath}%for matrix
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+\usepackage{graphicx,float,morefloats,rotfloat,lscape}%for figure
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{longtable,rotating}
+\usepackage{caption}
+\usepackage{color}
+\usepackage[round]{natbib} % for citation style, round brackets
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{algorithm,algorithmicx}
+% \usepackage[noend]{algpseudocode}
+\usepackage{mwe}
+\captionsetup[subtable]{font=normal}
+\usepackage[export]{adjustbox}
+\usepackage{bm}
+\usepackage{appendix}
+
+\usepackage[absolute]{textpos}
+\usepackage{fancyhdr}
+
+\usepackage{titling}
+\pretitle{\begin{center}\huge}
+\posttitle{\par\end{center}}
+\preauthor{\normalfont\normalsize\begin{center}\begin{tabular}[t]{c}}
+\postauthor{\end{tabular}\end{center}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\floatstyle{plaintop}
+\restylefloat{table}
+\captionsetup[subtable]{font=normal}
+\graphicspath{{0.plots/}}
+\doublespace
+
+\fancypagestyle{lscape}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[LE]{%
+\begin{textblock}{20}(1,5){\rotatebox{90}{\leftmark}}\end{textblock}
+\begin{textblock}{1}(13,7.5){\rotatebox{0}{\thepage}}\end{textblock}
+}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+% \usepackage{fontspec}
+% \setmainfont{Calibri}
+\usepackage{bibunits} %for split refrence section in each article
+
+\begin{document}
+\input{0.1template.tex}
+
+
+
+%%%%%%%% table of contents %%%%%%%%%%%%%
+\newpage
+% \thispagestyle{empty}
+\pagenumbering{gobble}
+\tableofcontents
+\doublespacing
+
+%%%%%%%% list of tables %%%%%%%%%%%%%
+\newpage
+\setcounter{page}{1}
+\pagenumbering{roman}
+\doublespacing
+\listoftables\addcontentsline{toc}{section}{List of Tables}
+
+
+%%%%%%%% list of figures %%%%%%%%%%%%%
+\newpage
+\doublespacing
+\listoffigures\addcontentsline{toc}{section}{List of Figures}
+
+
+%%%%%%%% body pages start here %%%%%%%%%%%%%
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\doublespacing
+
+
+% \begin{bibunit}[apa]
+\input{1.background.tex}
+% \addcontentsline{toc}{subsection}{References}
+% \putbib[Phdthesis]
+% \end{bibunit}
+
+%%%%%%%%%% Journal article one %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Journal Article 1}
+
+{\bf Title of Journal Article}\\
+Bayesian Quantile Regression Joint Models: inference and Dynamic Predictions\\
+
+{\bf Journal proposed for article submission: Statistics in Medicine} \\
+
+
+\newpage
+\input{P10.abstract}
+\begin{bibunit}[apa]
+\input{P11.introduction}
+\input{P12.methods}
+\input{P13.simulation}
+\input{P14.data_analysis}
+\input{P15.discussion}
+% \newpage
+\input{P16.appendix}
+\addcontentsline{toc}{subsection}{References}
+\putbib[paper1]
+\end{bibunit}
+
+%%%%%%%%%% Journal article two %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Journal Article 2}
+
+{\bf Title of Journal Article}\\
+Bayesian Quantile Regression Joint Models of Longitudinal and Recurrent Event Data
+
+{\bf Journal proposed for article submission: Statistical Methods in Medical Research} \\
+
+\newpage
+\input{P20.abstract}
+\begin{bibunit}[apa]
+\input{P21.introduction}
+\input{P22.methods}
+\input{P23.simulation}
+\input{P24.data_analysis}
+\input{P25.discussion}
+\newpage
+\input{P26.appendix}
+\addcontentsline{toc}{subsection}{References}
+\putbib[paper2]
+\end{bibunit}
+
+%%%%%%%%%% Journal article three %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Journal Article 3}
+
+{\bf Title of Journal Article}\\
+Bayesian Quantile Regression Joint Models: Dynamic Predictions of Recurrent Event Probability\\
+{\bf Journal proposed for article submission: Statistics in Medicine} \\
+
+
+\newpage
+\input{P30.abstract}
+\begin{bibunit}[apa]
+\input{P31.introduction}
+\input{P32.methods}
+\input{P33.simulation}
+\input{P34.data_analysis}
+\input{P35.discussion}
+\newpage
+\input{P36.appendix}
+\addcontentsline{toc}{subsection}{References}
+\putbib[paper3]
+\end{bibunit}
+
+%%%%%%%%%%%%%%%%%%%% reference %%%%%%%%%%%%%%%%%%%%
+\newpage
+\bibliographystyle{apa}
+\addcontentsline{toc}{section}{References}
+\bibliography{Phdthesis_background}
+
+\end{document}

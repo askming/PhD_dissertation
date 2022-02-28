@@ -1,0 +1,20 @@
+\contentsline {table}{\numberline {2.1}{\ignorespaces Simulation results in Simulation study I Scenario 1 in which random errors are generated from ALD with $\tau =0.25$.\relax }}{34}{table.2.1}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Simulation study: MSE and bias of the difference between predicted survival probability and the gold standard (Scenario 1).\relax }}{36}{table.2.2}
+\contentsline {table}{\numberline {2.3}{\ignorespaces PREDICT-HD data analysis: Parameter estimation and 95\% credible interval (in parenthesis) from QRJM at three different quantiles with TMS being the longitudinal biomarker.\relax }}{40}{table.2.3}
+\contentsline {table}{\numberline {2.4}{\ignorespaces PREDICT-HD data analysis: AUC, AARD and MRD of the predictions of HD-free probability from QRJM and AUC from LMJM with TMS as the longitudinal biomarker.\relax }}{42}{table.2.4}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Simulation result in Simulation study I Scenario 2 in which random errors are generated from ALD with $\tau =0.5$.\relax }}{47}{table.2.5}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Simulation result in Simulation study I Scenario 3 in which random errors are generated from $\mathcal {N}(0, 1)$.\relax }}{47}{table.2.6}
+\contentsline {table}{\numberline {2.7}{\ignorespaces Prediction results in Simulation study II Scenario 3 in which random errors are generated from ALD with $\tau =0.5$.\relax }}{48}{table.2.7}
+\contentsline {table}{\numberline {3.1}{\ignorespaces PREDICT-HD data analysis: Parameter estimation and 95\% credible interval (in parenthesis) from QRJM at three quantiles (0.25, 0.5, and 0.75) with putamen, stroop word, FrBe executive subscale (FES), and total functional capacity (TFC) being the longitudinal biomarkers.\relax }}{53}{table.3.1}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Simulation result for Scenario 1 in which random error is generated from ALD($0, 1, \tau $ = 0.25). \relax }}{71}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Simulation result for Scenario 2 in which random error is generated from $\mathcal {N}(0, 1)$.\relax }}{72}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces ARIC data analysis: Parameter estimation and 95\% credible interval (in parenthesis) from QRJM at five quantiles.\relax }}{78}{table.4.3}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Simulation result for Scenario 3 in which random errors are generated from ALD($0, 1, \tau $ = 0.50).\relax }}{82}{table.4.4}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Simulation result for Scenario 4 in which random errors are generated from ALD($0, 1, \tau $ = 0.75).\relax }}{83}{table.4.5}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Baseline characteristics of study cohort with stratification by SBP level\relax }}{84}{table.4.6}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Simulation study: MSE and bias of the difference between predicted event-free probability and the gold standard (Scenario 1).\relax }}{106}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Simulation study: MSE and bias of the difference between predicted event-free probability and the gold standard (Scenario 4).\relax }}{108}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces ARIC data analysis: AUC, AARD and MRD of the predictions of CHD event-free probability from QRJM and AUC from LMJM.\relax }}{114}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Simulation study: Inference results for data generated from various error distributions\textsuperscript {*}.\relax }}{116}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Baseline characteristics of study cohort with stratification by SBP level\relax }}{116}{table.5.5}
+\contentsline {table}{\numberline {5.6}{\ignorespaces ARIC data analysis: Parameter estimation and 95\% credible interval (in parenthesis) from the QRJM at five quantiles with SBP as the longitudinal biomarker.\relax }}{118}{table.5.6}

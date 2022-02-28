@@ -1,0 +1,20 @@
+% \begin{center}
+\title{Bayesian Quantile Regression Joint Models of Longitudinal and Recurrent Event Data}
+% \end{center}
+
+\author{}
+\date{}
+
+\maketitle
+
+
+\begin{center}
+{\bf Abstract}
+\end{center}
+
+Recurrent event outcomes (e.g., multiple heart failures, cancer recurrences, hospital readmissions, etc.) are commonly encountered in longitudinal biomedical studies along with some longitudinal continuous outcome(s). In this paper, we propose a new joint models (JM) framework that models a longitudinal continuous outcome using linear quantile mixed model (LQMM) jointly with a Cox proportional hazards model (PHM) for the recurrent event outcome. The recurrent event outcome is allowed to be right-censored. In contrast to conventional mean regression based JM, our quantile regression (QR) based JM provide a more flexible, distribution-free way to study covariate effects at different conditional quantiles of the longitudinal outcome. Meanwhile, it's association with the risk of event recurrence can also be examined. The model becomes extremely useful in application when higher (e.g. blood pressure) or lower (e.g. CD4 count) tail of the outcome is more relevant to clinical interest. We develop a Gibbs sampling algorithm for model inference, which is based on the location-scale representation of the asymmetric Laplace distribution for LQMM. The Bayesian inferential algorithm can be easily implemented in existing software. We assess the performance of our Bayesian algorithm through extensive simulation study and apply the proposed model to the joint analysis of longitudinal systolic blood pressure and recurrent coronary heart diseases data from the Atherosclerosis Risk In Communities Study.
+
+% In those studies, recurrent event outcome can be an important outcome of interest in monitoring disease progression or health condition of the study participants in addition to other continuous longitudinal outcome. For example, in the Atherosclerosis Risk In Communities Study (ARIC), recurrent event outcomes, including coronary heart disease, stroke, and heart failure, etc., were collected from extensive cohort surveillance to monitor the health condition of the study cohort; meanwhile, repeated systolic blood pressure (SBP) were also measured at regular clinical visits as a disease biomarker. Previous studies using ARIC data found positive correlation between SBP and recurrent CHD events in the study cohort. This data mechanism motivates us to consider the joint models (JM) of longitudinal and recurrent event data. JM models the bivariate outcomes jointly in accounting for the correlation between them, while studying potential disease risk factors for both outcomes simultaneously. In the traditional JM framework, a linear mixed model (LMM) is commonly used for the longitudinal outcome. LMM assumes normal random error; however, in many circumstances, the normality assumption cannot be satisfied and it is not appropriate to use directly. Moreover, LMM only models the conditional mean of the longitudinal outcome, which may not be desirable in many clinical studies. In contrast to mean regression, quantile regression (QR) provides a more flexible, distribution-free way to study covariate effects at different quantiles of the longitudinal outcome. This becomes extremely important when higher (e.g. SBP) or lower (e.g. CD4 count) tail of the outcome is more relevant to clinical interest. In this paper, we propose to use the so-called linear quantile mixed model (LQMM) for the longitudinal outcome jointly with a proportional hazard model (PHM) for the recurrent event outcome under the JM framework. We develop a Gibbs sampling algorithm for the model inference, which is based on the location-scale representation of the asymmetric Laplace distribution for LQMM. We assess the performance of our Bayesian algorithm through extensive simulation study and applied the proposed model to the longitudinal SBP and recurrent CHD event data from the ARIC Study.
+
+
+{\bf Key words:} Bayesian; Joint models; Linear quantile mixed model; Recurrent events.

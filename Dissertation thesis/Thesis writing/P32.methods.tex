@@ -1,0 +1,200 @@
+
+
+\subsection{Methods}\label{sec:p3methods}
+% reformat the subsection section since it was changed in the appendix part of paper 1
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Notice that Equation (\ref{eqn:p3lo_sc_lh}) actually takes the form of a normal distribution thus it is possible to implement the sampling algorithm directly in some Bayesian inference software like \textsf{BUGS}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Joint Models Using Longitudinal Quantile Regression}
+% We then extend the linear model JM (LMJM), by replacing the LMM with an LQMM for the longitudinal process.
+% Currently, for simplicity, we assume the death time is uninformative, i.e., independent of censoring time and the longitudinal process.
+For subject $i$, let $T_{ik}^*$ be the underlying true $k$th recurrent event time and $C_i$ be the censoring time, which is assumed to be independent of both outcomes. Then $T_{ik} = $\mbox{ min}($C_i, T_{ik}^*)$, for $k=1, \cdots, K$, is the observed $k$th event time, where $K$ is the total number of recurrent events for subject $i$. Let $\Delta_{ik}$ be the recurrent event indicator at time $T_{ik}$ which is defined as $\Delta_{ik} = I(T_{ik}^* < C_i)$, and $I(\cdot)$ is the indicator function. A $k$th recurrent event is observed at time $T_{ik}$ if $\Delta_{ik}=1$, i.e. $T_{ik}^* < C_i$; other wise, $\Delta_{ik}=0$.
+
+Let $Y_{i}(t)$ be the continuous longitudinal outcome for subject $i$ measured at time $t$. Note that we can only observe $Y_{i}(t)$ when $t\le C_i$, and the complete longitudinal trajectory up to follow-up time $t$ for subject $i$ can be written as $\mathcal{Y}_{i}(t)=\{Y_{i}(s): 0\le s\le t\}$. We denote the true underlying longitudinal measurement with $m_{i}(t)$ and his/her complete history of true longitudinal process as $\mathcal{M}_{i}(t)=\{m_{i}(s): 0\le s \le t\}$. We propose a new JM that uses longitudinal quantile mixed model (LQMM) as follows:
+\begin{equation}\label{eqn:p3joint}
+\left\{
+\begin{array}{l}
+Y_{i}(t) = m_{i}(t) + \varepsilon_{i}(t) = {\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim ALD(0, \sigma, \tau)\\
+r_i(t|\mathcal{M}_{i}(t), {\boldsymbol W}_i;  \boldsymbol{\gamma}_{\tau}, \alpha_{\tau}) = r_{i0}(t)\exp({\boldsymbol W}_i^{\top}\boldsymbol{\gamma}_{\tau} + \alpha_{\tau}({\boldsymbol X}^{\top}_{i}(t)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}^{\top}_{i}(t){\boldsymbol u}_{i}))
+\end{array}
+\right.
+\end{equation}
+
+\noindent where in the LQMM for the longitudinal process, $\boldsymbol{X}_{i}(t)$ are $p-$dimensional fixed effect covariates and $\boldsymbol{Z}_{i}(t)$ are $k-$dimensional multivariate normal covariates associated with the $k-$dimensional random effects $\boldsymbol{u}_i$. The submodel for recurrent event process takes the format of Cox proportional hazards model (PHM) where $r_{i0}(\cdot)$ is the baseline intensity function and $\boldsymbol{W}_{i}$ are $q-$dimensional fixed effect covariates that are only associated with event time (not the longitudinal outcome). In Equation (\ref{eqn:p3joint}), individual heterogeneity is captured by ${\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i$, which is the deviation of subject $i$ from the population average. Meanwhile, these two models are linked by treating the longitudinal outcome as a time dependent covariate in the recurrent event process, and the degree of associations is measured by parameter $\alpha$.
+
+In quantile regression, all parameter estimators are functions of the quantile. This is also true in the proposed JM. That is, parameter estimations in the recurrent events submodel, such as $\alpha$ and $\boldsymbol{\gamma}$, also change depending which $\tau$ is chosen. Quantile regression provides us the flexibility to conduct a study over the entire conditional distribution of the longitudinal outcome through fitting the model using a set of selected quantiles. Less varying values in the estimation indicates a relatively stable covariate effect on the outcome, and vice versa. If the interest lies only in assessing the effect on the lower or higher quantile of the longitudinal outcome and its association with the event process we may just fix the quantile and conduct the analysis.
+
+
+\subsubsection{Bayesian Linear Quantile Mixed Model}\label{sec:p3BLQMM}
+Consider the linear mixed effects model:
+\begin{equation}\label{eqn:p3lmm}
+Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t),
+\end{equation}
+
+\noindent where $\boldsymbol{\beta}$ is a $p-$dimensional vector of fixed effects,  ${\boldsymbol X}_{i}(t)$ contains the corresponding fixed covariates, $\boldsymbol{u}_i$ is a $k-$dimensional vector of random effects for subject $i$, and ${\boldsymbol Z}_{i}(t)$ are the corresponding random covariates.
+
+An LQMM assumes that the conditional quantile of the outcome is a linear function of the covariates, i.e.,
+\begin{equation}\label{eqn:p3lqmm}
+Q_{Y_{i}(t)|{\boldsymbol X}_{i}(t),{\boldsymbol Z}_{i}(t)}(\tau)={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i,
+\end{equation}
+
+\noindent where the $\tau$th quantile of a random variable $Y$ is defined as $Q_{Y}(\tau)=F_{Y}^{-1}(\tau)=\inf\left\{ y:F_{Y}(y)\geq\tau\right\}$, for $\tau\in [0, 1]$. Parameter estimations can then be obtained by minimizing the following loss function,
+
+\begin{equation*}\label{eqn:p3loss_fun}
+\hat{\boldsymbol{\beta}}_{\tau}=\underset{\boldsymbol{\beta}\in \mathbb{R}^{p}}{\mbox{arg min}}\sum_{i, t}\left[\rho_{\tau}\left(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} - {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i\right)\right],
+\end{equation*}
+
+\noindent where $\rho_{\tau}(\cdot)$ is defined as $\rho_{\tau}(Y)=Y(\tau-{I}{(Y<0)}).$
+
+
+Above minimization problem can also be rephrased as a maximum-likelihood problem by assuming the random error $\varepsilon_{i}(t)$ in (\ref{eqn:p3lmm}) follows the asymmetric Laplace distribution (ALD) with location parameter equals 0, scale parameter $\sigma$ and skewness parameter $\tau$ \citep{koenker1999goodness,yu2001bayesian}:
+\begin{equation*}
+Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim ALD(0, \sigma, \tau).
+\end{equation*}
+
+This becomes clear when writing out the conditional likelihood function of the outcome variable:
+\begin{equation*}\label{eqn:p3ald_lqmm}
+\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,\sigma)=\frac{\tau(1-\tau)}{\sigma}\exp\left[-\rho_{\tau}\left(\frac{Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i}{\sigma}\right)\right].
+\end{equation*}
+
+In Bayesian quantile regression context a Gibbs sampling algorithm for model inference is developed when we utilize a location-scale mixture representation of the ALD \citep{kotz2001laplace}. Under such parameterization the random error is represented as $\varepsilon_{i}(t)=\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t)$ with $v_{i}(t)\sim N(0,1), e_{i}(t)\sim\exp(1/\sigma)$ and
+\[\kappa_1=\frac{1-2\tau}{\tau(1-\tau)}\hspace{2em} \kappa_2^2=\frac{2}{\tau(1-\tau)}.\]
+
+
+This re-parameterization leads to the following linear mixed model,
+\begin{equation*}\label{eqn:p3reformald2}
+Y_{i}(t)={\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}+{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i+\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t),
+\end{equation*}
+\noindent or equivalently,
+{\small
+\begin{equation}\label{eqn:p3lo_sc_lh}
+\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,e_{i}(t),\sigma)=\frac{1}{\sqrt{2\pi\kappa_2^2\sigma e_{i}(t)}}\exp\left[-\frac{(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i-\kappa_1e_{i}(t))^2}{2\kappa_2^2\sigma e_{i}(t)}\right].
+\end{equation}
+}
+
+
+As discussed in \cite{yu2001bayesian}, irrespective of the actual distribution of the data, Bayesian quantile regression using ALD distribution works quite well for different error distributions and the performance is quite robust and satisfactory.
+
+
+
+
+\subsubsection{The Recurrent Events Submodel}\label{sec:p3surv_submodel}
+Assume a total number of $K$ events are observed for subject $i$ within the censoring time $C_i$, the likelihood function for recurrent event data can be written as:
+\begin{eqnarray}\label{eqn:p3lik_sur}
+\ell({\boldsymbol T}_i, \boldsymbol{\Delta}_i;\boldsymbol{\theta})&=& \nonumber \prod_{k=1}^{K}\left[r_i(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i)^{\Delta_{ik}}\exp\left(-\int_{T_{ik-1}}^{T_{ik}}r_i(s;\boldsymbol{\theta}|\mathcal{M}_{i}(s), \boldsymbol{W}_i)ds\right)\right]\\
+&=& \prod_{k=1}^{K}\left[r_i(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i)^{\Delta_{ik}}\right]\exp\left(-\int_0^{T_{iK}}r_i(s;\boldsymbol{\theta}|\mathcal{M}_{i}(s), \boldsymbol{W}_i)ds\right),
+\end{eqnarray}
+\noindent where $r_i(\cdot)$ is given in (\ref{eqn:p3joint}).
+
+For the baseline intensity $r_{i0}(t)$, a parametric form such as Weibull model can be used or it can be left unspecified. Specifically, we consider constant baseline intensity and piecewise-constant baseline intensity function in simulation study and data application respectively. As mentioned previously, under QR model all estimators are quantile dependent, however, for simplicity we omit the quantile notation in all parameters in the following sections (e.g. $\boldsymbol{\theta}$ stands for $\boldsymbol{\theta}_{\tau}$ for all quantile-based parameters).
+
+% Further extension of the JM in either functional form of the two processes is also possible as discussed in \cite{sweeting2011joint}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Complete Likelihood Function and Bayesian Inference}\label{sec:p3estimation}
+For subject $i$ in the sample, the complete joint likelihood of the longitudinal and recurrent event data is the product of three components: the conditional likelihood functions (conditional on the unobserved random effects) of the longitudinal and recurrent event outcomes and the density of the random effects:
+\begin{equation}\label{eqn:p3full_lik}
+L_i(\boldsymbol{\theta};{\boldsymbol T}_i, \boldsymbol{\Delta}_i, \mathcal{Y}_{i}(C_i), \boldsymbol{u}_i) = \ell(\mathcal{Y}_{i}(C_i); \boldsymbol{\theta}|\boldsymbol{u}_i)\ell({\boldsymbol T}_i, {\boldsymbol\Delta}_i; \boldsymbol{\theta}|\boldsymbol{u}_i)f(\boldsymbol{u}_i|\boldsymbol{\Sigma}),
+\end{equation}
+
+\noindent where vector $\boldsymbol{\theta}$ represents a set of all the parameters from each distribution function in (\ref{eqn:p3full_lik}),  $\ell(\boldsymbol{T}_i, \boldsymbol{\Delta}_i; \boldsymbol{\theta}|\boldsymbol{u}_i)$ is given in (\ref{eqn:p2lik_sur}) and $\ell(\mathcal{Y}_{i}(C_i); \boldsymbol{\theta}|\boldsymbol{u}_i)=\prod_{0\le t\le C_i}\ell(Y_{i}(t); \boldsymbol{\theta}|\boldsymbol{u}_i)$, where $\ell(Y_{i}(t), \boldsymbol{\theta}|\boldsymbol{u}_i)$ takes the format of (\ref{eqn:p3lo_sc_lh}).
+
+For parameter estimation, we take advantage of the location-scale mixture representation of the ALD that is described in Section \ref{sec:p3BLQMM} and propose a fully Bayesian inference approach for unknown parameters. Specifically, given the complete likelihood function in (\ref{eqn:p3full_lik}) and according to the Bayes theorem, the posterior distributions of the model parameters are given by
+\begin{equation}\label{eqn:p3posterior}
+f(\boldsymbol{\theta}|\boldsymbol{T}, \boldsymbol{\Delta}, \bm{\mathcal{Y}}, \boldsymbol{u})\propto \prod_{i=1}^N L_i(\boldsymbol{T}_i, \boldsymbol{\Delta}_i, \mathcal{Y}_{i}(C_i), \boldsymbol{u}_i;\boldsymbol{\theta}) f(\boldsymbol{\theta}),
+\end{equation}
+
+\noindent where $N$ is the total number subjects, $\boldsymbol{T}=(\boldsymbol{T}_1, \boldsymbol{T}_2, \cdots, \boldsymbol{T}_N)$, $\bm{\mathcal{Y}}=(\mathcal{Y}_{1}(C_1), \mathcal{Y}_{2}(C_2), \cdots, \mathcal{Y}_{N}(C_N))$, $\boldsymbol{\Delta} =(\boldsymbol{\Delta}_1, \boldsymbol{\Delta}_2, \cdots, \boldsymbol{\Delta}_N)$, $\boldsymbol{u}=(\boldsymbol{u}_1, \boldsymbol{u}_2, \cdots, \boldsymbol{u}_N)$, and $f(\boldsymbol{\theta})$ is the product of the prior distributions:
+\[f(\boldsymbol{\theta})=\pi(\boldsymbol{\beta})\pi(\boldsymbol{\gamma})\pi(\alpha)\pi(\sigma)\pi(\boldsymbol{\Sigma}),\]
+
+\noindent where $\boldsymbol{\Sigma}$ is a $k\times k$ covariance matrix of the random effects. We may choose the following prior distributions:
+$\boldsymbol{\beta} \sim \mathcal{N}_p({\boldsymbol 0}, 10^3{\bf I}), \boldsymbol{\gamma} \sim \mathcal{N}_q({\boldsymbol 0}, 10^3{\bf I}), \alpha\sim \mathcal{N}(0, 10^3), \sigma\sim \mathcal{IG}(10^{-3}, 10^{-3}), \boldsymbol{\Sigma}^{-1}\sim Wishart({\bf I}, k+1). $
+We also consider Cholesky decomposition prior for $\boldsymbol{\Sigma}$ in our simulation studies and find similar results as Wishart prior gives (results not shown). In the simulation study, we find that the posterior inference is not sensitive to the prior choice.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Dynamic Predictions of Event-Free Probability}\label{sec:p3prediction}
+It is always of clinical interest to predict the likelihood that a patient will (or will not) have additional event within a certain time window in the future. The JM of longitudinal and recurrent events framework provides a convenient way to achieve the prediction conditional on the complete bivariate outcomes of the patient. Following previous notations, assume a patient $i$ is followed up to time $t$, let $\mathcal{Y}_{i}(t)$ be the observed complete longitudinal measurements, $\mathcal{M}_{i}(t)$ be the true underlying longitudinal measurements up to time $t$, and $\mathcal{T}_{it-}=\{T_{ik}: 1\le k\le K_i, T_{iK_i} < t\}$ be the recurrent times before time $t$. The predicted event-free probability (which is one minus the risk of event) at time $m$ ($m > t$) given previous event times and longitudinal measurements up to censoring time $t$ is:
+\[p_i(m|t) = Pr(T_{iK_i+1}\ge m | T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t); \boldsymbol{\theta}).\]
+With further derivation:
+\begin{eqnarray}
+\label{eqn:p3surv_prob_derv}
+\nonumber p_i(m|t) &=& \int Pr(T_{iK_i+1}\ge m | T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t), \boldsymbol{u}_i; \boldsymbol{\theta}) \cdot Pr(\boldsymbol{u}_i|T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i\\
+\nonumber&=& \int Pr(T_{iK_i+1}\ge m | T_{iK_i+1}> t, \mathcal{T}_{it-}, \boldsymbol{u}_i; \boldsymbol{\theta}) \cdot Pr(\boldsymbol{u}_i|T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i\\
+&=&\int \frac{Pr(T_{iK_i+1}\ge m | \mathcal{M}_{i}(m, \boldsymbol{u}_i; \boldsymbol{\theta}), \mathcal{T}_{it-}; \boldsymbol{\theta})}{Pr(T_{iK_i+1}> t | \mathcal{M}_{i}(t, \boldsymbol{u}_i; \boldsymbol{\theta}), \mathcal{T}_{it-}; \boldsymbol{\theta})}\cdot Pr(\boldsymbol{u}_i|T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i.
+\end{eqnarray}
+
+
+
+To estimate $p_i(m|t)$, we can take the advantage of the proposed Gibbs sampling algorithm discussed in Section \ref{sec:p3estimation} and use MCMC technique to calculate the posterior mean of the prediction. Specifically, we are going to estimate
+\begin{eqnarray}\label{eqn:pexpct_pred}
+\nonumber E_{\boldsymbol{\theta}|\mathcal{D}_N}[p_i(m|t)]&=&Pr(T_{iK_i+1}\ge m | T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t))\\
+&=&\int Pr(T_{iK_i+1}\ge m | T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t); \boldsymbol{\theta})p(\boldsymbol{\theta}|\mathcal{D}_N)d\boldsymbol{\theta},
+\end{eqnarray}
+
+\noindent where the first part of the equation is given in (\ref{eqn:p3surv_prob_derv}).
+
+A Monte Carlo (MC) estimate of $p_i(m|t)$ can be obtained using the following procedure:
+\begin{enumerate}
+\item Draw $\boldsymbol{\theta}^{(p)}$ from the posterior distributions $Pr(\boldsymbol{\theta}|\mathcal{D}_N)$ for $p=1, \cdots, P$;
+\item For each of the $P$ draws of $\boldsymbol{\theta}^{(p)}$, make $Q$ draws of $\boldsymbol{u}_i^{(q)}, q=1, \cdots, Q$, from the posterior distribution of random effects $Pr(\boldsymbol{u}_i|\mathcal{D}_N, \boldsymbol{\theta}^{(p)})$ and approximate $p_i(m|t)^{(p)}$ by
+\[\frac{1}{Q}\sum_{q=1}^Q\frac{Pr(T_{iK_i+1}\ge m | \mathcal{M}_{i}(m, \boldsymbol{u}_i^{(q)}; \boldsymbol{\theta}^{(p)}), \mathcal{T}_{it-}; \boldsymbol{\theta}^{(p)})}{Pr(T_{iK_i+1}> t | \mathcal{M}_{i}(t, \boldsymbol{u}_i^{(q)}; \boldsymbol{\theta}^{(p)}), \mathcal{T}_{it-}; \boldsymbol{\theta}^{(p)})};\]
+\item After collecting all $P$ $p_i(m|t)^{(p)}$, approximate $p_i(m|t)$ by
+$\frac{1}{P} \sum_{p=1}^{P} p_i(m|t)^{(p)}$.
+\end{enumerate}
+
+\noindent In above estimation procedure, $P$ is the total number of MC iterations, $f(\boldsymbol{\theta}|\mathcal{D}_N)$ are the posterior distributions of
+$\boldsymbol{\theta}$ given in (\ref{eqn:p3posterior}), and $Pr(\boldsymbol{u}_i|\mathcal{D}_N, \boldsymbol{\theta}^{(p)})$ (i.e., $f({\boldsymbol u}_i|T_{iK_i+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(p)})$) is the posterior distribution of the random effects for subject $i$. The standard error can be computed using the sample variance.
+
+In Step 2 of above algorithm, the posterior predictive values of the random effects are directly results from the MCMC iterations if the subject is within the training data. For out-of-sample subjects who don not belong to the original study population, we can use the inference results from the training data to run additional MCMC iterations to obtain such predictions and the rest of the algorithm follows. Since for each individual there are only a few random effects (two in our current model) to estimate, a short MCMC with 200 iterations should be sufficient for converge \citep{taylor2013real}.
+
+It is relatively easy to make subject-specific predictions of event-free probability from the posterior samples of the fixed effects and the posterior predictive distributions of the random effects, which are direct results of our sampling algorithm. In addition, the uncertainty of the predictive inference is fully captured in the posterior distribution and no asymptotic theory is needed to derive the standard error. It is straightforward to code the proposed JM and implement the algorithm in \textsf{JAGS} software \citep{plummer2003jags} and the \textsf{JAGS} model file is provided separately in Appendices.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Predictive Accuracy} \label{sec:p3ppred_accuracy}
+Predictive accuracy of a model can be evaluated from different perspectives, such as discrimination, calibration, and reclassification, etc. Discrimination measures a model's ability in identifying events versus non-events. Calibration quantifies the closeness of the predictions and the observed values. While reclassification assesses the improvement of a model in prediction after adding new predictor(s). Here we mainly focus on the discriminative ability of our model. Area under the receiver operating characteristic curve (AUC) is a commonly used statistics to evaluate the discriminative ability in prediction, while above average risk difference (AARD) measures the difference in the risk rates comparing events versus non-events at the level of population average risk, and mean risk difference (MRD) is the average difference between TPR and FPR across the risk scale \citep{pepe2008comments}. In this work, we use all these three measurements as summary statistics to evaluate the predictive performance of our model.
+
+
+Following \cite{zheng2013adopting} and \cite{yang2015prediction}, at a given time $t$, a future time $t+\Delta t$ and a threshold $c$, the true positive rate (TPR) and false positive rate (FPR) of the predictive results can be defined as follows:
+\[\mbox{TPR}_t^{\Delta t}(c)=Pr({\bf 1} - \boldsymbol{p}(t+\Delta t|t)\ge c | \boldsymbol{T}\le t+\Delta t),\]
+\[\mbox{FPR}_t^{\Delta t}(c)=Pr({\bf 1} -\boldsymbol{p}(t+\Delta t|t)\ge c | \boldsymbol{T} > t+\Delta t),\]
+where $\boldsymbol{p}(t+\Delta t | t)$ is a vector of predicted event-free probabilities at time $t+\Delta t$ based on the longitudinal measurements up to time $t$:
+\[p_i(t+\Delta t | t) = S_i(t+\Delta t| \mathcal{Y}_{i}(t), {\boldsymbol u}_i;\boldsymbol{\theta}), i = 1, \cdots, N.\]
+
+The estimate of $\boldsymbol{p}(t+\Delta t | t)$ is denoted by $\hat{\boldsymbol{p}}(t+\Delta t | t)$ and the estimators of TPR and FPR can be written as:
+\begin{equation*}\label{p3est_pTPR}
+\widehat{TPR}_{t}^{\Delta t}(c) = \frac{\sum_{i=1}^{N}(1 -\hat{p}_i(t+\Delta t|t))I(1 -\hat{p}_i(t+\Delta t|t)\ge c)}{\sum_{i=1}^{N}(1 - \hat{p}_i(t+\Delta t|t))},
+\end{equation*}
+\begin{equation*}\label{p3est_pFPR}
+\widehat{FPR}_{t}^{\Delta t}(c) = \frac{\sum_{i=1}^{N}\hat{p}_i(t+\Delta t|t)I(1 -\hat{p}_i(t+\Delta t|t)\ge c)}{\sum_{i=1}^{N}\hat{p}_i(t+\Delta t|t)}.
+\end{equation*}
+
+
+And by definition:
+\begin{equation*}\label{p3est_pAUC}
+\widehat{AUC}_t^{\Delta t} = \int \widehat{TPR}_t^{\Delta t}\left\{ (\widehat{FPR}_t^{\Delta t})^{-1}(u)\right\}du,
+\end{equation*}
+\begin{equation*}\label{p3est_pAARD}
+\widehat{AARD}_t^{\Delta t} = \widehat{TPR}_t^{\Delta t}(\hat{\rho}) - \widehat{FPR}_t^{\Delta t}(\hat{\rho}),
+\end{equation*}
+\begin{equation*}\label{p3est_pMRD}
+\widehat{MRD}_t^{\Delta t} = \int_c \widehat{TPR}_t^{\Delta t}(c)dc - \int_c \widehat{FPR}_t^{\Delta t}(c)dc.
+\end{equation*}
+
+And in AARD, $\hat{\rho} = \frac{\sum_{i=1}^N (1-\hat{p}_i(t+\Delta t| t))}{N}$ is the average risk in the study population at time $t+\Delta t$.
+
+
+
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

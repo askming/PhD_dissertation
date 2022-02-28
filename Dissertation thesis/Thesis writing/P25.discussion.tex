@@ -1,0 +1,66 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+% \usepackage{appendix}
+% \usepackage{listings}
+% \usepackage{courier}
+% \usepackage{color}
+
+
+% \lstset{style=mystyle}
+
+
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+
+\subsection{Discussion}\label{sec:p2discussion}
+% What is done in this work, including data analysis part.
+In the application of conventional JM methodologies for longitudinal and recurrent event data, we usually encountered two limitations: first, the normality assumption of the random error in the LMM was not realistic, and no obvious transformation of the longitudinal outcome to produce residual normality was applicable. This limitation is confirmed by our simulation study where LMJM tends to provide biased point estimates as well as lower coverage probabilities for model parameters when the longitudinal data are non-normal. Second, LMJM models only the conditional mean of the outcome; however, in our (and other) clinical research applications, it is more desirable to consider the tails of the biomarker distribution.
+
+Our work on QRJM that uses an LQMM for the longitudinal process provides a more flexible way for simultaneously modeling conditional quantile a of longitudinal outcome and the risk of event recurrences. In the application of ARIC data, we illustrate this flexibility by jointly modeling repeated SBP measurements and the risk of developing recurrent CHD. Our results reveal some findings that may not be observed using linear regression based method. For example, patients who originally have higher SBP deteriorate faster than those with lower SBP; while there is no significant increasing time trend for lower quantiles of SBP. Diabetes is a strong risk factor of CHD recurrences and after controlling for different quantiles of SBP, we find the effect of diabetes diminishes among higher SBP groups. Thus, QRJM is able to provide us with more informative insight into the disease progression and the association between the two disease processes in terms of various quantile-based estimations.
+
+Our novel extension of traditional JM finds practical importance in many clinical fields. Besides our example in cardiovascular study, potential applications would include, but not limited to, cancer studies (e.g., prostate-specific antigen level and the risk of prostate cancer recurrences), hospital care studies (e.g., extracellular fluid volume and hospital readmissions among gastrointestinal cancer patients), etc. In those studies, higher or lower level of the longitudinal biomarker is often associated with worse medical condition in patients and leads to higher risk of disease. If treatment effect on tails of the outcome is significantly different from the average effect, treating different groups of patients using the exact same way won't be as effective as we tailor the treatment strategy according to patient-specific situation.
+
+% Method summary and software.
+% Limitation and
+% Further work.
+
+In this work, we developed a Gibbs sampling algorithm to fit the proposed model, where the likelihood function of the longitudinal quantile regression is written under the location-scale representation of the ALD distribution. The proposed algorithm is straightforward to implement in existing Bayesian software. The current version of Gibbs sampler, which is implemented in \textsf{JAGS} software, uses a piecewise constant baseline intensity function in the recurrent events submodel. However, other choices can also be considered and the integration of the baseline intensity function can be approximated using Simpson's rule. Moreover, other functional forms for both outcomes can also be considered to extend the proposed method. For example, in the longitudinal process, nonlinear QR \citep{koenker1996interior} models can be used in stead of linear QR. In the recurrent events submodel, accelerated failure time model can be considered when the proportionality assumption is violated and counting process approach is another nonparametric option.
+
+% A question arises naturally from using quantile regression is which quantile should we choose? The answer is not unique and should depend on the specific research aim.
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

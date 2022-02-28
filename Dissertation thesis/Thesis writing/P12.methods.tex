@@ -1,0 +1,128 @@
+
+
+\subsection{Methods}\label{sec:methods}
+\subsubsection{Bayesian Linear Quantile Mixed Model}\label{sec:BLQMM}%%%%%
+
+Let $Y_{i}(t_{ij})$ be the longitudinal outcome for subject $i$ measured at time $t_{ij}$ where $i=1, \cdots, N\mbox{ and } j=1,\cdots, n_i$. Consider the linear mixed effects model:
+\begin{equation}\label{eqn:lmm}
+Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim N(0, \sigma^{2}),
+\end{equation}
+where $\boldsymbol{\beta}$ is a $p-$dimensional fixed effect vector,  ${\boldsymbol X}_{i}(t)$ contains the corresponding fixed covariates, $\boldsymbol{u}_i$ is a $k-$dimensional random effect vector for subject $i$, and ${\boldsymbol Z}_{i}(t)$ contains the corresponding random covariates.
+
+A linear quantile mixed model (LQMM) assumes that the conditional quantile of the outcome is a linear function of the covariates,
+\begin{equation}\label{eqn:lqmm}
+Q_{Y_{i}(t)|{\boldsymbol X}_{i}(t),{\boldsymbol Z}_{i}(t)}(\tau)={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i,
+\end{equation}
+where the $\tau$th quantile of a random variable $Y$ is defined as $Q_{Y}(\tau)=F_{Y}^{-1}(\tau)=\inf\left\{ y:F_{Y}(y)\geq\tau\right\}$ for $\tau\in [0, 1]$. The quantile regression estimates can be obtained by minimizing the following loss function, $\hat{\boldsymbol{\beta}}_{\tau}=\underset{\boldsymbol{\beta}\in \mathbb{R}^{p}}{\mbox{arg min}}\sum_{i, t}\left[\rho_{\tau}\left(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} - {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i\right)\right]$, where $\rho_{\tau}(\cdot)$ is defined as $\rho_{\tau}(Y)=Y(\tau-{I}{(Y<0)})$. In quantile regression, parameter estimators are functions of the quantile. So parameter $\boldsymbol{\beta}_{\tau}$ is a function of quantile $\tau$, as denoted by the subscript.
+
+As discussed in \citet{koenker1999goodness} and \citet{yu2001bayesian}, the above minimization problem can be rephrased as a maximum-likelihood problem by assuming that the random error $\varepsilon_{i}(t)$ in \eqref{eqn:lmm} follows the asymmetric Laplace distribution (ALD), denoted by $ALD(0, \sigma, \tau)$ with location parameter equals 0, scale parameter $\sigma>0$ and skewness parameter $\tau\in (0, 1)$. $ALD(0, \sigma, \tau)$ is skewed to left when $\tau>0.5$, and skewed to right when $\tau<0.5$. When $\tau=0.5$, ALD reduces to the symmetric Laplace distribution. To visualize this, Web Figure~1 displays the density functions of a standard normal distribution, a Laplace distribution, and two ALDs with $\tau=0.75$ and $\tau=0.25$, respectively. Adopting the ALD, the LQMM in \eqref{eqn:lqmm} becomes $Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}_{\tau}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim ALD(0, \sigma, \tau)$, where $i=1, \cdots, N$ and $t=1,\cdots, n_i$. The conditional likelihood function is $\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,\sigma)=\frac{\tau(1-\tau)}{\sigma}\exp\left[-\rho_{\tau}\left(\frac{Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i}{\sigma}\right)\right]$.
+
+Linear programming algorithms can be applied to obtain parameter estimates under the frequentist framework. However, to develop a Bayesian sampling algorithm for model inference, we utilize a location-scale mixture representation of the ALD (\citealp{kotz2001laplace}), which is a functional form with a mixture of common distributions. Under this parameterization, the random error is represented as $\varepsilon_{i}(t)=\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t)$ with $v_{i}(t)\sim \mathcal{N}(0,1), e_{i}(t)\sim\exp(1/\sigma)$, $\kappa_1=\frac{1-2\tau}{\tau(1-\tau)}$, and $\kappa_2^2=\frac{2}{\tau(1-\tau)}$.
+
+This reparameterization leads to the following LQMM,
+\begin{equation}\label{eqn:reformald2}
+Y_{i}(t)={\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}+{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i+\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t),
+\end{equation}
+or equivalently, the conditional likelihood function is
+%{\small
+\begin{equation}\label{eqn:lo_sc_lh}
+\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,e_{i}(t),\sigma)=\frac{1}{\sqrt{2\pi\kappa_2^2\sigma e_{i}(t)}}\exp\left[-\frac{(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i-\kappa_1e_{i}(t))^2}{2\kappa_2^2\sigma e_{i}(t)}\right].
+\end{equation}
+%}
+As discussed in \cite{yu2001bayesian}, irrespective of the actual distribution of the data, Bayesian quantile regression using ALD distribution works quite well for different error distributions and the performance is quite robust and satisfactory.
+
+\subsubsection{Joint Models Using Longitudinal Quantile Regression} %%%%%%%%%%%%%%%%%%%%%%%%%%%
+We then extend the regular joint models (consisting of a linear mixed sub-model for the longitudinal process and a Cox proportional hazards model (PHM) submodel for the survival process, referred to as LMJM), by replacing the linear mixed sub-model with an LQMM as in \eqref{eqn:reformald2}. Let $T_i=min(T_i^*, C_i)$ be the observed event time for subject $i$, where $T_i^*$ is the true underlying event time and $C_i$ is the censoring time. Let $\Delta_i$ be the event indicator (1 if the event is observed, and 0 otherwise). Let $Y_{i}(t)$ be the continuous longitudinal outcome for subject $i$ measured at time $t$. Note that $Y_{i}(t)$ is only observed when $t\le T_i$, and the complete longitudinal measurements for subject $i$ can be written as $\mathcal{Y}_{i}(t)=\{Y_{i}(s): 0\le s\le t\}$. We denote the true underlying longitudinal measurement for subject $i$ at time $t$ with $m_{i}(t)$ and his/her complete history of true longitudinal process as $\mathcal{M}_{i}(t)=\{m_{i}(s): 0\le s \le t\}$. The proposed quantile regression joint models (QRJM) can be written as a set of two sub-models:
+\begin{equation}\label{eqn:joint}
+\left\{
+\begin{array}{l}
+Y_{i}(t) = m_{i}(t) + \varepsilon_{i}(t) = {\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim ALD(0, \sigma, \tau)\\
+h(T_i|\mathcal{M}_{i}(T_i), {\boldsymbol W}_i;  \boldsymbol{\gamma}_{\tau}, \alpha_{\tau}) = h_0(T_i)\exp({\boldsymbol W}_i^{\top}\boldsymbol{\gamma}_{\tau} + \alpha_{\tau}({\boldsymbol X}^{\top}_{i}(T_i)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}^{\top}_{i}(T_i){\boldsymbol u}_{i})),
+\end{array}
+\right.
+\end{equation}
+where the first sub-model is the LQMM introduced in Section \ref{sec:BLQMM}, in which $\boldsymbol{X}_{i}(t)$ are the fixed effect covariates and $\boldsymbol{Z}_{i}(t)$ are the covariates associated with $k-$dimensional multivariate normal random effects $\boldsymbol{u}_i$. The second sub-model takes the format of PHM where $h_0(\cdot)$ is the baseline hazard function and $\boldsymbol{W}_{i}$ are the $q-$dimensional fixed effect covariates only associated with event time (not the longitudinal outcome). These two sub-models are linked by incorporating $m_i(t)$ (the true underlying longitudinal measurement at time $t$) in the time-to-event process. The association parameter $\alpha_{\tau}$ quantifies the strength of association between $m_i(t)$ and the hazard for event at the same time point, e.g., positive $\alpha_{\tau}$ indicates that subjects with higher measurement tend to have an event earlier.
+
+In the proposed QRJM \eqref{eqn:joint}, all parameters are functions of quantile $\tau$. Thus, by choosing different quantiles, one can conduct a comprehensive analysis of the relationship between the outcome and the covariates. Depending on the research aims, we can take different strategies to utilize the flexibility of the QRJM. For example, to conduct a study over the entire conditional distribution of the longitudinal outcome, we can just fit the QRJM through a set of selected quantiles, collect and compare the resulting parameter estimations. Less varying values in the parameter estimates indicates a relatively stable covariate effects on the outcomes, and vice versa. On the other hand, the interest may lie only in assessing the effect on some pre-specified quantiles (median, lower or higher quantile) of the longitudinal outcome and its association with the event process.
+
+\subsubsection{The Survival Sub-model}\label{sec:surv_submodel}
+For subject $i$, the likelihood function for survival data is:
+\begin{eqnarray}\label{eqn:survival_like}
+\ell(T_i, \Delta_i|\boldsymbol{{\boldsymbol u}_i}) =h(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i)^{\Delta_i}S(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i),
+\end{eqnarray}
+where $h(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i)$ is given in \eqref{eqn:joint} and $S(\cdot)$ is the survival function,
+\begin{equation*}
+S(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i)=\exp\left\{-\int_0^{T_i}h_0(s)\exp({\boldsymbol W_i}^{\top}\boldsymbol{\gamma}_{\tau} + \alpha({\boldsymbol X}_i^{\top}(s)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}_i^{\top}(s){\boldsymbol u}_{i}))ds\right\}.
+\end{equation*}
+
+For the baseline hazard $h_0(t)$, a parametric form such as exponential model can be used or it can be left unspecified. Specifically, we consider the piecewise-constant baseline hazard function, based on which a closed form survival function can be derived for each time interval. Further extension of the JM in the functional form of the two processes is also possible, as discussed in \citet{rizopoulos2014combining}. Although all parameters in the proposed QRJM are quantile dependent, for national ease and without ambiguity, we omit the subscript $\tau$ from all parameters in the following sections (e.g., $\boldsymbol{\theta}$ stands for $\boldsymbol{\theta}_{\tau}$ for all quantile-based parameters).
+
+\subsubsection{Complete Likelihood Function and Bayesian Inference}\label{sec:estimation}
+For subject $i$, the complete joint likelihood of the longitudinal and survival data can be written as
+\begin{equation}\label{eqn:full_lik}
+L_i(\boldsymbol{\theta};T_i, \Delta_i, \mathcal{Y}_{i}(T_i), \boldsymbol{u}_i) = \ell(\mathcal{Y}_{i}(T_i)|\boldsymbol{u}_i)\ell(T_i, \Delta_i|\boldsymbol{u}_i)f(\boldsymbol{u}_i|\boldsymbol{\Sigma}),
+\end{equation}
+where vector $\boldsymbol{\theta}$ represents all the parameters in \eqref{eqn:full_lik},  $\ell(\mathcal{Y}_{i}(T_i)|\boldsymbol{u}_i)=\prod_{0\le t\le T_i}\ell(Y_{i}(t)|\boldsymbol{u}_i)$, where $\ell(Y_{i}(t)|\boldsymbol{u}_i)$ is given in \eqref{eqn:lo_sc_lh}, and $\ell(T_i, \Delta_i|\boldsymbol{u}_i)$ is given in \eqref{eqn:survival_like}.
+
+Parameter estimation can be made using Monte Carlo EM (MCEM) algorithm, in which random effects are treated as missing data (\citealp{farcomeni2015longitudinal}). In this article, however, we take advantage of the location-scale mixture representation of the ALD described in Section~\ref{sec:BLQMM} and propose a fully Bayesian inference approach for parameter estimation and personalized dynamic predictions. Given the complete likelihood in \eqref{eqn:full_lik} and by Bayes theorem, the posterior distributions of the model parameters are given by
+
+\begin{equation}\label{eqn:posterior}
+f(\boldsymbol{\theta}|\boldsymbol{T}, \boldsymbol{\Delta}, \boldsymbol{\mathcal{Y}}, \boldsymbol{u})\propto \prod_{i=1}^N L_i(T_i, \Delta_i, \mathcal{Y}_{i}(T_i), \boldsymbol{u}_i;\boldsymbol{\theta}) f(\boldsymbol{\theta}),
+\end{equation}
+
+\noindent where $\boldsymbol{T}=(T_1, T_2, \cdots, T_N)$, $\boldsymbol{\mathcal{Y}}=(\mathcal{Y}_{1}(T_1), \mathcal{Y}_{2}(T_2), \cdots, \mathcal{Y}_{N}(T_N))$, $\boldsymbol{\Delta} =(\Delta_1, \Delta_2, \cdots, \Delta_N)$, $\boldsymbol{u}=(\boldsymbol{u}_1, \boldsymbol{u}_2, \cdots, \boldsymbol{u}_N)$, and $f(\boldsymbol{\theta})=\pi(\boldsymbol{\beta})\pi(\boldsymbol{\gamma})\pi(\alpha)\pi(\sigma)\pi(\boldsymbol{\Sigma})$ is the product of the prior distributions,
+where $\boldsymbol{\Sigma}$ is a $k\times k$ covariance matrix of the multivariate normal random effects distribution. We adopt the following prior distributions:
+$\boldsymbol{\beta} \sim \mathcal{N}_p({\boldsymbol 0}, 10^3{\bf I}), \boldsymbol{\gamma} \sim \mathcal{N}_q({\boldsymbol 0}, 10^3{\bf I}), \alpha\sim \mathcal{N}(0, 10^3), \sigma\sim \mathcal{IG}(10^{-3}, 10^{-3}), \boldsymbol{\Sigma}^{-1}\sim Wishart({\bf I}, k+1).$ We also consider the Cholesky decomposition prior for $\boldsymbol{\Sigma}$ in our simulation studies and find similar results as Wishart prior gives (results not shown). We have investigated other selections of vague prior distributions with various hyper-parameters and obtained very similar results.
+
+The advantages of using fully Bayesian approach include that the uncertainty of the parameter estimates is fully captured in the posterior distributions and no asymptotic theory is needed to derive the standard error. The fully Bayesian approach provides a straightforward framework to make subject-specific prediction of survival probability using the posterior samples of the parameters and of the posterior predictive distributions for the random effects. Moreover, the proposed QRJM can be readily implemented in \textsf{JAGS} software (version 4.0.0) (\citealp{plummer2003jags}) and the codes have been posted at the Web Supplement to facilitate easy reading and implementation of the proposed QRJM model.
+
+\subsubsection{Predictions of Survival Probability}\label{sec:pred_survival}
+Upon fitting the QRJM to a training dataset with $N$ subjects, we can make prediction of survival probability for a new subject based on a set of his or her historical longitudinal measurements (denoted by $\mathcal{Y}_{i}(t)$) as well as other covariates information. The conditional survival probability up to time $m = t+\Delta t$ ($\Delta t > 0$), given that the subject is event-free up to censoring time $t$, is denoted as $p_i(m|t) = Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})$, which can be further elaborated as follows:
+\begin{equation}\label{eqn:surv_prob_derv}
+     \begin{aligned}
+      & Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})\\
+      &=\int Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), {\boldsymbol u}_i;\boldsymbol{\theta})
+ {Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d{\boldsymbol u}_i}  \\
+      &= {\int Pr(T_i^*\ge m|T_i^*>t, {\boldsymbol u}_i;\boldsymbol{\theta})Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d{\boldsymbol u}_i} \\
+       &= {\int\frac{{S}_i[m|\mathcal{M}_{i}(m,{\boldsymbol u}_i, \boldsymbol{\theta});\boldsymbol{\theta}]}{{S}_i[t|\mathcal{M}_{i}(t,{\boldsymbol u}_i, \boldsymbol{\theta});\boldsymbol{\theta}]}Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d{\boldsymbol u}_i}, \\
+     \end{aligned}
+     \phantom{\hspace{0cm}}
+\end{equation}
+% }
+where ${S}(\cdot)$ is the survival function conditional on the entire longitudinal history $\mathcal{M}_{i}(\cdot).$
+
+To estimate \eqref{eqn:surv_prob_derv}, we can use the proposed Bayesian sampling algorithm in Section \ref{sec:estimation} to calculate the posterior mean of the prediction $E_{\boldsymbol{\theta}|\mathcal{D}_N}[p_i(m|t)]$ and
+\begin{eqnarray}\label{eqn:expct_pred}
+\nonumber E_{\boldsymbol{\theta}|\mathcal{D}_N}[p_i(m|t)]&=&Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N)=\int Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})p(\boldsymbol{\theta}|\mathcal{D}_N)d\boldsymbol{\theta},
+\end{eqnarray}
+where $\mathcal{D}_N=\{T_i, \Delta_i, \boldsymbol{Y}_i, i=1, \cdots, N\}$ denotes the training data of size $N$ and the first part of the equation is given in \eqref{eqn:surv_prob_derv}.
+
+A Monte Carlo (MC) estimate of $p_i(m|t)$ can be obtained using the following procedure:
+\begin{enumerate}
+\item Draw $\boldsymbol{\theta}^{(p)} \sim Pr(\boldsymbol{\theta}|\mathcal{D}_N)$ for $p=1, \cdots, P$;
+\item For each $\boldsymbol{\theta}^{(p)}$, draw ${\boldsymbol u}^{(q)}_i\sim f({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(p)})$ for $q=1, \cdots, Q$ and compute $$p_i^{(p)}(m|t)=\frac{1}{Q}\sum_{q=1}^QS_i[m|\mathcal{M}_{i}(m, \boldsymbol{u}^{(q)}_i, \boldsymbol{\theta}^{(p)});\boldsymbol{\theta}^{(p)}]S_i[t|\mathcal{M}_{i}(t, \boldsymbol{u}^{(q)}_i, \boldsymbol{\theta}^{(p)});\boldsymbol{\theta}^{(p)}]^{-1};$$
+\item Approximate $p_i(m|t)$ by $\hat{p}_i(m|t)=\frac{1}{P}\sum_{p=1}^P p^{(p)}_i(m|t)$ after collecting all $P$ samples of $p_i(m|t)^{(p)}$.
+\end{enumerate}
+
+In above algorithm, $P$ is the total number of MC iterations, $f(\boldsymbol{\theta}|\mathcal{D}_N)$ is the posterior distributions of $\boldsymbol{\theta}$ given in \eqref{eqn:posterior}, and $f({\boldsymbol u}_i|T_i^*, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(k)})$ is the posterior distribution of the random effects for subject $i$. And the uncertainty of the predictions is captured in the sample variance.
+
+The posterior predictive values of the random effects ${\boldsymbol u}_i$ are direct results from the MCMC iterations if the subject is from the training dataset. For a new subject who is not in the training dataset, we can use the inference results to run additional MCMC iterations to obtain samples for the new subject's random effects ${\boldsymbol u}_i$ and the rest of the algorithm follows. Because each individual only has a few random effects (two in our current model) to estimate, a short MCMC with 200 iterations should be sufficient for convergence (\citealp{taylor2013real}).
+
+\subsubsection{Predictive Accuracy} \label{sec:pred_accuracy}
+Predictive accuracy of a model can be evaluated from different perspectives, such as discrimination (how well the models discriminate between subjects who had the event from those who did not), validation (how well the models predict the observed data), and reclassification (how well the model prediction improves by adding new predictors). Here we mainly focus on the discriminative ability of our model. Area under the receiver operating characteristic curve (AUC) is a commonly used statistics to evaluate the discriminative ability in prediction, while above average risk difference (AARD) measures the difference in the risk rates comparing events versus non-events at the level of population average risk, and mean risk difference (MRD) is the average difference between true positive rate (TPR) and false positive rate (FPR) across the risk scale (\citealp{pepe2008comments}). Higher values in AUC, AARC, and MRD indicate better discriminative ability. We use all three measurements as summary statistics to evaluate the discriminative performance of our model.
+
+Following \citet{zheng2013adopting} and \citet{yang2015prediction}, at a given time $t$, a future time $ m = t+\Delta t$, and a threshold $c$, the TPR and FPR of the predictive results can be defined as $\mbox{TPR}_t(c)=Pr({\bf 1}-\boldsymbol{p}(m|t)\ge c | \boldsymbol{T}\le m)$ and $\mbox{FPR}_t(c)=Pr({\bf 1}-\boldsymbol{p}(m|t)\ge c | \boldsymbol{T} > m)$, where $\boldsymbol{p}(m|t)=\{p_i(m|t), i=1, \ldots, N\}$ and $p_i(m|t)$ is illustrated in Section~\ref{sec:pred_survival}. The estimate of $\boldsymbol{p}(m | t)$ is denoted by $\hat{\boldsymbol{p}}(m | t)$, and the estimators of TPR and FPR are: $\widehat{TPR}_{t}(c) = \frac{\sum_{i=1}^{N}(1-\hat{p}_i(m|t))I(1-\hat{p}_i(m|t)\ge c)}{\sum_{i=1}^{N}(1-\hat{p}_i(m|t))}$ and $\widehat{FPR}_{t}(c) = \frac{\sum_{i=1}^{N}\hat{p}_i(m|t)I(1-\hat{p}_i(m|t)\ge c)}{\sum_{i=1}^{N}\hat{p}_i(m|t)}$. By definition, we have $\widehat{AUC}_t = \int \widehat{TPR}_t\left\{ (\widehat{FPR}_t)^{-1}(u)\right\}du$, $\widehat{AARD}_t = \widehat{TPR}_t(\hat{\rho}) - \widehat{FPR}_t(\hat{\rho})$, and $\widehat{MRD}_t = \int_c \widehat{TPR}_t(c)dc - \int_c \widehat{FPR}_t(c)dc$, where $\hat{\rho} = \frac{\sum_{i=1}^N (1-\hat{p}_i(m| t))}{N}$ is the average risk in the study population at time $m$.
+
+
+
+
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

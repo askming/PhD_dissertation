@@ -1,0 +1,1631 @@
+% This file was created with JabRef 2.10.
+% Encoding: Cp1252
+
+
+@Article{bland1986statistical,
+  Title                    = {Statistical methods for assessing agreement between two methods of clinical measurement},
+  Author                   = {Bland, J Martin and Altman, Douglas G},
+  Journal                  = {The Lancet},
+  Year                     = {1986},
+  Number                   = {8476},
+  Pages                    = {307--310},
+  Volume                   = {327},
+
+  Date-added               = {2015-02-16 14:52:35 +0000},
+  Date-modified            = {2015-03-30 20:29:14 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{brown2005flexible,
+  Title                    = {A Flexible B-Spline Model for Multiple Longitudinal Biomarkers and Survival},
+  Author                   = {Brown, Elizabeth R and Ibrahim, Joseph G and DeGruttola, Victor},
+  Journal                  = {Biometrics},
+  Year                     = {2005},
+  Number                   = {1},
+  Pages                    = {64--73},
+  Volume                   = {61},
+
+  Date-added               = {2015-01-15 23:06:13 +0000},
+  Date-modified            = {2015-01-15 23:06:13 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{chambless2003coronary,
+  Title                    = {Coronary heart disease risk prediction in the Atherosclerosis Risk in Communities (ARIC) study},
+  Author                   = {Chambless, Lloyd E and Folsom, Aaron R and Sharrett, A Richey and Sorlie, Paul and Couper, David and Szklo, Moyses and Nieto, F Javier},
+  Journal                  = {Journal of clinical epidemiology},
+  Year                     = {2003},
+  Number                   = {9},
+  Pages                    = {880--890},
+  Volume                   = {56},
+
+  Date-added               = {2016-09-12 04:48:34 +0000},
+  Date-modified            = {2016-09-12 04:48:34 +0000},
+  Publisher                = {Elsevier}
+}
+
+@Article{chernozhukov2005iv,
+  Title                    = {An IV model of quantile treatment effects},
+  Author                   = {Chernozhukov, Victor and Hansen, Christian},
+  Journal                  = {Econometrica},
+  Year                     = {2005},
+  Number                   = {1},
+  Pages                    = {245--261},
+  Volume                   = {73},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{collins2015new,
+  Title                    = {A new initiative on precision medicine},
+  Author                   = {Collins, Francis S and Varmus, Harold},
+  Journal                  = {New England Journal of Medicine},
+  Year                     = {2015},
+  Number                   = {9},
+  Pages                    = {793--795},
+  Volume                   = {372},
+
+  Owner                    = {MYang5},
+  Publisher                = {Mass Medical Soc},
+  Timestamp                = {2016.10.26}
+}
+
+@Article{cushman2012mortality,
+  Title                    = {Mortality and Morbidity During and After the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial},
+  Author                   = {Cushman, William C and Davis, Barry R and Pressel, Sara L and Cutler, Jeffrey A and Einhorn, Paula T and Ford, Charles E and Oparil, Suzanne and Probstfield, Jeffrey L and Whelton, Paul K and Wright, Jackson T and others},
+  Journal                  = {The Journal of Clinical Hypertension},
+  Year                     = {2012},
+  Number                   = {1},
+  Pages                    = {20--31},
+  Volume                   = {14},
+
+  Date-added               = {2015-02-19 17:35:37 +0000},
+  Date-modified            = {2015-02-19 17:35:37 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{davidian1992smooth,
+  Title                    = {Smooth nonparametric maximum likelihood estimation for population pharmacokinetics, with application to quinidine},
+  Author                   = {Davidian, Marie and Gallant, A Ronald},
+  Journal                  = {Journal of Pharmacokinetics and Biopharmaceutics},
+  Year                     = {1992},
+  Number                   = {5},
+  Pages                    = {529--556},
+  Volume                   = {20},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{diggle2007analysis,
+  Title                    = {Analysis of longitudinal data with drop-out: objectives, assumptions and a proposal},
+  Author                   = {Diggle, Peter and Farewell, Daniel and Henderson, Robin},
+  Journal                  = {Journal of the Royal Statistical Society: Series C (Applied Statistics)},
+  Year                     = {2007},
+  Number                   = {5},
+  Pages                    = {499--550},
+  Volume                   = {56},
+
+  Date-added               = {2014-10-27 20:18:41 +0000},
+  Date-modified            = {2014-10-27 20:18:41 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Book{diggle2002analysis,
+  Title                    = {Analysis of longitudinal data},
+  Author                   = {Diggle, Peter and Heagerty, Patrick and Liang, Kung-Yee and Zeger, Scott},
+  Publisher                = {Oxford University Press},
+  Year                     = {2002},
+
+  Date-added               = {2014-10-27 15:30:36 +0000},
+  Date-modified            = {2014-10-27 15:30:36 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{diggle1994informative,
+  Title                    = {Informative drop-out in longitudinal data analysis},
+  Author                   = {Diggle, Peter and Kenward, Michael G},
+  Journal                  = {Applied statistics},
+  Year                     = {1994},
+  Pages                    = {49--93},
+
+  Date-added               = {2014-10-27 20:08:43 +0000},
+  Date-modified            = {2014-10-27 20:08:43 +0000},
+  Owner                    = {myang5},
+  Publisher                = {JSTOR},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{dunson2010nonparametric,
+  Title                    = {Nonparametric Bayes applications to biostatistics},
+  Author                   = {Dunson, David B},
+  Journal                  = {Bayesian nonparametrics},
+  Year                     = {2010},
+  Pages                    = {223},
+  Volume                   = {28},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Cambridge: Cambridge University Press},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{efendi2013joint,
+  Title                    = {A joint model for longitudinal continuous and time-to-event outcomes with direct marginal interpretation},
+  Author                   = {Efendi, Achmad and Molenberghs, Geert and Njagi, Edmund Njeru and Dendale, Paul},
+  Journal                  = {Biometrical Journal},
+  Year                     = {2013},
+  Number                   = {4},
+  Pages                    = {572--588},
+  Volume                   = {55},
+
+  Owner                    = {MYang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.10.19}
+}
+
+@Article{elashoff2008joint,
+  Title                    = {A joint model for longitudinal measurements and survival data in the presence of multiple failure types},
+  Author                   = {Elashoff, Robert M and Li, Gang and Li, Ning},
+  Journal                  = {Biometrics},
+  Year                     = {2008},
+  Number                   = {3},
+  Pages                    = {762--771},
+  Volume                   = {64},
+
+  Date-added               = {2015-01-15 23:08:57 +0000},
+  Date-modified            = {2015-01-15 23:08:57 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{farcomeni2015longitudinal,
+  Title                    = {Longitudinal quantile regression in the presence of informative dropout through longitudinal--survival joint modeling},
+  Author                   = {Farcomeni, Alessio and Viviani, Sara},
+  Journal                  = {Statistics in Medicine},
+  Year                     = {2015},
+  Number                   = {7},
+  Pages                    = {1199--1213},
+  Volume                   = {34},
+
+  Owner                    = {MYang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.02.09}
+}
+
+@Article{Alessio2014qrjm,
+  Title                    = {Longitudinal quantile regression in the presence of informative dropout through longitudinal--survival joint modeling},
+  Author                   = {Farcomeni, Alessio and Viviani, Sara},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2014},
+
+  Date-added               = {2015-01-15 23:00:00 +0000},
+  Date-modified            = {2015-01-15 23:16:39 +0000}
+}
+
+@Article{faucett1996simultaneously,
+  Title                    = {Simultaneously modelling censored survival data and repeatedly measured covariates: a Gibbs sampling approach},
+  Author                   = {Faucett, Cheryl L and Thomas, Duncan C},
+  Journal                  = {Statistics in medicine},
+  Year                     = {1996},
+  Number                   = {15},
+  Pages                    = {1663--1685},
+  Volume                   = {15},
+
+  Date-added               = {2015-01-15 22:40:07 +0000},
+  Date-modified            = {2015-01-15 22:40:07 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Misc{us2013paving,
+  Title                    = {Paving the Way for Personalized Medicine. {FDA}'s Role in a new Era of Medical Product Development.},
+
+  Author                   = {FDA},
+  Year                     = {2013},
+
+  Date-added               = {2015-02-28 03:32:53 +0000},
+  Date-modified            = {2015-02-28 03:32:53 +0000},
+  Owner                    = {myang5},
+  Publisher                = {US Department of Health and Human Services DC, USA},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{fu2012quantile,
+  Title                    = {Quantile regression for longitudinal data with a working correlation model},
+  Author                   = {Fu, Liya and Wang, You-Gan},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2012},
+  Number                   = {8},
+  Pages                    = {2526--2538},
+  Volume                   = {56},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{geraci2013lqmm,
+  Title                    = {Linear quantile mixed models: The lqmm package for Laplace quantile regression},
+  Author                   = {Geraci, M},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2013},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{geraci2013linear,
+  Title                    = {Linear quantile mixed models},
+  Author                   = {Geraci, Marco and Bottai, Matteo},
+  Journal                  = {Statistics and Computing},
+  Year                     = {2014},
+  Number                   = {3},
+  Pages                    = {461--479},
+  Volume                   = {24},
+
+  Date-added               = {2016-11-11 07:04:32 +0000},
+  Date-modified            = {2016-11-11 07:07:20 +0000},
+  Owner                    = {MYang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.11.11}
+}
+
+@Article{geraci2007quantile,
+  Title                    = {Quantile regression for longitudinal data using the asymmetric Laplace distribution},
+  Author                   = {Geraci, Marco and Bottai, Matteo},
+  Journal                  = {Biostatistics},
+  Year                     = {2007},
+  Number                   = {1},
+  Pages                    = {140--154},
+  Volume                   = {8},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Biometrika Trust},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{ghidey2008comparison,
+  Title                    = {A comparison of methods for estimating the random effects distribution of a linear mixedmodel},
+  Author                   = {Ghidey, Wendimagegn and Lesaffre, Emmanuel and Verbeke, Geert},
+  Journal                  = {Statistical methods in medical research},
+  Year                     = {2008},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {SAGE Publications},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{guo2004separate,
+  Title                    = {Separate and joint modeling of longitudinal and event time data using standard computer packages},
+  Author                   = {Guo, Xu and Carlin, Bradley P},
+  Journal                  = {The American Statistician},
+  Year                     = {2004},
+  Number                   = {1},
+  Pages                    = {16--24},
+  Volume                   = {58},
+
+  Date-added               = {2015-01-15 22:04:44 +0000},
+  Date-modified            = {2015-01-15 22:04:44 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{hallock2001quantile,
+  Title                    = {Quantile regression},
+  Author                   = {Hallock, Kevin and Koenker, Roger},
+  Journal                  = {Journal of Economic Perspectives},
+  Year                     = {2001},
+  Number                   = {4},
+  Pages                    = {143--156},
+  Volume                   = {15},
+
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{hartford2000consequences,
+  Title                    = {Consequences of misspecifying assumptions in nonlinear mixed effects models},
+  Author                   = {Hartford, Alan and Davidian, Marie},
+  Journal                  = {Computational statistics \& data analysis},
+  Year                     = {2000},
+  Number                   = {2},
+  Pages                    = {139--164},
+  Volume                   = {34},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{henderson2000joint,
+  Title                    = {Joint modelling of longitudinal measurements and event time data},
+  Author                   = {Henderson, Robin and Diggle, Peter and Dobson, Angela},
+  Journal                  = {Biostatistics},
+  Year                     = {2000},
+  Number                   = {4},
+  Pages                    = {465--480},
+  Volume                   = {1},
+
+  Owner                    = {MYang5},
+  Publisher                = {Biometrika Trust},
+  Timestamp                = {2016.08.17}
+}
+
+@Article{hogan2004handling,
+  Title                    = {Handling drop-out in longitudinal studies},
+  Author                   = {Hogan, Joseph W and Roy, Jason and Korkontzelou, Christina},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2004},
+  Number                   = {9},
+  Pages                    = {1455--1497},
+  Volume                   = {23},
+
+  Date-added               = {2014-10-27 21:11:15 +0000},
+  Date-modified            = {2014-10-27 21:11:15 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@InProceedings{ishwaran2000inference,
+  Title                    = {Inference for the random effects in Bayesian generalized linear mixed models},
+  Author                   = {Ishwaran, Hemant},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{ishwaran2002independent,
+  Title                    = {Independent and identically distributed Monte Carlo algorithms for semiparametric linear mixed models},
+  Author                   = {Ishwaran, Hemant and Takahara, Glen},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2002},
+  Number                   = {460},
+  Pages                    = {1154--1166},
+  Volume                   = {97},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{jara2011dppackage,
+  Title                    = {DPpackage: Bayesian semi-and nonparametric modeling in R},
+  Author                   = {Jara, Alejandro and Hanson, Timothy E and Quintana, Fernando A and M{\"u}ller, Peter and Rosner, Gary L},
+  Journal                  = {Journal of statistical Software},
+  Year                     = {2011},
+  Number                   = {5},
+  Pages                    = {1},
+  Volume                   = {40},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {NIH Public Access},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{jung1996quasi,
+  Title                    = {Quasi-likelihood for median regression models},
+  Author                   = {Jung, Sin-Ho},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1996},
+  Number                   = {433},
+  Pages                    = {251--257},
+  Volume                   = {91},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{kim2012joint,
+  Title                    = {Joint models of longitudinal data and recurrent events with informative terminal event},
+  Author                   = {Kim, Sehee and Zeng, Donglin and Chambless, Lloyd and Li, Yi},
+  Journal                  = {Statistics in biosciences},
+  Year                     = {2012},
+  Number                   = {2},
+  Pages                    = {262--281},
+  Volume                   = {4},
+
+  Owner                    = {MYang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.08.17}
+}
+
+@Article{kleinman1998semiparametric,
+  Title                    = {A semiparametric Bayesian approach to the random effects model},
+  Author                   = {Kleinman, Ken P and Ibrahim, Joseph G},
+  Journal                  = {Biometrics},
+  Year                     = {1998},
+  Pages                    = {921--938},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {JSTOR},
+  Timestamp                = {2016.04.21}
+}
+
+@Book{koenker2005quantile,
+  Title                    = {Quantile regression},
+  Author                   = {Koenker, Roger},
+  Publisher                = {Cambridge University Press},
+  Year                     = {2005},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2016-11-11 04:22:38 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{koenker2004quantile,
+  Title                    = {Quantile regression for longitudinal data},
+  Author                   = {Koenker, Roger},
+  Journal                  = {Journal of Multivariate Analysis},
+  Year                     = {2004},
+  Number                   = {1},
+  Pages                    = {74--89},
+  Volume                   = {91},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{koenker1978regression,
+  Title                    = {Regression Quantiles},
+  Author                   = {Koenker, Roger and Basset, G},
+  Journal                  = {Econometrica},
+  Year                     = {1978},
+  Number                   = {1},
+  Pages                    = {33--50},
+  Volume                   = {46},
+
+  Date-added               = {2016-11-11 07:11:54 +0000},
+  Date-modified            = {2016-11-11 07:11:54 +0000}
+}
+
+@Article{koenker2001quantile,
+  Title                    = {Quantile regression: An introduction},
+  Author                   = {Koenker, Roger and Hallock, Kevin},
+  Journal                  = {Journal of Economic Perspectives},
+  Year                     = {2001},
+  Number                   = {4},
+  Pages                    = {43--56},
+  Volume                   = {15},
+
+  Date-added               = {2015-02-05 04:09:49 +0000},
+  Date-modified            = {2015-02-05 04:09:49 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.03.21}
+}
+
+@Article{koenker1999goodness,
+  Title                    = {Goodness of fit and related inference processes for quantile regression},
+  Author                   = {Koenker, Roger and Machado, Jose AF},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1999},
+  Number                   = {448},
+  Pages                    = {1296--1310},
+  Volume                   = {94},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis Group},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{koenker1996interior,
+  Title                    = {An interior point algorithm for nonlinear quantile regression},
+  Author                   = {Koenker, Roger and Park, Beum J},
+  Journal                  = {Journal of Econometrics},
+  Year                     = {1996},
+  Number                   = {1},
+  Pages                    = {265--283},
+  Volume                   = {71},
+
+  Date-added               = {2016-10-19 09:51:13 +0000},
+  Date-modified            = {2016-10-19 09:51:13 +0000},
+  Publisher                = {Elsevier}
+}
+
+@Article{koenker2006quantile,
+  Title                    = {Quantile autoregression},
+  Author                   = {Koenker, Roger and Xiao, Zhijie},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2006},
+  Number                   = {475},
+  Pages                    = {980--990},
+  Volume                   = {101},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{kottas2001bayesian,
+  Title                    = {Bayesian semiparametric median regression modeling},
+  Author                   = {Kottas, Athanasios and Gelfand, Alan E},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2001},
+  Number                   = {456},
+  Pages                    = {1458--1468},
+  Volume                   = {96},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Book{kotz2001laplace,
+  Title                    = {The Laplace distribution and generalizations: a revisit with applications to communications, economics, engineering, and finance},
+  Author                   = {Kotz, Samuel and Kozubowski, Tomasz and Podgorski, Krzysztof},
+  Publisher                = {Springer Science \& Business Media},
+  Year                     = {2012},
+
+  Date-added               = {2016-11-11 07:03:30 +0000},
+  Date-modified            = {2016-11-11 07:03:30 +0000}
+}
+
+@Article{kozumi2011gibbs,
+  Title                    = {Gibbs sampling methods for Bayesian quantile regression},
+  Author                   = {Kozumi, Hideo and Kobayashi, Genya},
+  Journal                  = {Journal of Statistical Computation and Simulation},
+  Year                     = {2011},
+  Number                   = {11},
+  Pages                    = {1565--1578},
+  Volume                   = {81},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{krol2016joint,
+  Title                    = {Joint model for left-censored longitudinal data, recurrent events and terminal event: Predictive abilities of tumor burden for cancer evolution with application to the FFCD 2000--05 trial},
+  Author                   = {Kr{\'o}l, Agnieszka and Ferrer, Lo{\"\i}c and Pignon, Jean-Pierre and Proust-Lima, C{\'e}cile and Ducreux, Michel and Bouch{\'e}, Olivier and Michiels, Stefan and Rondeau, Virginie},
+  Journal                  = {Biometrics},
+  Year                     = {2016},
+
+  Owner                    = {MYang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.08.17}
+}
+
+@Article{laird1982random,
+  Title                    = {Random-effects models for longitudinal data.},
+  Author                   = {Laird, NM and Ware, JH},
+  Journal                  = {Biometrics},
+  Year                     = {1982},
+  Number                   = {4},
+  Pages                    = {963--974},
+  Volume                   = {38},
+
+  Owner                    = {MYang5},
+  Timestamp                = {2016.11.11}
+}
+
+@TechReport{le2005nonparametric,
+  Title                    = {Nonparametric quantile regression},
+  Author                   = {Le, Quoc V and Sears, Tim and Smola, Alexander J},
+  Institution              = {Technical report, National ICT Australia, June 2005. Available at http://sml. nicta. com. au/~ quoc. le},
+  Year                     = {2005},
+
+  Date-added               = {2016-10-19 09:48:13 +0000},
+  Date-modified            = {2016-10-19 09:48:13 +0000}
+}
+
+@Article{lee2008flexible,
+  Title                    = {Flexible parametric models for random-effects distributions},
+  Author                   = {Lee, Katherine J and Thompson, Simon G},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2008},
+  Number                   = {3},
+  Pages                    = {418--434},
+  Volume                   = {27},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{lin2002latent,
+  Title                    = {Latent class models for joint analysis of longitudinal biomarker and event process data: application to longitudinal prostate-specific antigen readings and prostate cancer},
+  Author                   = {Lin, Haiqun and Turnbull, Bruce W and McCulloch, Charles E and Slate, Elizabeth H},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2002},
+  Number                   = {457},
+  Pages                    = {53--65},
+  Volume                   = {97},
+
+  Date-added               = {2015-02-06 02:48:23 +0000},
+  Date-modified            = {2015-02-06 02:48:23 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{lipsitz1997quantile,
+  Title                    = {Quantile Regression Methods for Longitudinal Data with Drop-outs: Application to CD4 Cell Counts of Patients Infected with the Human Immunodeficiency Virus},
+  Author                   = {Lipsitz, Stuart R and Fitzmaurice, Garrett M and Molenberghs, Geert and Zhao, Lue Ping},
+  Journal                  = {Journal of the Royal Statistical Society: Series C (Applied Statistics)},
+  Year                     = {1997},
+  Number                   = {4},
+  Pages                    = {463--476},
+  Volume                   = {46},
+
+  Date-added               = {2014-10-27 21:28:28 +0000},
+  Date-modified            = {2014-10-27 21:28:28 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{liu2009mixed,
+  Title                    = {Mixed-effects models for conditional quantiles with longitudinal data},
+  Author                   = {Liu, Yuan and Bottai, Matteo},
+  Journal                  = {The International Journal of Biostatistics},
+  Year                     = {2009},
+  Number                   = {1},
+  Volume                   = {5},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{lunn2000winbugs,
+  Title                    = {WinBUGS-a Bayesian modelling framework: concepts, structure, and extensibility},
+  Author                   = {Lunn, David J and Thomas, Andrew and Best, Nicky and Spiegelhalter, David},
+  Journal                  = {Statistics and computing},
+  Year                     = {2000},
+  Number                   = {4},
+  Pages                    = {325--337},
+  Volume                   = {10},
+
+  Date-added               = {2016-04-30 04:35:32 +0000},
+  Date-modified            = {2016-04-30 04:35:32 +0000},
+  Publisher                = {Springer}
+}
+
+@Article{luo2012bayesian,
+  Title                    = {Bayesian quantile regression for longitudinal data models},
+  Author                   = {Luo, Youxi and Lian, Heng and Tian, Maozai},
+  Journal                  = {Journal of Statistical Computation and Simulation},
+  Year                     = {2012},
+  Number                   = {11},
+  Pages                    = {1635--1649},
+  Volume                   = {82},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{muller2010more,
+  Title                    = {More nonparametric Bayesian models for biostatistics},
+  Author                   = {M{\"u}ller, Peter and Quintana, Fernando},
+  Journal                  = {Bayesian nonparametrics},
+  Year                     = {2010},
+  Pages                    = {274--290},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{muller1997bayesian,
+  Title                    = {A Bayesian population model with hierarchical mixture priors applied to blood count data},
+  Author                   = {M{\"u}ller, Peter and Rosner, Gary L},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1997},
+  Number                   = {440},
+  Pages                    = {1279--1292},
+  Volume                   = {92},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis Group},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{machado2005counterfactual,
+  Title                    = {Counterfactual decomposition of changes in wage distributions using quantile regression},
+  Author                   = {Machado, Jos{\'e} AF and Mata, Jos{\'e}},
+  Journal                  = {Journal of Applied Econometrics},
+  Year                     = {2005},
+  Number                   = {4},
+  Pages                    = {445--465},
+  Volume                   = {20},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{mallet1986maximum,
+  Title                    = {A maximum likelihood estimation method for random coefficient regression models},
+  Author                   = {Mallet, A},
+  Journal                  = {Biometrika},
+  Year                     = {1986},
+  Number                   = {3},
+  Pages                    = {645--656},
+  Volume                   = {73},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Biometrika Trust},
+  Timestamp                = {2016.04.21}
+}
+
+@Book{mcculloch2001generalized,
+  Title                    = {Generalized linear mixed models},
+  Author                   = {McCulloch, Charles E and Neuhaus, John M},
+  Publisher                = {Wiley Online Library},
+  Year                     = {2001},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{mcculloch2011misspecifying,
+  Title                    = {Misspecifying the shape of a random effects distribution: why getting it wrong may not matter},
+  Author                   = {McCulloch, Charles E and Neuhaus, John M and others},
+  Journal                  = {Statistical Science},
+  Year                     = {2011},
+  Number                   = {3},
+  Pages                    = {388--402},
+  Volume                   = {26},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Institute of Mathematical Statistics},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{muliere1998approximating,
+  Title                    = {Approximating distributions of random functionals of Ferguson-Dirichlet priors},
+  Author                   = {Muliere, Pietro and Tardella, Luca},
+  Journal                  = {Canadian Journal of Statistics},
+  Year                     = {1998},
+  Number                   = {2},
+  Pages                    = {283--297},
+  Volume                   = {26},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{muthen1999finite,
+  Title                    = {Finite mixture modeling with mixture outcomes using the EM algorithm},
+  Author                   = {Muth{\'e}n, Bengt and Shedden, Kerby},
+  Journal                  = {Biometrics},
+  Year                     = {1999},
+  Number                   = {2},
+  Pages                    = {463--469},
+  Volume                   = {55},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@TechReport{newton1994computing,
+  Title                    = {Computing with priors that support identifiable semiparametric models},
+  Author                   = {Newton, Michael A},
+  Institution              = {Citeseer},
+  Year                     = {1994},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{ohlssen2007flexible,
+  Title                    = {Flexible random-effects models using Bayesian semi-parametric models: applications to institutional comparisons},
+  Author                   = {Ohlssen, David I and Sharples, Linda D and Spiegelhalter, David J},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2007},
+  Number                   = {9},
+  Pages                    = {2088--2112},
+  Volume                   = {26},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{park2008bayesian,
+  Title                    = {The bayesian lasso},
+  Author                   = {Park, Trevor and Casella, George},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2008},
+  Number                   = {482},
+  Pages                    = {681--686},
+  Volume                   = {103},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{paulsen2008detection,
+  Title                    = {Detection of Huntington's disease decades before diagnosis: the Predict-HD study},
+  Author                   = {Paulsen, JS and Langbehn, DR and Stout, JC and Aylward, Elizabeth and Ross, CA and Nance, Martha and Guttman, Mark and Johnson, Shannon and MacDonald, M and Beglinger, LJ and others},
+  Journal                  = {Journal of Neurology, Neurosurgery \& Psychiatry},
+  Year                     = {2008},
+  Number                   = {8},
+  Pages                    = {874--880},
+  Volume                   = {79},
+
+  Owner                    = {MYang5},
+  Publisher                = {BMJ Publishing Group Ltd},
+  Timestamp                = {2016.01.11}
+}
+
+@Article{paulsen2006preparing,
+  Title                    = {Preparing for preventive clinical trials: the Predict-HD study},
+  Author                   = {Paulsen, Jane S and Hayden, Michael and Stout, Julie C and Langbehn, Douglas R and Aylward, Elizabeth and Ross, Christopher A and Guttman, Mark and Nance, Martha and Kieburtz, Karl and Oakes, David and others},
+  Journal                  = {Archives of Neurology},
+  Year                     = {2006},
+  Number                   = {6},
+  Pages                    = {883--890},
+  Volume                   = {63},
+
+  Owner                    = {MYang5},
+  Publisher                = {American Medical Association},
+  Timestamp                = {2016.01.11}
+}
+
+@Article{paulsen2014prediction,
+  Title                    = {Prediction of manifest Huntington's disease with clinical and imaging measures: a prospective observational study},
+  Author                   = {Paulsen, Jane S and Long, Jeffrey D and Ross, Christopher A and Harrington, Deborah L and Erwin, Cheryl J and Williams, Janet K and Westervelt, Holly James and Johnson, Hans J and Aylward, Elizabeth H and Zhang, Ying and others},
+  Journal                  = {The Lancet Neurology},
+  Year                     = {2014},
+  Number                   = {12},
+  Pages                    = {1193--1201},
+  Volume                   = {13},
+
+  Owner                    = {MYang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.01.11}
+}
+
+@Article{pencina2008evaluating,
+  Title                    = {Evaluating the added predictive ability of a new marker: from area under the ROC curve to reclassification and beyond},
+  Author                   = {Pencina, Michael J and D'Agostino, Ralph B and Vasan, Ramachandran S},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2008},
+  Number                   = {2},
+  Pages                    = {157--172},
+  Volume                   = {27},
+
+  Date-added               = {2015-02-12 22:03:03 +0000},
+  Date-modified            = {2015-02-12 22:03:03 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{pepe2008comments,
+  Title                    = {Comments on `{E}valuating the added predictive ability of a new marker: From area under the {ROC} curve to reclassification and beyond' by {MJ} {P}encina et al., Statistics in Medicine},
+  Author                   = {Pepe, MS and Feng, Z and Gu, JW},
+  Journal                  = {Statistics in Medicine},
+  Year                     = {2008},
+  Number                   = {2},
+  Pages                    = {173--181},
+  Volume                   = {27},
+
+  Date-added               = {2016-01-23 22:13:36 +0000},
+  Date-modified            = {2016-01-23 22:13:36 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{piller2011long,
+  Title                    = {Long-term follow-up of participants with heart failure in the antihypertensive and lipid-lowering treatment to prevent heart attack trial (ALLHAT)},
+  Author                   = {Piller, Linda B and Baraniuk, Sarah and Simpson, Lara M and Cushman, William C and Massie, Barry M and Einhorn, Paula T and Oparil, Suzanne and Ford, Charles E and Graumlich, James F and Dart, Richard A and others},
+  Journal                  = {Circulation},
+  Year                     = {2011},
+  Number                   = {17},
+  Pages                    = {1811--1818},
+  Volume                   = {124},
+
+  Date-added               = {2015-02-17 03:57:05 +0000},
+  Date-modified            = {2015-02-17 03:57:05 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Am Heart Assoc},
+  Timestamp                = {2016.04.21}
+}
+
+@InProceedings{plummer2003jags,
+  Title                    = {JAGS: A program for analysis of Bayesian graphical models using Gibbs sampling},
+  Author                   = {Plummer, M.},
+  Booktitle                = {Proceedings of the 3rd International Workshop on Distributed Statistical Computing},
+  Year                     = {2003},
+  Pages                    = {125},
+  Volume                   = {124},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2016-11-11 06:58:19 +0000}
+}
+
+@Article{porteous2012gibbs,
+  Title                    = {Gibbs sampling for (coupled) infinite mixture models in the stick breaking representation},
+  Author                   = {Porteous, Ian and Ihler, Alexander T and Smyth, Padhraic and Welling, Max},
+  Journal                  = {arXiv preprint arXiv:1206.6845},
+  Year                     = {2012},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{proust2009development,
+  Title                    = {Development and validation of a dynamic prognostic tool for prostate cancer recurrence using repeated measures of posttreatment PSA: a joint modeling approach},
+  Author                   = {Proust-Lima, C{\'e}cile and Taylor, Jeremy MG},
+  Journal                  = {Biostatistics},
+  Year                     = {2009},
+  Number                   = {3},
+  Pages                    = {535--549},
+  Volume                   = {10},
+
+  Date-added               = {2015-02-05 16:37:13 +0000},
+  Date-modified            = {2015-02-05 16:37:13 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Biometrika Trust},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{putter2007tutorial,
+  Title                    = {Tutorial in biostatistics: competing risks and multi-state models},
+  Author                   = {Putter, H and Fiocco, M and Geskus, RB},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2007},
+  Number                   = {11},
+  Pages                    = {2389--2430},
+  Volume                   = {26},
+
+  Date-added               = {2014-10-27 20:19:36 +0000},
+  Date-modified            = {2014-10-27 20:19:36 +0000},
+  Owner                    = {myang5},
+  Publisher                = {John Wiley \& Sons, Ltd.},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{reed2009partially,
+  Title                    = {A Partially collapsed Gibbs sampler for Bayesian quantile regression},
+  Author                   = {Reed, Craig and Yu, Keming},
+  Year                     = {2009},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{rikhtehgaran2013semi,
+  Title                    = {Semi-parametric Bayesian estimation of mixed-effects models using the multivariate skew-normal distribution},
+  Author                   = {Rikhtehgaran, Reyhaneh and Kazemi, Iraj},
+  Journal                  = {Computational Statistics},
+  Year                     = {2013},
+  Number                   = {5},
+  Pages                    = {2007--2027},
+  Volume                   = {28},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{rizopoulos2014r,
+  Title                    = {The R Package JMbayes for Fitting Joint Models for Longitudinal and Time-to-Event Data using MCMC},
+  Author                   = {Rizopoulos, Dimitris},
+  Journal                  = {arXiv preprint arXiv:1404.7625},
+  Year                     = {2014},
+
+  Owner                    = {MYang5},
+  Timestamp                = {2016.01.11}
+}
+
+@Article{rizopoulos2011dynamic,
+  Title                    = {Dynamic Predictions and Prospective Accuracy in Joint Models for Longitudinal and Time-to-Event Data},
+  Author                   = {Rizopoulos, Dimitris},
+  Journal                  = {Biometrics},
+  Year                     = {2011},
+  Number                   = {3},
+  Pages                    = {819--829},
+  Volume                   = {67},
+
+  Date-added               = {2015-01-15 23:19:40 +0000},
+  Date-modified            = {2015-01-15 23:19:40 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{rizopoulos2011bayesian,
+  Title                    = {A {B}ayesian semiparametric multivariate joint model for multiple longitudinal outcomes and a time-to-event},
+  Author                   = {Rizopoulos, Dimitris and Ghosh, Pulak},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2011},
+  Number                   = {12},
+  Pages                    = {1366--1380},
+  Volume                   = {30},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{rizopoulos2014combining,
+  Title                    = {Combining dynamic predictions from joint models for longitudinal and time-to-event data using Bayesian model averaging},
+  Author                   = {Rizopoulos, Dimitris and Hatfield, Laura A and Carlin, Bradley P and Takkenberg, Johanna JM},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2014},
+  Number                   = {508},
+  Pages                    = {1385--1397},
+  Volume                   = {109},
+
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{rodriguez2014systolic,
+  Title                    = {Systolic blood pressure levels among adults with hypertension and incident cardiovascular events: the atherosclerosis risk in communities study},
+  Author                   = {Rodriguez, Carlos J and Swett, Katrina and Agarwal, Sunil K and Folsom, Aaron R and Fox, Ervin R and Loehr, Laura R and Ni, Hanyu and Rosamond, Wayne D and Chang, Patricia P},
+  Journal                  = {JAMA internal medicine},
+  Year                     = {2014},
+  Number                   = {8},
+  Pages                    = {1252--1261},
+  Volume                   = {174},
+
+  Date-added               = {2016-09-25 21:38:39 +0000},
+  Date-modified            = {2016-09-25 21:38:39 +0000},
+  Publisher                = {American Medical Association}
+}
+
+@Book{searle2009variance,
+  Title                    = {Variance components},
+  Author                   = {Searle, Shayle R and Casella, George and McCulloch, Charles E},
+  Publisher                = {John Wiley \& Sons},
+  Year                     = {2009},
+  Volume                   = {391},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{self1992modeling,
+  Title                    = {Modeling a marker of disease progression and onset of disease},
+  Author                   = {Self, Steve and Pawitan, Yudi},
+  Journal                  = {{AIDS} Epidemiology},
+  Year                     = {1992},
+  Pages                    = {231--255},
+
+  Booktitle                = {AIDS Epidemiology},
+  Owner                    = {myang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{sweeting2011joint,
+  Title                    = {Joint modelling of longitudinal and time-to-event data with application to predicting abdominal aortic aneurysm growth and rupture},
+  Author                   = {Sweeting, Michael J and Thompson, Simon G},
+  Journal                  = {Biometrical Journal},
+  Year                     = {2011},
+  Number                   = {5},
+  Pages                    = {750--763},
+  Volume                   = {53},
+
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tang2012semiparametric,
+  Title                    = {A semiparametric Bayesian approach to generalized partial linear mixed models for longitudinal data},
+  Author                   = {Tang, Nian-Sheng and Duan, Xing-De},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2012},
+  Number                   = {12},
+  Pages                    = {4348--4365},
+  Volume                   = {56},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tang2014semiparametric,
+  Title                    = {Semiparametric Bayesian joint models of multivariate longitudinal and survival data},
+  Author                   = {Tang, Nian-Sheng and Tang, An-Min and Pan, Dong-Dong},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2014},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tao1999estimation,
+  Title                    = {An estimation method for the semiparametric mixed effects model},
+  Author                   = {Tao, Huageng and Palta, Mari and Yandell, Brian S and Newton, Michael A},
+  Journal                  = {Biometrics},
+  Year                     = {1999},
+  Number                   = {1},
+  Pages                    = {102--110},
+  Volume                   = {55},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{taylor2013real,
+  Title                    = {Real-time individual predictions of prostate cancer recurrence using joint models},
+  Author                   = {Taylor, Jeremy MG and Park, Yongseok and Ankerst, Donna P and Proust-Lima, Cecile and Williams, Scott and Kestin, Larry and Bae, Kyoungwha and Pickles, Tom and Sandler, Howard},
+  Journal                  = {Biometrics},
+  Year                     = {2013},
+  Number                   = {1},
+  Pages                    = {206--213},
+  Volume                   = {69},
+
+  Date-added               = {2015-01-15 23:21:15 +0000},
+  Date-modified            = {2015-01-15 23:21:15 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{aric1989atherosclerosis,
+  Title                    = {The Atherosclerosis Risk in Community ({ARIC}) Study: Design and objectwes},
+  Author                   = {{The ARIC investigators}},
+  Journal                  = {American journal of epidemiology},
+  Year                     = {1989},
+  Number                   = {4},
+  Pages                    = {687--702},
+  Volume                   = {129},
+
+  Date-added               = {2016-09-12 03:56:16 +0000},
+  Date-modified            = {2016-09-12 04:06:49 +0000},
+  Publisher                = {Oxford Univ Press}
+}
+
+@Article{thompson2010bayesian,
+  Title                    = {Bayesian nonparametric quantile regression using splines},
+  Author                   = {Thompson, Paul and Cai, Yuzhi and Moyeed, Rana and Reeve, Dominic and Stander, Julian},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2010},
+  Number                   = {4},
+  Pages                    = {1138--1150},
+  Volume                   = {54},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tian2009semiparametric,
+  Title                    = {Semiparametric quantile modelling of hierarchical data},
+  Author                   = {Tian, Mao Zai and Tang, Man Lai and Chan, Ping Shing},
+  Journal                  = {Acta Mathematica Sinica, English Series},
+  Year                     = {2009},
+  Number                   = {4},
+  Pages                    = {597--616},
+  Volume                   = {25},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{touloumi2003comparison,
+  Title                    = {A comparison of two methods for the estimation of precision with incomplete longitudinal data, jointly modelled with a time-to-event outcome},
+  Author                   = {Touloumi, G and Babiker, AG and Kenward, MG and Pocock, SJ and Darbyshire, JH},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2003},
+  Number                   = {20},
+  Pages                    = {3161--3175},
+  Volume                   = {22},
+
+  Date-added               = {2014-10-27 20:15:27 +0000},
+  Date-modified            = {2014-10-27 20:15:27 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tsiatis2004joint,
+  Title                    = {Joint modeling of longitudinal and time-to-event data: an overview},
+  Author                   = {Tsiatis, Anastasios A and Davidian, Marie},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2004},
+  Number                   = {3},
+  Pages                    = {809--834},
+  Volume                   = {14},
+
+  Owner                    = {myang5},
+  Publisher                = {C/O DR HC HO, INST STATISTICAL SCIENCE, ACADEMIA SINICA, TAIPEI 115, TAIWAN},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{tsiatis1995modeling,
+  Title                    = {Modeling the relationship of survival to longitudinal data measured with error. {A}pplications to survival and {CD4} counts in patients with {AIDS}},
+  Author                   = {Tsiatis, AA and Degruttola, Victor and Wulfsohn, MS},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1995},
+  Number                   = {429},
+  Pages                    = {27--37},
+  Volume                   = {90},
+
+  Date-added               = {2015-01-15 21:55:38 +0000},
+  Date-modified            = {2015-01-15 21:55:38 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis Group},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{verbeke1997effect,
+  Title                    = {The effect of misspecifying the random-effects distribution in linear mixed models for longitudinal data},
+  Author                   = {Verbeke, Geert and Lesaffre, Emmanuel},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {1997},
+  Number                   = {4},
+  Pages                    = {541--556},
+  Volume                   = {23},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{verbeke1996linear,
+  Title                    = {A linear mixed-effects model with heterogeneity in the random-effects population},
+  Author                   = {Verbeke, Geert and Lesaffre, Emmanuel},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1996},
+  Number                   = {433},
+  Pages                    = {217--221},
+  Volume                   = {91},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis Group},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{wang2001jointly,
+  Title                    = {Jointly modeling longitudinal and event time data with application to acquired immunodeficiency syndrome},
+  Author                   = {Wang, Yan and Taylor, Jeremy M G},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2001},
+  Number                   = {455},
+  Pages                    = {895--905},
+  Volume                   = {96},
+
+  Date-added               = {2015-01-15 22:44:53 +0000},
+  Date-modified            = {2015-01-15 22:44:53 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{wattanakit2005risk,
+  Title                    = {Risk factors for cardiovascular event recurrence in the Atherosclerosis Risk in Communities (ARIC) study},
+  Author                   = {Wattanakit, Keattiyoat and Folsom, Aaron R and Chambless, Lloyd E and Nieto, F Javier},
+  Journal                  = {American heart journal},
+  Year                     = {2005},
+  Number                   = {4},
+  Pages                    = {606--612},
+  Volume                   = {149},
+
+  Date-added               = {2016-09-12 04:49:34 +0000},
+  Date-modified            = {2016-09-12 04:49:34 +0000},
+  Publisher                = {Elsevier}
+}
+
+@Article{wu1988estimation,
+  Title                    = {Estimation and comparison of changes in the presence of informative right censoring by modeling the censoring process},
+  Author                   = {Wu, Margaret C and Carroll, Raymond J},
+  Journal                  = {Biometrics},
+  Year                     = {1988},
+  Pages                    = {175--188},
+
+  Date-added               = {2014-10-27 20:59:34 +0000},
+  Date-modified            = {2014-10-27 20:59:34 +0000},
+  Owner                    = {myang5},
+  Publisher                = {JSTOR},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{wulfsohn1997joint,
+  Title                    = {A joint model for survival and longitudinal data measured with error.},
+  Author                   = {Wulfsohn, MS and Tsiatis, AA},
+  Journal                  = {Biometrics},
+  Year                     = {1997},
+  Number                   = {1},
+  Pages                    = {330--339},
+  Volume                   = {53},
+
+  Owner                    = {MYang5},
+  Timestamp                = {2016.11.11}
+}
+
+@Article{xu2001joint,
+  Title                    = {Joint analysis of longitudinal data comprising repeated measures and times to events},
+  Author                   = {Xu, Jane and Zeger, Scott L},
+  Journal                  = {Journal of the Royal Statistical Society: Series C (Applied Statistics)},
+  Year                     = {2001},
+  Number                   = {3},
+  Pages                    = {375--387},
+  Volume                   = {50},
+
+  Date-added               = {2015-01-15 22:51:07 +0000},
+  Date-modified            = {2015-01-15 22:51:07 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{xu2014bayesian,
+  Title                    = {Bayesian Nonparametric Estimation for Dynamic Treatment Regimes with Sequential Transition Times},
+  Author                   = {Xu, Yanxun and Mueller, Peter and Wahed, Abdus S and Thall, Peter F},
+  Journal                  = {arXiv preprint arXiv:1405.2656},
+  Year                     = {2014},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yang2015prediction,
+  Title                    = {Prediction of coronary artery disease risk based on multiple longitudinal biomarkers.},
+  Author                   = {Yang, L and Yu, M and Gao, S},
+  Journal                  = {Statistics in medicine},
+  Year                     = {2016},
+  Number                   = {8},
+  Pages                    = {1299--1314},
+  Volume                   = {35},
+
+  Date-added               = {2016-11-11 06:51:44 +0000},
+  Date-modified            = {2016-11-11 06:51:44 +0000}
+}
+
+@Article{yang2010semiparametric,
+  Title                    = {Semiparametric Bayes hierarchical models with mean and variance constraints},
+  Author                   = {Yang, Mingan and Dunson, David B and Baird, Donna},
+  Journal                  = {Computational statistics \& data analysis},
+  Year                     = {2010},
+  Number                   = {9},
+  Pages                    = {2172--2186},
+  Volume                   = {54},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yu2001bayesian,
+  Title                    = {Bayesian quantile regression},
+  Author                   = {Yu, Keming and Moyeed, Rana A},
+  Journal                  = {Statistics \& Probability Letters},
+  Year                     = {2001},
+  Number                   = {4},
+  Pages                    = {437--447},
+  Volume                   = {54},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yu2004joint,
+  Title                    = {Joint longitudinal-survival-cure models and their application to prostate cancer},
+  Author                   = {Yu, Menggang and Law, Ngayee J and Taylor, Jeremy MG and Sandler, Howard M},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2004},
+  Number                   = {3},
+  Pages                    = {835--862},
+  Volume                   = {14},
+
+  Date-added               = {2015-01-15 22:52:54 +0000},
+  Date-modified            = {2015-01-15 22:52:54 +0000},
+  Owner                    = {myang5},
+  Publisher                = {C/O DR HC HO, INST STATISTICAL SCIENCE, ACADEMIA SINICA, TAIPEI 115, TAIWAN},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yu2008individual,
+  Title                    = {Individual prediction in prostate cancer studies using a joint longitudinal survival--cure model},
+  Author                   = {Yu, Menggang and Taylor, Jeremy M G and Sandler, Howard M},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {2008},
+  Number                   = {481},
+  Pages                    = {178--187},
+  Volume                   = {103},
+
+  Date-added               = {2015-02-05 16:36:54 +0000},
+  Date-modified            = {2015-02-05 16:36:54 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Taylor \& Francis},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yuan2010bayesian,
+  Title                    = {Bayesian quantile regression for longitudinal studies with nonignorable missing data},
+  Author                   = {Yuan, Ying and Yin, Guosheng},
+  Journal                  = {Biometrics},
+  Year                     = {2010},
+  Number                   = {1},
+  Pages                    = {105--114},
+  Volume                   = {66},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{yue2011bayesian,
+  Title                    = {Bayesian inference for additive mixed quantile regression models},
+  Author                   = {Yue, Yu Ryan and Rue, H{\aa}vard},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2011},
+  Number                   = {1},
+  Pages                    = {84--96},
+  Volume                   = {55},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Elsevier},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{zhang2001linear,
+  Title                    = {Linear mixed models with flexible distributions of random effects for longitudinal data},
+  Author                   = {Zhang, Daowen and Davidian, Marie},
+  Journal                  = {Biometrics},
+  Year                     = {2001},
+  Number                   = {3},
+  Pages                    = {795--802},
+  Volume                   = {57},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{zhang2008efficient,
+  Title                    = {Efficient Estimation for Patient-Specific Rates of Disease Progression Using Nonnormal Linear Mixed Models},
+  Author                   = {Zhang, Peng and Song, Peter X-K and Qu, Annie and Greene, Tom},
+  Journal                  = {Biometrics},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {29--38},
+  Volume                   = {64},
+
+  Date-added               = {2014-10-27 14:17:42 +0000},
+  Date-modified            = {2014-10-27 14:17:42 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2016.04.21}
+}
+
+@Article{zheng2013adopting,
+  Title                    = {Adopting nested case--control quota sampling designs for the evaluation of risk markers},
+  Author                   = {Zheng, Yingye and Cai, Tianxi and Pepe, Margaret S},
+  Journal                  = {Lifetime Data Analysis},
+  Year                     = {2013},
+  Number                   = {4},
+  Pages                    = {568--588},
+  Volume                   = {19},
+
+  Date-added               = {2016-01-23 21:26:07 +0000},
+  Date-modified            = {2016-01-23 21:26:07 +0000},
+  Owner                    = {myang5},
+  Publisher                = {Springer},
+  Timestamp                = {2016.04.21}
+}
+

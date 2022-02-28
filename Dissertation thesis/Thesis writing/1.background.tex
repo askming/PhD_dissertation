@@ -1,0 +1,344 @@
+% \documentclass{article}
+% \usepackage[top=1.25in, bottom=1.1in, left=1.25in, right=1in]{geometry}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+
+% %\usepackage{Sweave}
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+\section{Background}
+\subsection{Literature Review}
+\subsubsection{Joint Models for Longitudinal And Time-to-Event Data}\label{sec:bak_jm}
+% first describe the context of bivariate outcome and introduce the JM
+In many longitudinal biomedical studies, time-to-event outcome is always of clinical interest as it indicates health condition and disease progression of the patients. Meanwhile, some continuous outcome(s) is often collected repeatedly during the study follow-up or at the time of events as the disease biomarker(s). Study interest often lies in modeling both outcomes as well as the relationship between them. A familiar example is the study of the association between repeatedly measured blood pressure and the risk of cardiovascular diseases or death. Ignoring the dependence between the two processes and fit models for them separately will lead to loss of information and result in biased or inefficient inference results \citep{tsiatis2004joint}. In addition, traditional survival model with time-varying covariate may not be appropriate to use due to its limiting assumption of external time dependent covariates that are not related to the event mechanism. This is especially true when we are interested in making predictions of the time-to-event outcome in the future, when the longitudinal biomarker is impossible to observe. Joint models (JM) of longitudinal and time-to-event data are more suitable to use under such situation as they are highly applicable in the setting of survival analysis with a time dependent covariate measured with error, or for longitudinal data analysis with event-related dropouts\citep{self1992modeling, tsiatis1995modeling}. By accommodating such joint processes, the simultaneous covariate effects on the repeated instances of the longitudinal sequence, but also across sequences, can be modeled and examined. Moreover, association between the two processes can be made an integral part of the models.
+
+% In traditional JM, a linear mixed model (LMM) \citep{laird1982random} is frequently used to model the longitudinal continuous outcome, where subject-specific random effects are incorporated to account for within subject correlation and between subject variation. The time-to-event submodel takes the form of Cox proportional hazards model (PHM), in which . Moreover, in above JM, the two processes are correlated by treating the longitudinal outcome as a time-dependent covariate in the time-to-event submodel, and the strength of association is governed by the parameter $\alpha$.
+
+% general literature review of JM and its development
+Joint analysis of longitudinal and time-to-event outcomes has been studied by many authors since the seminal work of \cite{self1992modeling, tsiatis1995modeling}. \cite{wulfsohn1997joint} developed the EM algorithm for parameter estimation in JM for survival analysis with a time dependent covariate measured with error. \cite{henderson2000joint} introduced the shared random effects JM for longitudinal and time-to-event data. As a summary paper, \cite{tsiatis2004joint} gives an excellent review of the JM methods. In recent years, many extensions have been added to the original version of JM, including considering multiple longitudinal outcomes \citep{brown2005flexible,rizopoulos2011bayesian}, incorporating multiple failure times \citep{elashoff2008joint}, among others. \cite{rizopoulos2011dynamic,taylor2013real} introduced the novel idea of making subject-specific dynamic predictions of future event-free probability based on the JM framework of longitudinal continuous outcome and survival. \cite{farcomeni2015longitudinal} first considered using longitudinal quantile regression model for the repeated continuous outcome in the JM. Compared with the extensive work on single time-to-event outcome, joint analysis of longitudinal and repeated time-to-event (or recurrent event) data has received less attention so far. To our knowledge, \cite{henderson2000joint} developed a JM for longitudinal data and recurrent event outcome. \cite{kim2012joint} considered a JM of longitudinal and recurrent event data with informative terminal event. \cite{efendi2013joint} proposed a JM of longitudinal data and recurrent events that accommodates overdispersion.
+
+
+\subsubsection{Quantile Regression And Linear Quantile Mixed Model}\label{sec:bak_qr}
+Within the traditional JM framework, a linear mixed model (LMM) is frequently used to model the longitudinal continuous outcome. Under LMM measurements from the same subject share the same random effects to account for within-subject correlation and random errors are assumed to be normally distributed and independent with the random effects\citep{laird1982random}. However, if the normality assumption of the error term is violated (even after applying various outcome transformations), an LMM is not appropriate to use. Furthermore, LMM  only models covariate effects on the conditional mean of the longitudinal outcome. However, in many clinical studies it is more desirable to make inference on the median, lower or higher conditional quantiles of the outcome. For example, low birth weight is known to be closely associated with infant mortality and development of chronic diseases. \cite{koenker2001quantile} studied the impact of various health factors on low birth weight using quantile regression (QR) model. They found several covariate effects on lower birth weight were significantly different compared with their effects on the mean birth weight. Thus, by modeling the conditional quantile of the outcome, QR provides a much more comprehensive way of examining the association between covariates and outcome \citep{koenker2005quantile}. Specifically, estimators of regression coefficients are functions of the quantile in QR, and we are able to study the heterogeneity of the outcome that is associated with the covariates. Moreover, as QR doesn't impose any distribution assumption on the data, it is more robust against the deviation from normality as well as outliers in the data.
+
+Since the seminal work of \cite{koenker1978regression}, QR is attracting increasing interest in the statistical community. QR has also been extended to longitudinal analysis by many authors. For example, \cite{jung1996quasi} developed a quasi-likelihood method of median regression model for longitudinal data. \cite{geraci2007quantile} proposed to fit QR for longitudinal data using asymmetric Laplace distribution (ALD) and parameter estimation is made by Monte Carlo EM algorithm. \cite{fu2012quantile} proposed a working correlation QR model for longitudinal data. From Bayesian perspective, \citep{kozumi2011gibbs, luo2012bayesian} developed a Gibbs sampling algorithm for linear quantile mixed model (LQMM) by assuming ALD for the error term.
+
+
+
+
+% then introduce statistical model for each submodel in JM respectively
+% \subsubsection{The Longitudinal Submodel}\label{sec:bak_jm_LMM}
+% In longitudinal data, repeated measurements from the same subject are more ``similar'' to each other compared with those from other subjects, that is, within subject measurements tend to be intercorrelated. Various statistical methods have been developed to handle the correlation issue, such as the marginal model, transition model, and random effects model \citep{diggle2002analysis}. Mixed effects models are especially popular in researches involving repeated measurements or observations from multilevel (or hierarchical) structure where the correlation between observations is not negligible. A model that contains both random effects and fixed effects is called a mixed effects model \citep{laird1982random}. In mixed effects model, within subject correlation is accounted by adding some random effects into the model, where observations from the same subject share the same random effects. As mentioned earlier in Section~\ref{sec:bak_jm}, in traditional JM, an LMM is commonly used in modeling the longitudinal outcome. In LMM, the conditional mean of the longitudinal outcome is modeled as a linear function of fixed and random effects and the measurement errors are assumed to be normal, i.e.
+
+% \begin{equation}\label{eqn:LMM}
+% \left\{\begin{array}{l}
+% Y_{i}(t) = {\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} + {\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i + \varepsilon_{i}(t)\\
+% \varepsilon_{i}(t) \overset{i.i.d.}\sim N(0, \sigma^2)
+% \end{array}
+% \right.
+% \end{equation}
+
+%  In addition, the random effects are commonly assumed to follow normal distribution as well. Conditional on the random effects, repeated measurements are assumed to be independent with each other.
+
+% \subsubsection{The Time-to-event Submodel}\label{sec:bak_jm_surv}
+% Time-to-event data usually contains time and related information when one or more events occur. In the context of clinical studies, such event can be death, disease onset, drop-out of study, hospital readmission, etc. In terms of number of possible occurrences, clinical event can be categorized as terminal event and recurrent event. Terminal event is defined as an event that happens only once (e.g. death); while the term recurrent event corresponds to event that happens more than once per subject over follow-up time (e.g. heart failure).\par
+
+% In case of terminal event, the hazard model in Equation~(\ref{eqn:joint_general}) can be used directly and the likelihood function of the data containing terminal event times for subject $i$ can be written as
+% \begin{eqnarray}\label{eqn:likelihood_terminal}
+% \nonumber L_1({\boldsymbol \theta} | T_i, \Delta_i, {\boldsymbol u}_i)&=& f(T_i;\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i})^{\Delta_i}S(T_i;\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i})^{1-\Delta_i}\\
+% &=& h(T_i;\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i})^{\Delta_i}S(T_i;\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i}),
+% \end{eqnarray}
+
+% \noindent where $S(\cdot)$ is the survival function, i.e.
+% \begin{equation*}\label{eqn:survival}
+% S(T_i;\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i})=\exp\left\{-\int_0^{T_i}h_0(s)\exp({\boldsymbol W_i}^{\top}\boldsymbol{\gamma} + \alpha({\boldsymbol X}_i^{\top}(T_i)\boldsymbol{\beta} + {\boldsymbol Z}_i^{\top}(T_i){\boldsymbol u}_{i}))ds\right\}.
+% \end{equation*}
+
+% When working with recurrent event data, instead of only one event time, multiple event times are observed for the same subject and the time-to-event submodel needs some transformation to accommodate such change. Specifically, let $T_{ik}$ be the $k$th event time for subject $i$ where $k=1, \cdots, c_i$. Then the likelihood of recurrent event data for subject $i$ is given by
+% \begin{eqnarray}\label{eqn:likelihood_recurrent}
+% % \nonumber L_2({\boldsymbol \theta} | {\bm T}, {\boldsymbol \Delta}, {\boldsymbol u}) &=& \prod_{i=1}^N \prod_{k=1}^{c_i}\left[h(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i, {\boldsymbol u_i})^{\Delta_{ik}}\exp\left(-\int_{T_{ik-1}}^{T_{ik}}h_i(s;\boldsymbol{\theta}|\mathcal{M}_{i}(s}), \boldsymbol{W}_i, {\boldsymbol u_i})ds\right)\right]\\
+% L_2({\boldsymbol \theta} | {\bm T}_i, {\boldsymbol \Delta}_i, {\boldsymbol u}_i) &=& \prod_{k=1}^{c_i}\left[h(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i,{\boldsymbol u_i})^{\Delta_{ik}}\right]\cdot S(T_{ic_i};\boldsymbol{\theta}|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i, {\boldsymbol u_i}).
+% \end{eqnarray}
+
+% The choice of the baseline hazard/intensive function can be flexible. A parametric form such as exponential, Weibull, or spline functions can be used or it can be left unspecified. Further extension of the functional form of the baseline function is also discussed in \cite{sweeting2011joint}.\par
+
+
+% \subsubsection{Linear Quantile Mixed Model}\label{sec:bak_lqmm}
+Let $Y_{i}(t_{ij})$ be the longitudinal outcome for subject $i$ measured at time $t_{ij}$ where $i=1, \cdots, N$ and  $j=1,\cdots, n_i$. Consider the following LMM:
+\begin{equation}\label{eqn:bcklmm}
+Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim N(0, \sigma^{2}),
+\end{equation}
+where $\boldsymbol{\beta}$ is a $p-$dimensional fixed effects,  ${\boldsymbol X}_{i}(t)$ contains the corresponding fixed-effect covariates, $\boldsymbol{u}_i$ is a $k-$dimensional random effects for subject $i$, and ${\boldsymbol Z}_{i}(t)$ contains the corresponding random-effect covariates.
+
+A linear quantile mixed model (LQMM) assumes that the conditional quantile of the outcome is a linear function of the covariates,
+\begin{equation}\label{eqn:bcklqmm}
+Q_{Y_{i}(t)|{\boldsymbol X}_{i}(t),{\boldsymbol Z}_{i}(t)}(\tau)={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i,
+\end{equation}
+where the $\tau$th quantile of a random variable $Y$ is defined as $Q_{Y}(\tau)=F_{Y}^{-1}(\tau)=\inf\left\{ y:F_{Y}(y)\geq\tau\right\}$ for $\tau\in [0, 1]$. The quantile regression estimates $\hat{\boldsymbol{\beta}}_{\tau}$ can be obtained by minimizing the loss function $\sum_{i, t}\left[\rho_{\tau}\left(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} - {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i\right)\right]$, where $\rho_{\tau}(\cdot)$ is defined as $\rho_{\tau}(Y)=Y(\tau-{I}{(Y<0)})$. Parameters $\boldsymbol{\beta}_{\tau}$ are functions of quantile $\tau$, as denoted by the subscript.
+
+As discussed in \citet{koenker1999goodness} and \citet{yu2001bayesian}, the above minimization problem can be rephrased as a maximum-likelihood problem by assuming that the random error $\varepsilon_{i}(t)$ in \eqref{eqn:bcklmm} follows ALD, denoted by $ALD(0, \sigma, \tau)$, with location parameter equals 0, scale parameter $\sigma>0$ and skewness parameter $\tau\in (0, 1)$. Parameter $\tau$ controls the skewness of the ALD. For example, it is skewed to left when $\tau>0.5$, skewed to right when $\tau<0.5$, and symmetric when $\tau=0.5$. Adopting the ALD, an LQMM is written as $Y_{i}(t) ={\boldsymbol X}_{i}^{\top}(t) \boldsymbol{\beta}_{\tau}+ {\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t)\sim ALD(0, \sigma, \tau)$. The conditional likelihood function of the longitudinal outcome is then given by $\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,\sigma)=\frac{\tau(1-\tau)}{\sigma}\exp\left[-\rho_{\tau}\left(\frac{Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i}{\sigma}\right)\right]$.
+
+In Bayesian quantile regression context a Gibbs sampling algorithm for model inference is developed when we utilize a location-scale mixture representation of the ALD \citep{kotz2001laplace}. Under such parameterization the random error is represented as $\varepsilon_{i}(t)=\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t)$ with $v_{i}(t)\sim \mathcal{N}(0,1), e_{i}(t)\sim\exp(1/\sigma)$ and
+\[\kappa_1=\frac{1-2\tau}{\tau(1-\tau)}\hspace{2em} \kappa_2^2=\frac{2}{\tau(1-\tau)}.\]
+
+
+This re-parameterization leads to the following linear mixed model,
+\begin{equation*}\label{eqn:bak_reformald2}
+Y_{i}(t)={\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}+{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i+\kappa_1e_{i}(t)+\kappa_2\sqrt{\sigma e_{i}(t)}v_{i}(t),
+\end{equation*}
+\noindent or equivalently,
+{\small
+\begin{equation}\label{eqn:bak_lqmm_repar}
+\ell(Y_{i}(t)|\boldsymbol{\beta}_{\tau},\boldsymbol{u}_i,e_{i}(t),\sigma)=\frac{1}{\sqrt{2\pi\kappa_2^2\sigma e_{i}(t)}}\exp\left[-\frac{(Y_{i}(t)-{\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta}_{\tau}-{\boldsymbol Z}_{i}^{\top}(t)\boldsymbol{u}_i-\kappa_1e_{i}(t))^2}{2\kappa_2^2\sigma e_{i}(t)}\right].
+\end{equation}
+}
+
+
+As discussed in \cite{yu2001bayesian}, irrespective of the actual distribution of the data, Bayesian quantile regression using ALD distribution works quite well for different error distributions and the performance is quite robust and satisfactory.
+
+
+
+
+\subsection{Proposed Statistical Methods}\label{sec:bak_proposed_models}
+
+\subsubsection{Quantile Regression Joint Models}\label{sec:bak_jm_lqmm}
+% define last observation time should be treated differently for terminal and recurrent event data.
+In this work, we propose a new Bayesian quantile regression joint models (QRJM) framework that replace the LMM with an LQMM for the longitudinal process in the traditional linear model JM. For the time-to-event outcome, our QRJM works for both single event time data as well recurrent events.
+
+For single time-to-event (e.g. death) outcome, let $T_i = $ min$(T_i^*, C_i)$ be the observed event time for subject $i$, where $T_i^*$ is the true underlying event time and $C_i$ is the censoring time. Let $\Delta_i$ be the event indicator defined as $\Delta_i = I(T_i^* < C_i)$, where $I(\cdot)$ is the indicator function. If $\Delta_i=1$, i.e. $T_i^* < C_i$, we say an event is observed during the study period; in contrast, $\Delta_i=0$ when there is no event observed at the end of the study or the patient is lost to follow-up (i.e., censored). Let $Y_{i}(t)$ be the continuous longitudinal outcome for subject $i$ measured at time $t$. Note that we can only observe $Y_{i}(t)$ when $t\le C_i$, so the complete longitudinal measurements for subject $i$ can be written as $\mathcal{Y}_{i}(t)=\{Y_{i}(s): 0\le s\le t\}$. We denote the true underlying longitudinal measurement for subject $i$ at time $t$ with $m_{i}(t)$ and his/her complete history of true longitudinal trajectory as $\mathcal{M}_{i}(t)=\{m_{i}(s): 0\le s \le t\}$. The proposed QRJM for terminal event can be written as follows:
+\begin{equation*}\label{eqn:joint_LQMM}
+\left\{
+\begin{array}{l}
+Y_{i}(t) = m_{i}(t) + \varepsilon_{i}(t) = {\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} + {\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t) \overset{i.i.d.}\sim ALD(0, \sigma, \tau)\\
+h(T_i|\mathcal{M}_{i}(T_i), {\boldsymbol W}_i;  \boldsymbol{\gamma}, \alpha) = h_0(T_i)\exp({\boldsymbol W}_i^{\top}\boldsymbol{\gamma} + \alpha m_{i}(T_i))
+\end{array}
+\right.
+\end{equation*}
+
+\noindent where the first equation is the LQMM introduced in Section \ref{sec:bak_qr}. Here $\boldsymbol{X}_{i}(t)$ are the fixed effect covariates and $\boldsymbol{Z}_{i}(t)$ are the covariates associated with $k-$dimensional random effects $\boldsymbol{u}_i$. Individual heterogeneity is captured by ${\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i$, which is the deviation of subject $i$ from the population. The second equation takes the format of Cox proportional hazards model (PHM) where $h_0(\cdot)$ is the baseline hazard function and $\boldsymbol{W}_{i}$ are the $q-$dimensional fixed effect covariates only associated with event time (not the longitudinal outcome). These two models are linked by treating the $\tau$th conditional quantile of the longitudinal outcome as a time dependent covariate in the time-to-event process, and the degree of associations is measured by parameter $\alpha$.
+
+
+For subject $i$, the likelihood function for survival data is:
+\begin{eqnarray}\label{eqn:bak_lik_surv}
+\ell(T_i, \Delta_i|\boldsymbol{{\boldsymbol u}_i}) =h(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i)^{\Delta_i}S(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i),
+\end{eqnarray}
+where $S(\cdot)$ is the survival function,
+\begin{equation*}
+S(T_i|\mathcal{M}_{i}(T_i), \boldsymbol{W}_i)=\exp\left\{-\int_0^{T_i}h_0(s)\exp({\boldsymbol W_i}^{\top}\boldsymbol{\gamma}_{\tau} + \alpha({\boldsymbol X}_i^{\top}(s)\boldsymbol{\beta}_{\tau} + {\boldsymbol Z}_i^{\top}(s){\boldsymbol u}_{i}))ds\right\}.
+\end{equation*}
+
+
+
+Similarly, for longitudinal and recurrent event data the proposed QRJM is given by:
+\begin{equation*}\label{eqn:joint_recurrent}
+\left\{
+\begin{array}{l}
+Y_{i}(t) = m_{i}(t) + \varepsilon_{i}(t) = {\boldsymbol X}_{i}^{\top}(t)\boldsymbol{\beta} + {\boldsymbol Z}_{i}^{\top}(t){\boldsymbol u}_i + \varepsilon_{i}(t), \varepsilon_{i}(t) \overset{i.i.d.}\sim ALD(0, \sigma, \tau)\\
+r_i(T_{ik}|\mathcal{M}_{i}(T_{ik}), {\boldsymbol W}_i;  \boldsymbol{\gamma}, \alpha) = r_{i0}(T_{ik})\exp({\boldsymbol W}_i^{\top}\boldsymbol{\gamma} + \alpha m_{i}(T_{ik}))
+\end{array}
+\right.
+\end{equation*}
+where $r_{i0}(\cdot)$ is the baseline intensity function and $T_{ik}= $ min($T_{ik}^*, C_i$), $k=1,\cdots, m_i$, is the $k$th event time for subject $i$, assuming a total number of $m_i$ events are observed within the censoring time $C_i$. The likelihood function for recurrent event data can be written as:
+{\small
+\begin{eqnarray}\label{eqn:bak_lik_rec}
+\ell({\boldsymbol T}_i, \boldsymbol{\Delta}_{i};\boldsymbol{\theta})&=& \nonumber \prod_{k=1}^{m_i}\left[r_i(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i)^{\Delta_{ik}}\exp\left(-\int_{T_{ik-1}}^{T_{ik}}r_i(s;\boldsymbol{\theta}|\mathcal{M}_{i}(s), \boldsymbol{W}_i)ds\right)\right]\\
+&=& \prod_{k=1}^{m_i}\left[r_i(T_{ik};\boldsymbol{\theta}|\mathcal{M}_{i}(T_{ik}), \boldsymbol{W}_i)^{\Delta_{ik}}\right]\exp\left(-\int_0^{T_{im_i}}r_i(s;\boldsymbol{\theta}|\mathcal{M}_{i}(s), \boldsymbol{W}_i)ds\right),
+\end{eqnarray}
+}
+and $\Delta_{ik} = I(T_{ik} < C_i)$ is the event indicator.
+
+
+
+\subsubsection{Bayesian Inference}\label{sec:bak_inference}
+Let $O_i$ be the maximum of follow-up time for subject $i$, that is $O_i = T_i$ for terminal event outcome and $O_i = C_i$ for recurrent event outcome according to our previous notation. In general, the complete likelihood function of the bivariate outcomes takes the form as follows:
+\begin{equation}\label{eqn:bak_full_lik}
+L_i(\boldsymbol{\theta};{\boldsymbol T}_i, \boldsymbol{\Delta}_i, \mathcal{Y}_{i}(O_i), \boldsymbol{u}_i) = \ell(\mathcal{Y}_{i}(O_i); \boldsymbol{\theta}|\boldsymbol{u}_i)\ell({\boldsymbol T}_i, {\boldsymbol\Delta}_i; \boldsymbol{\theta}|\boldsymbol{u}_i)f(\boldsymbol{u}_i|\boldsymbol{\Sigma}),
+\end{equation}
+
+\noindent where vector $\boldsymbol{\theta}$ represents a set of all the parameters from each distribution function,  $\ell(\mathcal{Y}_{i}(O_i); \boldsymbol{\theta}|\boldsymbol{u}_i)=\prod_{0\le t\le O_i}\ell(Y_{i}(t); \boldsymbol{\theta}|\boldsymbol{u}_i)$, where $\ell(Y_{i}(t), \boldsymbol{\theta}|\boldsymbol{u}_i)$ takes the format of (\ref{eqn:bak_lqmm_repar}), and $\ell(\boldsymbol{T}_i, \boldsymbol{\Delta}_i; \boldsymbol{\theta}|\boldsymbol{u}_i)$ is given in (\ref{eqn:bak_lik_surv}) for terminal event and in \eqref{eqn:bak_lik_rec} for recurrent event outcome, respectively. We propose a fully Bayesian inference algorithm for unknown parameters by taking advantage of the location-scale mixture representation of the ALD that is described in Section \ref{sec:bak_qr}. According to the Bayes theorem, the posterior distributions of the model parameters are proportional to the product of likelihood function and prior:
+\begin{equation}\label{eqn:bak_posterior}
+f(\boldsymbol{\theta}|\boldsymbol{T}, \boldsymbol{\Delta}, \bm{\mathcal{Y}}, \boldsymbol{u})\propto \prod_{i=1}^N L_i(\boldsymbol{\theta};{\boldsymbol T}_i, \boldsymbol{\Delta}_i, \mathcal{Y}_{i}(O_i), \boldsymbol{u}_i) f(\boldsymbol{\theta}),
+\end{equation}
+
+\noindent where $N$ is the total number subjects, $\boldsymbol{T}=(\boldsymbol{T}_1, \boldsymbol{T}_2, \cdots, \boldsymbol{T}_N)$, $\bm{\mathcal{Y}}=(\mathcal{Y}_{1}(O_1), \mathcal{Y}_{2}(O_2), \cdots, \mathcal{Y}_{N}(O_N))$, $\boldsymbol{\Delta} =(\boldsymbol{\Delta}_1, \boldsymbol{\Delta}_2, \cdots, \boldsymbol{\Delta}_N)$, $\boldsymbol{u}=(\boldsymbol{u}_1, \boldsymbol{u}_2, \cdots, \boldsymbol{u}_N)$, and $f(\boldsymbol{\theta})$ is the product of the prior distributions, i.e. $f(\boldsymbol{\theta})=\pi(\boldsymbol{\beta})\pi(\boldsymbol{\gamma})\pi(\alpha)\pi(\sigma)\pi(\boldsymbol{\Sigma})$. Here $\boldsymbol{\Sigma}$ is a $k\times k$ covariance matrix of the random effects. We adopt the following prior specifications:
+$\boldsymbol{\beta} \sim \mathcal{N}_p({\boldsymbol 0}, 10^3{\bf I}), \boldsymbol{\gamma} \sim \mathcal{N}_q({\boldsymbol 0}, 10^3{\bf I}), \alpha\sim \mathcal{N}(0, 10^3), \sigma\sim \mathcal{IG}(10^{-3}, 10^{-3}), \boldsymbol{\Sigma}^{-1}\sim Wishart({\bf I}, k+1).$
+
+In QR, all parameter estimators are functions of the quantile. This is also true in the proposed QRJM. That is, parameter estimations in the time-to-event submodel, such as $\alpha$ and $\boldsymbol{\gamma}$, also change depending which $\tau$ is chosen. It is straightforward to code the proposed QRJM and implement the Bayesian algorithm in \textsf{JAGS} \citep{plummer2003jags} or other Bayesian sampling software.
+
+
+\subsubsection{Subject-Specific Dynamic Predictions of Terminal Event Risk}\label{sec:bak_pred_jm}
+Upon fitting the QRJM to a study population that consists of $N$ subjects (i.e. training data), we can then make predictions of survival probability for a new subject based on a set of his or her historical longitudinal measurements as well as other baseline covariates information. For terminal event outcome model, an implication of JM is that up to time $t$, until when the longitudinal measurements are available, the subject must be alive or free of event as $Y_{i}(t)$ serves as the internal time dependent covariate in the survival model. Thus, what we are really interested in is the conditional survival probability up to time $m = t+\Delta t$ ($\Delta t > 0$) given the survival up to time $t$, i.e.,
+\begin{equation}\label{eqn:bak_surv_prob}
+p_i(m|t) = Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N;\boldsymbol{\theta}),
+\end{equation}
+\noindent where $\mathcal{D}_N=\{T_i, \Delta_i, \boldsymbol{Y}_i, i=1, \cdots, N\}$ denotes the training data of size $N$.
+
+Equation (\ref{eqn:bak_surv_prob}) can be further elaborated as follows:
+\begin{equation}\label{eqn:bak_surv_prob_derv}
+     \begin{aligned}
+      & Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N;\boldsymbol{\theta})\\
+      &=\int Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N, {\boldsymbol u}_i;\boldsymbol{\theta})
+ {Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N;\boldsymbol{\theta})d{\boldsymbol u}_i}  \\
+      &= {\int Pr(T_i^*\ge m|T_i^*>t, {\boldsymbol u}_i;\boldsymbol{\theta})Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d{\boldsymbol u}_i} \\
+       &= {\int\frac{{S}_i[m|\mathcal{M}_{i}(m,{\boldsymbol u}_i, \boldsymbol{\theta});\boldsymbol{\theta}]}{{S}_i[t|\mathcal{M}_{i}(t,{\boldsymbol u}_i, \boldsymbol{\theta});\boldsymbol{\theta}]}Pr({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d{\boldsymbol u}_i}, \\
+     \end{aligned}
+     \phantom{\hspace{0cm}}
+\end{equation}
+% }
+\noindent where ${S}(\cdot)$ is the survival function conditional on the entire longitudinal history $\mathcal{M}_{i}(\cdot)$.
+
+
+To estimate (\ref{eqn:bak_surv_prob_derv}), we can take the advantage of the proposed Gibbs sampling algorithm and use the MCMC technique to calculate the posterior mean of the prediction. Specifically, we are going to estimate
+\begin{eqnarray}\label{eqn:bak_expct_pred}
+\nonumber E_{\boldsymbol{\theta}|\mathcal{D}_N}[p_i(m|t)]&=&Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t), \mathcal{D}_N)\\
+\nonumber &=&\int Pr(T_i^*\ge m|T_i^*>t, \mathcal{Y}_{i}(t);\boldsymbol{\theta})p(\boldsymbol{\theta}|\mathcal{D}_N)d\boldsymbol{\theta},
+\end{eqnarray}
+
+\noindent where the first part of the equation is given in (\ref{eqn:bak_surv_prob_derv}).\par
+
+A Monte Carlo (MC) approximation of $p_i(m|t)$ can be obtained using the following procedure:
+
+\begin{enumerate}
+\item Draw $\boldsymbol{\theta}^{(p)} \sim Pr(\boldsymbol{\theta}|\mathcal{D}_N)$ for $p=1, \cdots, P$;
+\item For each $\boldsymbol{\theta}^{(p)}$, draw ${\boldsymbol u}^{(q)}_i\sim f({\boldsymbol u}_i|T_i^*>t, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(p)})$ for $q=1, \cdots, Q$ and compute $$p_i^{(p)}(m|t)=\frac{1}{Q}\sum_{q=1}^QS_i[m|\mathcal{M}_{i}(m, \boldsymbol{u}^{(q)}_i, \boldsymbol{\theta}^{(p)});\boldsymbol{\theta}^{(p)}]S_i[t|\mathcal{M}_{i}(t, \boldsymbol{u}^{(q)}_i, \boldsymbol{\theta}^{(p)});\boldsymbol{\theta}^{(p)}]^{-1};$$
+\item Approximate $p_i(m|t)$ by $\hat{p}_i(m|t)=\frac{1}{P}\sum_{p=1}^P p^{(p)}_i(m|t)$ after collecting all $P$ samples of $p_i(m|t)^{(p)}$.
+\end{enumerate}
+
+In above algorithm $P$ is the total number of MC iterations, $f(\boldsymbol{\theta}|\mathcal{D}_N)$ is the posterior distributions of
+$\boldsymbol{\theta}$ given in (\ref{eqn:bak_posterior}), and $f({\boldsymbol u}_i|T_i^*, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(k)})$ is the posterior distribution of the random effects for subject $i$.
+
+
+
+\subsubsection{Subject-Specific Dynamic Predictions of Recurrent Event Risk}\label{sec:bak_pred_jm_recurrent}
+
+Similarly, for recurrent event data let $\mathcal{Y}_{i}(t)$ be the observed complete longitudinal measurements,  $\mathcal{M}_{i}(t)$ be the true underlying longitudinal trajectory up to time $t$, and $\mathcal{T}_{it-}=\{T_{ik}: 1\le k\le K, T_{iK} < t\}$ be the recurrent times before time $t$. The predicted event-free probability at time $m$ ($m > t$) given previous event times and longitudinal measurements up to the follow-up time $t$ is:
+\[p_i(m|t) = Pr(T_{iK+1}\ge m | T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t); \boldsymbol{\theta}).\]
+With further derivation:
+{\small
+\begin{eqnarray}
+\label{eqn:bak_rec_prob_derv}
+\nonumber p_i(m|t) &=& \int Pr(T_{iK+1}\ge m | T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t), \boldsymbol{u}_i; \boldsymbol{\theta}) \cdot Pr(\boldsymbol{u}_i|T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i\\
+\nonumber&=& \int Pr(T_{iK+1}\ge m | T_{iK+1}> t, \mathcal{T}_{it-}, \boldsymbol{u}_i; \boldsymbol{\theta}) \cdot Pr(\boldsymbol{u}_i|T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i\\
+&=&\int \frac{Pr(T_{iK+1}\ge m | \mathcal{M}_{i}(m, \boldsymbol{u}_i; \boldsymbol{\theta}), \mathcal{T}_{it-}; \boldsymbol{\theta})}{Pr(T_{iK+1}> t | \mathcal{M}_{i}(t, \boldsymbol{u}_i; \boldsymbol{\theta}), \mathcal{T}_{it-}; \boldsymbol{\theta})}\cdot Pr(\boldsymbol{u}_i|T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t);\boldsymbol{\theta})d\boldsymbol{u}_i.
+\end{eqnarray}
+}
+
+
+And we approximate the prediction with it posterior mean:
+\begin{eqnarray}\label{eqn:bak_pexpct_pred}
+\nonumber E_{\boldsymbol{\theta}|\mathcal{D}_N}[p_i(m|t)]&=&Pr(T_{iK+1}\ge m | T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t))\\
+\nonumber &=&\int Pr(T_{iK+1}\ge m | T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t); \boldsymbol{\theta})p(\boldsymbol{\theta}|\mathcal{D}_N)d\boldsymbol{\theta},
+\end{eqnarray}
+
+\noindent where the first part of the equation is given in (\ref{eqn:bak_rec_prob_derv}).
+
+A similar Monte Carlo (MC) procedure to approximate $p_i(m|t)$ is carried out as follows:
+\begin{enumerate}
+\item Draw $\boldsymbol{\theta}^{(p)}\sim Pr(\boldsymbol{\theta}|\mathcal{D}_N)$ for $p=1, \cdots, P$;
+\item For each $\boldsymbol{\theta}^{(p)}$, draw $\boldsymbol{u}_i^{(q)} \sim Pr(\boldsymbol{u}_i|\mathcal{D}_N, \boldsymbol{\theta}^{(p)})$ for $q=1, \cdots, Q$, and approximate $p_i(m|t)^{(p)}$ by
+\[\frac{1}{Q}\sum_{q=1}^Q\frac{Pr(T_{iK+1}\ge m | \mathcal{M}_{i}(m, \boldsymbol{u}_i^{(q)}; \boldsymbol{\theta}^{(p)}), \mathcal{T}_{it-}; \boldsymbol{\theta}^{(p)})}{Pr(T_{iK+1}> t | \mathcal{M}_{i}(t, \boldsymbol{u}_i^{(q)}; \boldsymbol{\theta}^{(p)}), \mathcal{T}_{it-}; \boldsymbol{\theta}^{(p)})};\]
+\item Approximate $p_i(m|t)$ by $\frac{1}{P} \sum_{p=1}^{P} p_i(m|t)^{(p)}$.
+\end{enumerate}
+
+\noindent In above estimation procedure, $Pr(\boldsymbol{u}_i|\mathcal{D}_N, \boldsymbol{\theta}^{(p)})$, i.e., $f({\boldsymbol u}_i|T_{iK+1}> t, \mathcal{T}_{it-}, \mathcal{Y}_{i}(t), \boldsymbol{\theta}^{(p)})$ is the posterior distribution of the random effects for subject $i$. Standard error of the prediction can be computed using the sample variance.
+
+In Step 2 of above algorithms, the posterior predictive values of the random effects are directly results from the MCMC iterations if the subject is within the training data. For out-of-sample subjects who don not belong to the original study population, we can use the inference results from the training data to run additional MCMC iterations to obtain such predictions and the rest of the algorithm follows. Since for each individual there are only a few random effects (two in our current model) to estimate, a short MCMC with 200 iterations should be sufficient for converge \citep{taylor2013real}.
+
+
+In summary, it is relatively easy to make subject-specific predictions of event-free probability from the posterior samples of the fixed effects and the posterior predictive distributions of the random effects, which are direct results of our sampling algorithm. In addition, by using the MCMC technique, uncertainty of the predictive inference is fully captured in the posterior distribution and no asymptotic theory is needed to derive the standard error.
+
+\subsubsection{Predictive Accuracy}\label{bak_pre_acc}
+Predictive accuracy of a model can be evaluated from different perspectives, such as discrimination, calibration, and reclassification, etc. Discrimination measures a model's ability in identifying events versus non-events. Calibration quantifies the closeness of the predictions and the observed values. While reclassification assesses the improvement of a model in prediction after adding new predictor(s). In this work, we mainly focus on the discriminative ability of our model. Area under the receiver operating characteristic curve (AUC) is a commonly used statistics to evaluate the discriminative ability in prediction, while above average risk difference (AARD) measures the difference in the risk rates comparing events versus non-events at the level of population average risk, and mean risk difference (MRD) is the average difference between TPR and FPR across the risk scale \citep{pepe2008comments}. In this work, we use all these three measurements as summary statistics to evaluate the predictive performance of our model.
+
+Following \cite{zheng2013adopting} and \cite{yang2015prediction}, at a given time $t$, a future time $t+\Delta t$ and a threshold $c$, the true positive rate (TPR) and false positive rate (FPR) of the predictive results can be defined as follows:
+\[\mbox{TPR}_t^{\Delta t}(c)=Pr({\bf 1} - \boldsymbol{p}(t+\Delta t|t)\ge c | \boldsymbol{T}\le t+\Delta t),\]
+\[\mbox{FPR}_t^{\Delta t}(c)=Pr({\bf 1} -\boldsymbol{p}(t+\Delta t|t)\ge c | \boldsymbol{T} > t+\Delta t),\]
+where $\boldsymbol{p}(t+\Delta t | t)$ is a vector of predicted event-free probabilities at time $t+\Delta t$ based on the longitudinal measurements up to time $t$:
+\[p_i(t+\Delta t | t) = S_i(t+\Delta t| \mathcal{Y}_{i}(t), {\boldsymbol u}_i;\boldsymbol{\theta}), i = 1, \cdots, N.\]
+
+The estimate of $\boldsymbol{p}(t+\Delta t | t)$ is denoted by $\hat{\boldsymbol{p}}(t+\Delta t | t)$ and the estimators of TPR and FPR can be written as:
+\begin{equation*}\label{bak_est_pTPR}
+\widehat{TPR}_{t}^{\Delta t}(c) = \frac{\sum_{i=1}^{N}(1 -\hat{p}_i(t+\Delta t|t))I(1 -\hat{p}_i(t+\Delta t|t)\ge c)}{\sum_{i=1}^{N}(1 - \hat{p}_i(t+\Delta t|t))},
+\end{equation*}
+\begin{equation*}\label{bak_est_pFPR}
+\widehat{FPR}_{t}^{\Delta t}(c) = \frac{\sum_{i=1}^{N}\hat{p}_i(t+\Delta t|t)I(1 -\hat{p}_i(t+\Delta t|t)\ge c)}{\sum_{i=1}^{N}\hat{p}_i(t+\Delta t|t)}.
+\end{equation*}
+
+
+And by definition:
+\begin{equation*}\label{bak_est_pAUC}
+\widehat{AUC}_t^{\Delta t} = \int \widehat{TPR}_t^{\Delta t}\left\{ (\widehat{FPR}_t^{\Delta t})^{-1}(u)\right\}du,
+\end{equation*}
+\begin{equation*}\label{bak_est_pAARD}
+\widehat{AARD}_t^{\Delta t} = \widehat{TPR}_t^{\Delta t}(\hat{\rho}) - \widehat{FPR}_t^{\Delta t}(\hat{\rho}),
+\end{equation*}
+\begin{equation*}\label{bak_est_pMRD}
+\widehat{MRD}_t^{\Delta t} = \int_c \widehat{TPR}_t^{\Delta t}(c)dc - \int_c \widehat{FPR}_t^{\Delta t}(c)dc.
+\end{equation*}
+
+And in AARD, $\hat{\rho} = \frac{\sum_{i=1}^N (1-\hat{p}_i(t+\Delta t| t))}{N}$ is the average risk in the study population at time $t+\Delta t$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Public Health Significance}\label{sec:bak_significance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Traditional health care interventions are designed based on the average treatment effect on the population. It's not surprising that some interventions may work perfectly on some patients but fail on others because of various individual health profiles. To make the treatment more effective, ideally, personalized health care strategy should be adopted and treatments are tailored based specific disease information of each individual patient. The practice of customized treatment does already exist in treating tumors where doctors prescribe drugs based on the tumor's growth and some specific gene mutations of the patient. However, there is much more needs to be done in order to extend the idea of personalized medicine for patients suffering with other diseases. As Precision Medicine Initiative \citep{collins2015new} strives for, development of statistics tools that facilitate the analysis for individual patient could greatly help physicians make personalized treatment decisions in order to achieve better clinical outcomes.
+
+In biomedical context, it is common that extremer values of the disease marker are related with higher risk of various medical events, including death and disease recurrences. However, it is hard to look at those tails of the biomarker distribution using traditional linear regression based methods, which models only the covariate effects on the conditional mean of the outcome. The proposed QRJM in this dissertation work provides much more flexibility in modeling covariate effects on any specific conditional quantile of the longitudinal continuous outcome meanwhile studying its relationship with the risk of medical event(s). By using the QRJM, variation of treatment effect on the outcome can be thoroughly examined, based on which different and more specific treatment strategies can be made. In real-world applications, regression quantile(s) can be chosen to reflect specific research interest, to better understand the risk factor-and-disease relationship, and to plan more effective disease interventions.
+
+Public health is a science discipline that aims to improve the health of the entire community by preventing disease and ensuring better health care outcomes. Another important application this dissertation work is to make subject-specific predictions of future event probability. Such predictions provide important information about patient specific disease progression in terms of the likelihood of potential event(s) in the future. Thus patient-specific intervention method can be tailored to postpone or prevent the event from happening. Moreover, such predictions can be dynamically updated as we accumulate more longitudinal biomarker data, for those who are still at risk of event, and more event history for those who experience disease recurrences. This would allow us to adjust treatment plan continuously for each individual patient and the delivery of health care would be much more efficient. This idea of subject-specific dynamic predictions fits into the big concept of ``personalized medicine'', which aims to provide the right patient with the right drug at the right time \citep{us2013paving}.
+
+
+
+\subsection{Research Questions and Specific Aims}\label{sec:bak_aims}
+JM of longitudinal and time-to-event data using QR has been little studied so far. To our knowledge, \cite{farcomeni2015longitudinal} is the first work that extended LMJM to incorporate a QR model in the longitudinal process. In their paper the parameter estimations are obtained using the Monte Carlo expectation and maximization (MCEM) method.  Also, no work has been done yet to extend the subject-specific dynamic predictions method to the QRJM framework. In terms of JM of longitudinal and recurrent event data, there is a scarcity of work being done either for inference or for prediction purpose. To this end, we propose a fully Bayesian algorithm for model estimation and dynamic predictions under the new QRJM framework. In the time-to-event process, we consider both terminal and recurrent event outcomes. The algorithm consists of two parts. First, we draw statistical inference of the disease progression and the association between a longitudinal biomarker and the time-to-event outcome based on a large study population. Second, we make predictions of future event-free probability for a subject with his or her longitudinal biomarker trajectory information (as well as recurrent events history in the case of recurrent event outcome). To estimate the risk of future event(s), we explore the posterior distributions of the fixed effects and the predictions of the subject-specific random effects from our algorithm. Moreover, we dynamically update the predictions as long as new longitudinal measurements and event data can be obtained.
+
+Specifically, we aim to achieve the following three objectives in this dissertation work:
+
+\begin{enumerate}
+\item In paper 1, we propose a fully Bayesian algorithm for model inference under the QRJM framework, based on which a subject-specific dynamic prediction method of survival probability is developed. The proposed inference and prediction algorithms are implemented using existing software. In data application, we use the QRJM to study risk factors of Huntinton's disease (HD) onset and to make predictions of the risk of HD onset in the future. Our hypothesis was that traditional linear model JM (LMJM) would produce biased parameter estimation and predicted survival probability when the longitudinal outcome is skewed; in contrast, QRJM should be more robust against non-normality. QRJM with correctly specified quantile would outperform LMJM in both model estimation and dynamic predictions. In predicting future event-free probability, with additional longitudinal measurements, our model would be able to incorporate such information and update the predictions accordingly.
+
+\item In paper 2, we extend our QRJM to study the recurrent event data and develop a fully Bayesian algorithm for model inference. We compare the performance of QRJM and LMJM under different error distributions (i.e. skewed v.s. normal). The proposed model is applied to a real-world data set to study various covariate effects on different quantiles of SBP and its association with the risk of recurrent CHD. Our hypothesis was that QRJM should be more appropriate to use rather than LMJM when the longitudinal outcome is possibly skewed and covariate effects would be different according to the specification of regression quantiles in the QRJM.
+
+\item In paper 3, we develop a subject-specific dynamic predictions algorithm for future recurrent event probability based on the QRJM of longitudinal and recurrent event data. The predictions can be dynamically updated when additional longitudinal and/or recurrent event data are available. Prediction performances between QRJM and LMJM are compared in simulation study where data are generated from skewed and normal distributions. The proposed predictive algorithm is applied to make dynamic predictions of recurrent CHD risk based on historical SBP and CHD events data. Our hypothesis was the predictive performance from QRJM should outperform than that from the LMJM at some quantiles but not for all quantiles as some conditional quantiles of SBP are more informative in predicting CHD events.
+\end{enumerate}
+
+% To demonstrate the application of our proposed methods, we will be using the data from the Neurobiological Predictors
+% of Huntington's Disease (PREDICT-HD) study, which is an
+% observational study that tries to identify some earliest health indicators of HD onset among patients who haven't been diagnosed with Huntington's disease \citep{paulsen2008detection}. More information about the PREDICT-HD study and the data description are given in Section \ref{sec:data}.
+
+
+
+
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+% \end{document}
