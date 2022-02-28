@@ -1,0 +1,84 @@
+\documentclass[10pt,a4paper,showtrims]{memoir}
+\usepackage{pgf}
+\usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.95\pgfphysicalwidth,%
+    resized height=.95\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
+
+\pgfpagesuselayout{boxed}\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage {setspace}
+\usepackage[hang,flushmargin]{footmisc} %control footnote indent
+\usepackage{url} % for website links
+\usepackage{graphicx}%for figure
+\usepackage{appendix}%for appendix
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{morefloats}%in case there are too many float tables and figures
+\usepackage{caption}
+\captionsetup[subtable]{font=normal}
+\usepackage{color}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+
+\begin{document}
+
+
+
+
+\subsubsection*{\Large Dissertation Proposal Defense}\vspace{2em}
+\pagestyle{empty}
+\begin{center}
+\Huge{Model Estimation and Dynamic Predictions for Subject Specific Event Probabilities in Joint Modeling Using Longitudinal Quantile Regression}
+\end{center}
+
+\vspace{5em}
+
+\begin{center}
+\Large{Ming Yang}\vspace{2em}
+
+\Large{Thursday, April 16, 2015}\par\vspace{0.5em}
+\Large{1:00 p.m. to 2:00 p.m. CST}\par\vspace{0.5em}
+\Large{Room: RAS W-304}
+\end{center}
+
+\vspace{5em}
+\subsubsection*{\Large Dissertation committee:}
+\Large{Stacia M. DeSantis, PhD (Chair \& Academic Advisor)}\par\vspace{0.5em}
+\Large{Sheng Luo, PhD (Dissertation Supervisor)}\par\vspace{0.5em}
+\Large{David R. Lairson, PhD (Minor Adviosr)}\par\vspace{0.5em}
+\Large{Xiaoming Liu, PhD (Breadth Advisor)}\\
+
+\vspace{1em}
+\subsubsection*{\Large Externel reviewer:}
+\Large{Soeun Kim, PhD}
+
+\vspace{3em}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.25]{SPHlogo.png}
+\end{center}
+\end{figure}
+
+\end{document}
