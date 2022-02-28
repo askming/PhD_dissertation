@@ -1,0 +1,68 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+% \usepackage{appendix}
+% \usepackage{listings}
+% \usepackage{courier}
+% \usepackage{color}
+
+
+% \lstset{style=mystyle}
+
+
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+
+\subsection{Discussion}\label{sec:p2discussion}
+% What is done in this work, including data analysis part.
+In the application of conventional JM methodologies for longitudinal and recurrent event data, we usually encountered two limitations: first, the normality assumption of the random error in the LMM was not realistic, and no obvious transformation of the longitudinal outcome to produce residual normality was applicable. This limitation is confirmed by our simulation study where LMJM tends to provide biased point estimates as well as lower coverage probabilities for model parameters when the longitudinal data are non-normal. Second, LMJM models only the conditional mean of the outcome; however, in our (and other) clinical research applications, it is more desirable to consider the tails of the biomarker distribution. For example, in our application of the ARIC data, higher level of SBP imposes higher risk of recurrent CHD event and the association between the two outcomes varies according to different conditional quantiles.
+
+Our work on QRJM that uses an LQMM for the longitudinal process provides an alternative and more flexible way for modeling the joint distribution of longitudinal and recurrent event outcomes. The quantile-based estimators are more robust against skewness in the data, and as a result, our approach provides the flexibility to use median or quantile regression instead of mean regression when outliers are concerned. Moreover, QRJM provides a set of estimates at different quantiles of the longitudinal outcome variable, which can have practical meaning when the lower or higher quantile of the outcome is more relevant to health-related questions. In general, we show via simulation and application that QRJM not only inherits the good properties of a LMJM, but adds flexibility to the modeling procedure.
+
+In this work, we developed a Gibbs sampler algorithm to fit the proposed model, where the likelihood function of the longitudinal quantile regression is written under the location-scale representation of the ALD distribution. The proposed algorithm is straightforward to implement in existing Bayesian software. The current version of Gibbs sampler, which is implemented in \textsf{JAGS} software, uses a piecewise constant baseline hazard function in the recurrent event submodel. However, other functional forms can also be considered and the integration of the hazard function can be approximated using Simpson's rule. In the real data application, we illustrate the flexibility of QRJM and its advantages over the LMJM by jointly modeling the risk of developing recurrent CHD event and repeated SBP measurements. QRJM is able to provide us with more informative insights into the disease progression and the association between the two disease processes in terms of various quantile-based estimations.
+
+Our novel extension of JM in using LQMM for the longitudinal outcome finds practical importance in many clinical applications. Studying covariate effects on the conditional mean of the outcome gives us an idea about how treatment and other factors may affect disease progression in the population on average; however, it is limited to be too general and those effects could be dramatically different depending different quantiles of the outcome under investigation. Particularity, higher or lower tail of the longitudinal biomarker is often associated with worse medical condition in patients and leads to higher risk of disease. If treatment effect on tails of the outcome is significantly different from the average effect, treating different groups of patients using the exact same way won't be as effective as we tailor the treatment strategy according to patient-specific situation.
+
+% Method summary and software.
+% Limitation and
+% Further work.
+
+Currently, in the proposed QRJM we only consider an LQMM and a PHM for the longitudinal and recurrent event outcomes respectively. However, other modeling strategies can also be considered to extend the proposed method. For example, for the longitudinal outcome, nonlinear QR \citep{koenker1996interior} or even nonparametric QR \citep{le2005nonparametric} models can be used in stead of linear QR. In the recurrent event submodel, accelerated failure time model can be consider as another parametric formulation for event times and counting process approach is another nonparametric option.
+
+% A question arises naturally from using quantile regression is which quantile should we choose? The answer is not unique and should depend on the specific research aim.
+
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+
+% \end{document}

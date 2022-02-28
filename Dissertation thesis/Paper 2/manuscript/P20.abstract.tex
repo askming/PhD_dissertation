@@ -1,0 +1,18 @@
+
+\title{Bayesian Quantile Regression Joint Models of Longitudinal and Recurrent Event Data}
+% \end{center}
+
+\author{}
+\date{}
+
+\maketitle
+
+
+\begin{center}
+{\bf Abstract}
+\end{center}
+
+Recurrent event (e.g. heart failure, cancer recurrence, hospital readmissions, etc.) outcome is commonly encountered in longitudinal biomedical studies. In those studies, recurrent event outcome can be an important outcome of interest in monitoring disease progression or health condition of the study participants in addition to some continuous longitudinal outcome. For example, in the Atherosclerosis Risk In Communities Study (ARIC), which aims to investigate the causes of atherosclerosis and its clinical outcomes, and variation in cardiovascular risk factors, repeated systolic blood pressure (SBP) were measured at regular clinical visits for study participants. Meanwhile, recurrent event outcomes, including coronary heart disease, stroke, and heart failure, etc., were collected from extensive cohort surveillance. Previous studies using ARIC data revealed that there was a positive correlation between SBP and recurrent CHD events in the study cohort. This motivates us to consider the joint models (JM) of longitudinal and recurrent event data. JM models the bivariate outcomes jointly in accounting for the correlation between them, while studying potential disease risk factors for both outcomes simultaneously. In the traditional JM framework, a linear mixed model (LMM) is commonly used for the longitudinal outcome. LMM assumes normal random error; however, in many circumstances, the normality assumption cannot be satisfied and the it is not appropriate to use directly. Moreover, LMM only models the conditional mean of the longitudinal outcome, which may not be desirable in many clinical studies. In contrast to mean regression, quantile regression (QR) provides a more flexible, distribution-free way to study covariate effects at different quantiles of the longitudinal outcome. This becomes extremely important when higher (e.g. SBP) or lower (e.g. CD4 count) tail of the outcome is more relevant to clinical interest. In this paper, we propose to use the so-called linear quantile mixed model (LQMM) for the longitudinal outcome jointly with a proportional hazard model (PHM) for the recurrent event outcome under the JM framework. We develop a Gibbs sampler algorithm for the model inference, which is based on the location-scale representation of the asymmetric Laplace distribution for LQMM. We assess the performance of our Bayesian algorithm through extensive simulation study and applied the proposed model to the longitudinal SBP and recurrent CHD event data from the ARIC Study.
+
+{\bf Key words:} Bayesian; Joint models; Linear quantile mixed model; Recurrent event.
+

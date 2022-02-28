@@ -1,0 +1,55 @@
+% \documentclass{article}
+% \usepackage[top=1.25in, bottom=1.1in, left=1.25in, right=1in]{geometry}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+
+% %\usepackage{Sweave}
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+
+\subsection{Introduction}
+
+% JM in one or two sentences then talk about only the longitudinal part. Talk about the motivating data before introducing QR.
+
+% Medical background of longitudinal and recurrent event data. Introduce the JM in analyzing these two types of data jointly.
+Recurrent event, such as multiple cardiovascular diseases (CVD), cancer recurrences, and hospital readmissions, are commonly encountered in clinical studies. Meanwhile, during the follow-up, some longitudinal outcomes are usually measured repeatedly at regular clinical visits or when events occur. It is common that longitudinal biomarkers are informative for the occurrence of repeated events in many clinical settings. As a typical example, patients with higher blood pressure (BP) are more likely to experience coronary heart diseases (CHD) \citep{wattanakit2005risk, rodriguez2014systolic}. Ignoring the dependence between the longitudinal and recurrent event processes and the fit models for the two outcomes separately will lead to loss of information and result in biased or inefficient inference results. Traditional survival model with time-varying covariate may not be appropriate to use due to its limiting assumption of external time-dependent covariates that are not related to the event mechanism. In contrast, joint models (JM) of longitudinal and recurrent event data is more appropriate to use to study the association between the two processes and to model the two outcomes simultaneously.
+
+% literature review of JM: longitudinal and terminal, longitudinal and recurrent, recurrent and terminal or trivariate model.
+Joint analysis of longitudinal and time-to-event outcome has been studied by many authors. However, majority of the literature focuses on JM of longitudinal and a single time-to-event (e.g. terminal event). For example, \cite{self1992modeling, tsiatis1995modeling, wulfsohn1997joint} developed the JM methods for survival analysis with a time dependent covariate measured with error. \cite{tsiatis2004joint} gives an excellent review of such JM method. With more recent development, \cite{rizopoulos2011dynamic,taylor2013real} introduced the novel idea of making subject-specific dynamic predictions of future event-free probability based on the JM of longitudinal continuous outcome and survival. In contrast, joint analysis of longitudinal and recurrent event outcomes has received less attention so far. To our knowledge, \cite{henderson2000joint} developed a JM for longitudinal data with either terminal or recurrent event but not for both. \cite{efendi2013joint} proposed a JM of longitudinal and recurrent event outcomes that accommodates overdispersion. 
+
+In traditional JM, the longitudinal continuous outcome is commonly modeled using a linear mixed model (LMM) \citep{laird1982random}; while possible violation to the normality assumption in the error term is not considered. Moreover, an LMM  models covariate effects on the conditional mean of the outcome; however, in many clinical settings it is more desirable that we can make inference at lower or higher quantiles of the outcome. For example, researchers used quantile regression (QR) models to study covariate effects on lower birth weight, which turned out to be significantly different compared with that on the mean birth weight \citep{koenker2001quantile}. In contrast to linear regression, QR is a more flexible tool that relaxes the distributional assumption, and provides a way to study covariate effects on various conditional quantiles of the outcome \citep{koenker2005quantile}. This feature find its great importance in biomedical studies, where individuals with extremer biomarker measurements are often at higher risk of disease or death. To our knowledge, \cite{farcomeni2015longitudinal} is the first one to incorporate a linear quantile mixed model (LQMM) into a JM of longitudinal and terminal event data, in which they developed a Monte Carlo Expectation Maximization (MCEM) algorithm for parameter estimation. However, there is little work has been do to use LQMM in the joint analysis of longitudinal and recurrent event data so far.
+
+In this paper, we propose a new version of JM for analyzing longitudinal and recurrent event data jointly, in which we adopt the LQMM in modeling the longitudinal continuous outcome and use the the proportional hazard model (PHM) for recurrent event outcome. In this JM, the longitudinal outcome is treated as a time-dependent covariate in the time-to-event model and the dependence is measured by some association parameter. Differently from \cite{farcomeni2015longitudinal}, we develop a Gibbs sampling algorithm for model inference. Development of the fully Bayesian algorithm is based on the fact that minimizing the original QR loss function is equivalent to maximizing the likelihood function of the so-called asymmetric Laplace distribution (ALD) \citep{yu2001bayesian}. Moreover, the ALD can be further reparameterized using a location-scale mixture representation that leads to a combination of normal and exponential distributions \citep{kotz2001laplace, kozumi2011gibbs}. The proposed Bayesian estimating algorithm can be directly implemented in existing software. In application, we use the data derived from the Atherosclerosis Risk in Communities Study (ARIC) to demonstrate our proposed model. ARIC is a prospective epidemiologic study conducted to investigate the etiology of atherosclerosis and its clinical outcomes, and variation in cardiovascular risk factors, medical care, and disease by race, gender, location, and date. And we apply the proposed JM to study various covariates effect on different quantiles of the systolic blood pressure (SBP) as well as the association between SBP and the recurrence of coronary heart disease (CHD).
+
+%paper organization
+The rest of this paper is organized as follows. In Section \ref{sec:p2methods}, we give details of the proposed statistical model and the Bayesian algorithm used for model inference. In Section \ref{sec:p2simulation}, we present simulation study to validate the proposed methods. In Section \ref{sec:p2data}, we apply the proposed methods to the ARIC data. We conclude the paper with a discussion in Section \ref{sec:p2discussion}.
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+% \end{document}
+

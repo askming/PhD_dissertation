@@ -1,0 +1,143 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage{setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \floatstyle{plaintop}
+% \restylefloat{table}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{listings}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{color}
+% \usepackage{hyperref}
+% \usepackage[round]{natbib}
+% \usepackage{rotating} % rotate table by some degree
+% \usepackage{rotfloat}
+
+
+
+% %\usepackage{Sweave}
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{0.5em}
+
+
+% \graphicspath{{0.plots/}}
+
+
+
+% \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simulation Study} \label{sec:p2simulation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section we aim to validate the proposed Bayesian inference algorithm through simulation study. We consider different simulation scenarios where the random error is generated from either standard normal distribution or skewed distributions with varied skewness parameter. Simulated data are then fitted using our proposed QRJM as well as the LMJM that assumes normality in the error term. We assess the model performance using bias and precision of the point estimates.
+
+We simulate the data from Model (\ref{eqn:p2simjoint}), all the regression coefficients $\beta_1$, $\beta_2$, $\beta_3$, $\gamma$, and $\alpha$ are set to be unit scalar. In the longitudinal process, we simulate $X_1$ and the random effect $u_i$ from $N(0, 1)$, and $X_2$ from $Bernuolli(0.5)$. A maximum of six observations are generated for each subject at follow-up times $t=0, 0.25, 0.5, 0.75, 1.0, \mbox{ and }1.25$. To simulate recurrent times, we set the baseline intensity $r_{i0}(t)$ to be constant 1 and generate $W_i$ from $N(0, 1)$. The random censoring time $C_i$ is generated from $2+Beta(1,1)$ and the recurrent times $T_{ik}^*$ are generated using calendar time. Finally, we set the observed recurrent times as $T_{ik} = min(C_i, T_{ik}^*)$ and recurrent event indicators as $\delta_{ik} = I(T_{ik} < C_i)$ for $k=1, \cdots, m_i$. And we limit a maximum of five recurrent events for each subject.
+
+
+\begin{equation}\label{eqn:p2simjoint}
+\left\{
+\begin{array}{l}
+Y_{i}(t) = m_i(t) + \varepsilon_{i}(t) = \beta_1X_{i1} + \beta_2X_{i2} + \beta_3t + u_i + \varepsilon_{i}(t)\\
+r_i(t|W_i;  \gamma, \alpha) = r_0(t)\exp(\gamma W_i + \alpha m_i(t))
+\end{array}
+\right.
+\end{equation}
+
+
+We consider the following four scenarios in our simulation study. In each scenario, we simulate 200 data sets with sample size equals 250 or 500 in each.
+\begin{itemize}
+\item Scenario 1: $\varepsilon_{i}(t)$ follows ALD with $\tau=0.25$ (right-skewed);
+\item Scenario 2: $\varepsilon_{i}(t)$ follows ALD with $\tau=0.50$ (symmetric at 0, heavy tail);
+\item Scenario 3: $\varepsilon_{i}(t)$ follows ALD with $\tau=0.75$ (left-skewed);
+\item Scenario 4: $\varepsilon_{i}(t)$ follows standard normal distribution.
+\end{itemize}
+
+The simulation results are reported in Tables~\ref{tab:p2simsce1} and \ref{tab:p2simsce4} as well as in Tables~\ref{tab:p2simsce2} and \ref{tab:p2simsce3} of the Appendices. We report estimation bias, standard error (SE), mean square error (MSE), and coverage probability (CP) from different model fittings. Table \ref{tab:p2simsce1} summaries the results from simulation Scenario 1. Models under comparison including QRJM with $\tau=0.25$ (true model), QRJM with $\tau=0.50$ (i.e. median regression), and the conventional LMJM. It is seen that when random error is right-skewed under this scenario, our proposed Bayesian algorithm is able to recover the truth given the correct quantile value is set and it performs the best among the three models under comparison. In contrast, both the median regression and LMJM result in very biased point estimates with large MSE and low CP of the true parameter values; however, the median regression performs slightly better than LMJM. In Scenario 4, we are interested in study the performance of the proposed Bayesian inference algorithm when the underlying error distribution is not ALD. Under this scenario, the error term follow standard normal distribution, and median regression (QRJM with $\tau=0.5$) performs comparably to the true model in terms of all the three summary statistics. Thus, QRJM is robust to model misspecification. Simulation results for Scenarios 2 and 3 can be found in Appendices Tables~\ref{tab:p2simsce2} and \ref{tab:p2simsce3}. Results from Scenario 2 shows that when data are symmetric with heavy tail, LMJM performs slightly worse but comparably to the true model. And results in Scenarios 4 is similar to those observed in the first scenario. In addition, as expected, we observe smaller bias when the sample size increases from 250 to 500 for all simulation scenarios. In summary, the proposed Gibbs sampling algorithm performs well in recovering the true model parameters and is robust to model misspecification; however, the traditional LMJM is not robust against deviation from normality assumption in the error term. 
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Tue Oct 27 23:05:22 2015
+\begin{table}[H]
+\centering
+\caption{Simulation study: Inference results for random error generated from ALD($0, 1, \tau$ = 0.25) (Scenario 1).
+}
+\adjustbox{max width=\textwidth}{
+\label{tab:p2simsce1}
+\begin{tabular}{clccccccccccc}
+\hline
+& & \multicolumn{3}{c}{QRJM ($\tau=0.25$)} & & \multicolumn{3}{c}{QRJM ($\tau=0.50$)} & & \multicolumn{3}{c}{LMJM}\\
+\hline
+ & & Bias & MSE & CP && Bias & MSE & CP & & Bias & MSE & CP\\
+ \cline{3-5}  \cline{7-9} \cline{11-13}
+\multirow{7}{*}{n=250}&  $\beta_1$ & 0.004 & 0.007 & 0.98 && 0.252 & 0.076 & 0.41 && 0.462 & 0.232 & 0.10\\
+&    $\beta_2$ & $-$0.024 & 0.020 & 0.93 && 1.214 & 1.500 & 0.00 && 1.873 & 3.540 & 0.00\\
+&    $\beta_3$ & 0.022 & 0.004 & 0.94 && 0.396 & 0.163 & 0.00 && 0.652 & 0.434 & 0.00\\
+&    $\sigma$ & 0.000 & 0.001 & 0.95 && $-$0.330 & 0.109 & 0.00 && $-$ & $-$ & $-$ \\
+&    $\alpha$ & 0.016 & 0.005 & 0.95 && $-$0.222 & 0.052 & 0.02 && $-$0.339 & 0.117 & 0.00\\
+&    $\gamma$ & 0.001 & 0.005 & 0.94 && 0.019 & 0.007 & 0.94 && 0.020 & 0.008 & 0.92\\
+&    $r_0$ & 0.013 & 0.013 & 0.95 && $-$0.523 & 0.278 & 0.00 && $-$0.598 & 0.361 & 0.00\\
+   \hline
+\multirow{7}{*}{n=500}&  $\beta_1$ & 0.001 & 0.005 & 0.91 && 0.246 & 0.068 & 0.18 && 0.457 & 0.220 & 0.01\\
+&  $\beta_2$ & $-$0.005 & 0.007 & 0.98 & & 1.235 & 1.538 & 0.00 && 1.899 & 3.623 & 0.00\\
+&  $\beta_3$ & 0.018 & 0.002 & 0.97 & & 0.387 & 0.153 & 0.00 && 0.638 & 0.412 & 0.00\\
+&  $\sigma$ & 0.002 & 0.001 & 0.94 & & $-$0.329 & 0.109 & 0.00 && $-$ & $-$ & $-$ \\
+&  $\alpha$ & 0.003 & 0.003 & 0.95 & & $-$0.211 & 0.046 & 0.00 && $-$0.331 & 0.110 & 0.00\\
+&  $\gamma$ & 0.007 & 0.003 & 0.93 & & 0.025 & 0.005 & 0.89 && 0.024 & 0.005 & 0.87\\
+&  $r_0$ & $-$0.021 & 0.007 & 0.93 && $-$0.542 & 0.296 & 0.00 && $-$0.615 & 0.380 & 0.00\\
+   \hline
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\caption{Simulation study: Inference results for data generated from $N(0, 1)$ (Scenario 4).}
+\label{tab:p2simsce4}
+\begin{tabular}{clccccccc}
+\hline
+& & \multicolumn{3}{c}{LMJM (true model)} & & \multicolumn{3}{c}{QRJM ($\tau=0.5$)}\\
+\hline
+ & & bias & MSE & CP && bias & MSE & CP \\
+ \cline{3-5}  \cline{7-9}
+   \multirow{7}{*}{n=250} & $\beta_1$ & $-$0.014 & 0.005 & 0.95 && $-$0.009 & 0.005 & 0.95 \\
+  &   $\beta_2$ & $-$0.002 & 0.015 & 0.93 && $-$0.001 & 0.015 & 0.92 \\
+  &   $\beta_3$ & 0.004 & 0.001 & 0.94 && 0.004 & 0.002 & 0.91 \\
+  &   $\sigma$ & 0.004 & 0.000 & 0.96 &&  $-$ & $-$ & $-$ \\
+  &   $\alpha$ & 0.010 & 0.002 & 0.93 && $-$0.022 & 0.003 & 0.88 \\
+  &   $\gamma$ & 0.002 & 0.003 & 0.95 && $-$0.007 & 0.002 & 0.92 \\
+  &   $r_0$ & 0.014 & 0.008 & 0.94 && 0.045 & 0.011 & 0.89 \\
+   \hline
+  \multirow{7}{*}{n=500} & $\beta_1$ & $-$0.007 & 0.003 & 0.91 && $-$0.002 & 0.003 & 0.90 \\
+  & $\beta_2$ & 0.001 & 0.007 & 0.92 && 0.006 & 0.007 & 0.92 \\
+  & $\beta_3$ & 0.010 & 0.001 & 0.90 && 0.009 & 0.001 & 0.89 \\
+  & $\sigma$ & 0.003 & 0.000 & 0.96 &&  $-$ & $-$ & $-$ \\
+  & $\alpha$ & 0.001 & 0.002 & 0.90 && $-$0.013 & 0.002 & 0.87 \\
+  & $\gamma$ & 0.003 & 0.002 & 0.94 && $-$0.007 & 0.002 & 0.92 \\
+  & $r_0$ & $-$0.010 & 0.005 & 0.91 && 0.019 & 0.005 & 0.88 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+
+%
+%
+%All is done in \LaTeX \cite{knuth1986texbook}.
+%
+%
+% \bibliographystyle{plainnat}%%%%%%%%%%%%%%%%%%%%
+% \addcontentsline{toc}{section}{References}
+% \bibliography{QRJM}
+
+% \end{document}

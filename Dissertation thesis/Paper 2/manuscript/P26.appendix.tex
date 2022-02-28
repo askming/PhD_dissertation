@@ -1,0 +1,218 @@
+% \documentclass[12pt]{article}
+% \usepackage[text={7.1 in, 8 in}, top=1.75in, left=0.69in]{geometry}
+% \usepackage[round]{natbib}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fullpage}
+% \usepackage {setspace}
+% \usepackage[hang,flushmargin]{footmisc} %control footnote indent
+% \usepackage{url} % for website links
+% \usepackage{amssymb,amsmath}%for matrix
+% \usepackage{graphicx}%for figure
+% \usepackage{appendix}%for appendix
+% \usepackage{float}
+% \floatstyle{plaintop}
+% \restylefloat{table}
+% \usepackage{multirow}
+% \usepackage{longtable}
+% \usepackage{morefloats}%in case there are too many float tables and figures
+% \usepackage{caption}
+% % \usepackage{subcaption}
+% \usepackage{subfig}
+% \captionsetup[subtable]{font=normal}
+% \usepackage{hyperref}
+% \usepackage{courier}
+% \usepackage{color}
+% \usepackage{setspace}
+% \usepackage{rotating} % rotate table by some degree
+% \usepackage{rotfloat}
+% \usepackage{mwe}
+% \usepackage{listings}
+% \usepackage{titling}
+% \usepackage{lipsum}
+% \usepackage[export]{adjustbox}
+
+
+
+
+% \graphicspath{{figures/}}
+
+% \begin{document}
+% \author{\small{\bf Ming Yang, Sheng Luo,
+% and Stacia M. DeSantis}\\
+% \small{Department of Biostatistics, The University of Texas Health Science Center at Houston}}
+% \date{}
+% \title{\large{\bf Web-based Supplementary Material for ``Model Estimation and Dynamic Prediction in Joint Modeling Using Longitudinal Quantile Regression''}}
+% \maketitle{}
+
+
+\subsection*{Appendices}
+\addcontentsline{toc}{subsection}{Appendices}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+
+
+\subsubsection{Additional simulation results}\label{sec:p2appendix_simulation}
+In Scenario 2, data are generated from Laplace distribution (i.e., ALD with $\tau=0.5$). LMJM methods still produce noticeably larger bias and lower CP compared to the true model.
+
+\begin{table}[H]
+\centering
+\caption{Simulation study: Inference results for data generated from ALD with $\tau$ = 0.50 (Scenario 2).}
+\label{tab:p2simsce2}
+\begin{tabular}{clccccccc}
+\hline
+& & \multicolumn{3}{c}{QRJM ($\tau=0.5$, true model)} & & \multicolumn{3}{c}{LRJM}\\
+\hline
+ & & bias & MSE & CP && bias & MSE & CP \\
+ \cline{3-5}  \cline{7-9}
+  \multirow{7}{*}{n=250} & $\beta_1$ & 0.005 & 0.007 & 0.97 && 0.006 & 0.008 & 0.97 \\
+  & $\beta_2$ & -0.027 & 0.017 & 0.94 && -0.027 & 0.019 & 0.93 \\
+  & $\beta_3$ & 0.022 & 0.004 & 0.94 && 0.026 & 0.005 & 0.94 \\
+  & $\sigma$ & -0.002 & 0.001 & 0.94 &&  - & - & - \\
+  & $\alpha$ & 0.016 & 0.004 & 0.94 && 0.003 & 0.006 & 0.95 \\
+  & $\gamma$ & 0.006 & 0.005 & 0.96 && 0.005 & 0.006 & 0.93 \\
+  & $r_0$ & 0.011 & 0.013 & 0.95 && 0.011 & 0.014 & 0.95 \\
+   \hline
+ \multirow{7}{*}{n=500} & $\beta_1$ & -0.001 & 0.004 & 0.93 && -0.001 & 0.005 & 0.93 \\
+  & $\beta_2$ & -0.006 & 0.007 & 0.96 && -0.006 & 0.008 & 0.96 \\
+  & $\beta_3$ & 0.014 & 0.002 & 0.95 && 0.016 & 0.002 & 0.95 \\
+  & $\sigma$ & 0.002 & 0.001 & 0.94 &&  - & - & - \\
+  & $\alpha$ & 0.003 & 0.002 & 0.92 && 0.017 & 0.003 & 0.95 \\
+  & $\gamma$ & 0.008 & 0.003 & 0.93 && 0.008 & 0.004 & 0.92 \\
+  & $r_0$ & -0.019 & 0.008 & 0.93 && -0.022 & 0.008 & 0.95 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+In Scenario 3, data are simulated from QRJM with $\tau=0.75$. Results are similar to what we observed when $\tau=0.25$ in Scenario One.
+
+\begin{table}[H]
+\centering
+\caption{Simulation study: Inference results for data generated from ALD with $\tau$ = 0.75 (Scenario 3).}
+\label{tab:p2simsce3}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{clccccccccccc}
+\hline
+& & \multicolumn{3}{c}{QRJM ($\tau=0.75$, true model)} & & \multicolumn{3}{c}{QRJM ($\tau=0.5$)} & & \multicolumn{3}{c}{LRJM}\\
+\hline
+ & & bias & MSE & CP && bias & MSE & CP & & bias & MSE & CP\\
+ \cline{3-5}  \cline{7-9} \cline{11-13}
+   \multirow{7}{*}{n=250} & $\beta_1$ & 0.004 & 0.007 & 0.96 && 0.003 & 0.017 & 0.91 && 0.173 & 0.053 & 0.79\\
+  &   $\beta_2$ & -0.026 & 0.018 & 0.93 && -1.119 & 1.282 & 0.00 && -1.813 & 3.343 & 0.00\\
+  &   $\beta_3$ & 0.025 & 0.004 & 0.93 && -0.119 & 0.022 & 0.65 && 0.001 & 0.012 & 0.92\\
+  &   $\sigma$ & -0.003 & 0.001 & 0.93 && -0.333 & 0.111 & 0.00 && - & - & - \\
+  &   $\alpha$ & 0.016 & 0.004 & 0.96 && -0.037 & 0.014 & 0.84 && -0.227 & 0.058 & 0.25\\
+  &   $\gamma$ & 0.009 & 0.005 & 0.95 && -0.047 & 0.008 & 0.93 && -0.068 & 0.012 & 0.87\\
+  &   $r_0$ & 0.010 & 0.013 & 0.96 && 2.155 & 4.781 & 0.00 && 4.469 & 20.237 & 0.00\\
+   \hline
+  \multirow{7}{*}{n=500} & $\beta_1$ & -0.006 & 0.004 & 0.93 && -0.008 & 0.009 & 0.92 && 0.149 & 0.044 & 0.67\\
+  & $\beta_2$ & -0.014 & 0.009 & 0.93 && -1.080 & 1.181 & 0.00 && -1.777 & 3.187 & 0.00\\
+  & $\beta_3$ & 0.024 & 0.002 & 0.90 && -0.126 & 0.019 & 0.41 && -0.022 & 0.011 & 0.93\\
+  & $\sigma$ & 0.003 & 0.001 & 0.96 && -0.327 & 0.108 & 0.00 && - & - & - \\
+  & $\alpha$ & 0.001 & 0.003 & 0.94 && -0.023 & 0.006 & 0.87 && -0.153 & 0.430 & 0.08\\
+  & $\gamma$ & 0.004 & 0.003 & 0.94 && -0.041 & 0.005 & 0.87 && -0.069 & 0.010 & 0.77\\
+  & $r_0$ & -0.011 & 0.008 & 0.96 && 2.053 & 4.301 & 0.00 && 4.359 & 19.350 & 0.01\\
+   \hline
+\end{tabular}
+}
+\end{table}
+
+
+
+
+
+
+\newpage
+\thispagestyle{lscape}
+\pagestyle{lscape}
+\begin{landscape}
+\doublespacing
+% \begin{sidewaystable}[H]
+\subsubsection{Summary table of study cohort characteristics}
+\begin{table}[H]
+\centering
+\caption{Baseline characteristics of study cohort with stratification by SBP level}
+\label{tab:p2cht_baseline}
+% \adjustbox{max width=\textwidth}{
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llcccc}
+\hline
+& & \multicolumn{3}{c}{SBP groups (mm Hg)} \\
+\cline{3-5}
+ Characteristics\textsuperscript{$\dagger$} & Total (657) & $<$ 120 (133, 20.2\%)  & [120, 140) (217, 33.0\%)& $\ge$ 140 (307, 46.7\%) & $p$-value\textsuperscript{*}\\
+ \hline
+ Age & 56.4 (5.8) & 55.0 (5.7) & 55.7 (6.0) & 57.4 (5.4) & $<$0.001\\
+ SBP & 135.9 (18.5) & 110.5 (6.9) & 129.2 (5.7) & 151.6 (11.2) & $<$0.001\\
+ Cholesterol (mg/dL)& 215.9 (41.7) & 215.1 (42.1) & 214.0 (42.0) & 217.6 (41.7) & 0.60 \\
+ Gender (male) & 341 (51.9) & 64 (48.1) & 117 (53.9) & 160 (52.1) & 0.57\\
+ Ever smoke (yes) & 379 (57.5) & 81 (60.9) & 126 (58.1) & 172 (56.0) & 0.63\\
+ Hypertension medication (yes) & 445 (67.7) & 132 (99.2) & 196 (90.3) & 117 (38.1) & $<$0.001\\
+ Diabetes (yes) & 90 (13.7) & 15 (11.3) & 27 (12.4) & 48 (15.6) & 0.38\\
+   \hline
+   \multicolumn{6}{l}{\textsuperscript{$\dagger$}\footnotesize{mean (sd) for continuous variables and frequency (percentage) for categorical variables.}}\\
+   \multicolumn{6}{l}{\textsuperscript{*}\footnotesize{Comparing three SBP groups; ANOVA test for continuous variables and $\chi^2$ test for categorical variables.}}\\
+\end{tabular}
+}
+\end{table}
+% \end{sidewaystable}
+\end{landscape}
+
+\restoregeometry
+\pagestyle{plain}
+
+
+
+
+
+\newpage
+\subsubsection{\textsf{JAGS} model file}
+\textsf{JAGS} model file to fit QRJM of longitudinal and recurrent event data.
+{\small
+\begin{verbatim}
+model{
+      k1 <- (1-2*qt)/(qt*(1-qt))
+      k2 <- 2/(qt*(1-qt))
+
+      # prior of random effects
+      for (i in 1:I){ # I: unique subject id
+        # prior for random effects
+          u[i] ~ dnorm(0, tau)
+      } # end of loop i
+
+      # longitudinal process, BQR mixed model using ALD representation
+      for (j in 1:N_l){ # N_l: number of longitudinal observations
+          er[j] ~ dexp(sigma)
+          mu[j] <- beta1*X1_l[j] + beta2[X2_l[j]] + beta3*t[j] + u[id_l[j]]
+          			+ k1*er[j]
+          prec[j] <- sigma/(k2*er[j])
+          y[j] ~ dnorm(mu[j], prec[j])
+      } #end of j loop
+
+    # recurrent events part, baseline hazard is set to constant c
+      for(k in 1:I){
+        for (l in (s[k]+1):s[k+1]){
+          m1[l] <- beta1*X1[k]+beta2[X2[k]]+beta3*Ri1[l]+u[id_r[l]]
+          m2[l] <- beta1*X1[k]+beta2[X2[k]]+beta3*Ri2[l]+u[id_r[l]]
+          res[l] <- (exp(gamma*W[k]+alpha*m2[l])
+                       -exp(gamma*W[k]+alpha*m1[l]))/(alpha*beta3)
+          S[l] <- exp(-c*res[l])
+          risk[l] <- c*exp(gamma*W[k] + alpha*m2[l])
+          L[l] <- pow(risk[l], event[l])*S[l]/1E+08
+          zeros[l] ~ dpois(-log(L[l]))
+        } # end of l loop
+      }#end of k loop
+
+    # priors for other parameters
+      alpha ~ dnorm(0, 0.0001)
+      beta1 ~ dnorm(0, 0.0001)
+      beta2[1] <- 0
+      beta2[2] ~ dnorm(0, 0.0001)
+      beta3 ~ dnorm(0, 0.0001)
+      gamma ~ dnorm(0, 0.0001)
+      sigma ~ dgamma(0.001, 0.001)
+      c ~ dunif(0.01, 10)
+      tau <- pow(var, -2)
+      var ~ dunif(0, 1000)
+  }
+\end{verbatim}
+}
