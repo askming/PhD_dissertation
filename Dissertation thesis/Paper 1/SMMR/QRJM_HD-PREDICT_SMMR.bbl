@@ -1,0 +1,150 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{self1992modeling}
+Self S and Pawitan Y.
+\newblock Modeling a marker of disease progression and onset of disease.
+\newblock In \emph{AIDS Epidemiology}. Springer, 1992.
+\newblock pp. 231--255.
+
+\bibitem{tsiatis1995modeling}
+Tsiatis AA, Degruttola V and Wulfsohn MS.
+\newblock Modeling the relationship of survival to longitudinal data measured
+  with error. applications to survival and cd4 counts in patients with aids.
+\newblock \emph{J Am Stat Assoc} 1995; 90(429): 27--37.
+
+\bibitem{tsiatis2004joint}
+Tsiatis AA and Davidian M.
+\newblock Joint modeling of longitudinal and time-to-event data: an overview.
+\newblock \emph{Stat Sin} 2004; 14(3): 809--834.
+
+\bibitem{laird1982random}
+Laird N and Ware J.
+\newblock Random-effects models for longitudinal data.
+\newblock \emph{Biometrics} 1982; 38(4): 963--974.
+
+\bibitem{koenker2001quantile}
+Koenker R and Hallock K.
+\newblock Quantile regression: An introduction.
+\newblock \emph{J Econ Perspect} 2001; 15(4): 43--56.
+
+\bibitem{koenker2005quantile}
+Koenker R.
+\newblock \emph{Quantile Regression}.
+\newblock Cambridge University Press, 2005.
+
+\bibitem{koenker1978regression}
+Koenker R and Basset G.
+\newblock Regression quantiles.
+\newblock \emph{Econometrica} 1978; 46(1): 33--50.
+
+\bibitem{koenker2004quantile}
+Koenker R.
+\newblock Quantile regression for longitudinal data.
+\newblock \emph{J Multivar Anal} 2004; 91(1): 74--89.
+
+\bibitem{geraci2007quantile}
+Geraci M and Bottai M.
+\newblock Quantile regression for longitudinal data using the asymmetric
+  laplace distribution.
+\newblock \emph{Biostatistics} 2007; 8(1): 140--154.
+
+\bibitem{geraci2013linear}
+Geraci M and Bottai M.
+\newblock Linear quantile mixed models.
+\newblock \emph{Stat Comput} 2014; 24(3): 461--479.
+
+\bibitem{kozumi2011gibbs}
+Kozumi H and Kobayashi G.
+\newblock Gibbs sampling methods for bayesian quantile regression.
+\newblock \emph{J Stat Comput Simul} 2011; 81(11): 1565--1578.
+
+\bibitem{farcomeni2015longitudinal}
+Farcomeni A and Viviani S.
+\newblock Longitudinal quantile regression in the presence of informative
+  dropout through longitudinal--survival joint modeling.
+\newblock \emph{Stat Med} 2015; 34(7): 1199--1213.
+
+\bibitem{rizopoulos2011dynamic}
+Rizopoulos D.
+\newblock Dynamic predictions and prospective accuracy in joint models for
+  longitudinal and time-to-event data.
+\newblock \emph{Biometrics} 2011; 67(3): 819--829.
+
+\bibitem{taylor2013real}
+Taylor JMG, Park Y, Ankerst DP et~al.
+\newblock Real-time individual predictions of prostate cancer recurrence using
+  joint models.
+\newblock \emph{Biometrics} 2013; 69(1): 206--213.
+
+\bibitem{koenker1999goodness}
+Koenker R and Machado JA.
+\newblock Goodness of fit and related inference processes for quantile
+  regression.
+\newblock \emph{J Am Stat Assoc} 1999; 94(448): 1296--1310.
+
+\bibitem{yu2001bayesian}
+Yu K and Moyeed RA.
+\newblock Bayesian quantile regression.
+\newblock \emph{Statistics \& Probability Letters} 2001; 54(4): 437--447.
+
+\bibitem{kotz2001laplace}
+Kotz S, Kozubowski T and Podgorski K.
+\newblock \emph{The Laplace Distribution And Generalizations: A Revisit with
+  Applications to Communications, Economics, Engineering, And Finance}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{rizopoulos2014combining}
+Rizopoulos D, Hatfield LA, Carlin BP et~al.
+\newblock Combining dynamic predictions from joint models for longitudinal and
+  time-to-event data using bayesian model averaging.
+\newblock \emph{J Am Stat Assoc} 2014; 109(508): 1385--1397.
+
+\bibitem{plummer2003jags}
+Plummer M.
+\newblock Jags: A program for analysis of bayesian graphical models using gibbs
+  sampling.
+\newblock In \emph{Proceedings of the 3rd international workshop on distributed
+  statistical computing}, volume 124. Vienna, p. 125.
+
+\bibitem{heagerty2000time}
+Heagerty PJ, Lumley T and Pepe MS.
+\newblock Time-dependent roc curves for censored survival data and a diagnostic
+  marker.
+\newblock \emph{Biometrics} 2000; 56(2): 337--344.
+
+\bibitem{bland1986statistical}
+Bland JM and Altman DG.
+\newblock Statistical methods for assessing agreement between two methods of
+  clinical measurement.
+\newblock \emph{The Lancet} 1986; 327(8476): 307--310.
+
+\bibitem{paulsen2008detection}
+Paulsen JS, Langbehn DR, Stout JC et~al.
+\newblock Detection of huntington's disease decades before diagnosis: the
+  predict-hd study.
+\newblock \emph{J Neurol Neurosurg Psychiatry} 2008; 79(8): 874--880.
+
+\bibitem{paulsen2006preparing}
+Paulsen JS, Hayden M, Stout JC et~al.
+\newblock Preparing for preventive clinical trials: the predict-hd study.
+\newblock \emph{Arch Neurol} 2006; 63(6): 883--890.
+
+\bibitem{paulsen2014prediction}
+Paulsen JS, Long JD, Ross CA et~al.
+\newblock Prediction of manifest huntington's disease with clinical and imaging
+  measures: a prospective observational study.
+\newblock \emph{The Lancet Neurology} 2014; 13(12): 1193--1201.
+
+\bibitem{brooks1998general}
+Brooks SP and Gelman A.
+\newblock General methods for monitoring convergence of iterative simulations.
+\newblock \emph{J Comput Graph Stat} 1998; 7(4): 434--455.
+
+\end{thebibliography}
