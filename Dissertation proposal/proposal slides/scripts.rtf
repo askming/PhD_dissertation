@@ -1,0 +1,89 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1347\cocoasubrtf570
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14200\viewh15860\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 * Proposal script\
+\
+- 1. Title page: Good afternoon, welcome to my thesis proposal defense, today my topic is XXX\'85\
+\
+- 2. TOC: my presentation will be structured as follows: first part is the introduction, which includes background information and motivation of the study, brief reviews of two main statistical topics: JM and QR; following which I give introduce the aims of this thesis work as well as its significance to the public health area. The second part, is about the statistical methods that will be developed and used in this thesis work, there are mainly three components: first is the model estimation methods in the context of JM using Longitudinal QR model, second is the method for subject specific dynamic prediction for future events probabilities and the third one is about to evaluate the predictive performance of the longitudinal biomarker. After this second section, I will talk about the simulation studies and a brief description of the real data that will be used in this thesis work.\
+\
+- 3. Ok. Let\'92s start. There two types of data that is commonly encountered in biostatistical context: \
+
+\b one is L data
+\b0 ,\ul  L \ulnone da\ul ta is generate by taking repeated measures over time. for example\ulnone  in a study of hypertension, we follow the patients over time to monitor the change of their blood pressure;\
+
+\b the other is time-to-event data
+\b0  or survival data. In cancer researches we alway care about how long a certain type of cancer patients can live after treatments/dx, e.g. radiation or chemotherapy or other medicines. So the outcome of interest is the time to event.\
+\
+It\'92s possible that these two types of data can be generated from the same study. For example, in RCTs, baseline information of the trails participants is collect at the beginning of the study and they are then followed over time to collect various clinic measurements of interest, also the time when some event of interest happens, e.g. death.\
+\
+It\'92s also possible that these two types of information interacts with each other. To gain intuition about the correlation of them, let\'92s look at this figure. The top panel depicts  the instantaneous risk of a event over time, i.e. the hazard function.  While in the bottom panel, we see the longitudinal measures at certain time points, which is denoted by asterisks. and the green curve means the true underlying longitudinal process. As we can see that there probably exits a negative correlation between these two process, as the l process goes down and the h process goes up given a same time point.\
+\
+- 4. The motivations of my thesis work are from following aspects: when handling data such as those mention above, simple ignoring the correlation between \'85. As the linear mixed model is commonly used in modeling L data, but considering that the normality assumption may not always be satisfied even after trying transformation and more importantly, in some case conditional mean is not a good summary statistics that we are really interested in. In such cases, quantile regression is a good choice. We also care about the predictions of future event probabilities, since it provide a good way for conducting intervention.\
+\
+- 5. Here I will brief introduce the JM framework used in handling longitudinal and survival data. As mentioned previously, and to be specific, when \'85 and when. Under these two conditions, we need to use JM.\
+\
+- 6. So what is JM? As its name tells, it\'92s a set of two models\'85\
+\
+- 7. Here is the formulation of the model. Say Yit is L outcome\'85 The two models are related in the sense that the longitudinal outcome is used as a covariate in the survival model, where the strength of association is captured by the parameter alpha. If alpha =0, then the two models are not related.\
+\
+- 8. The model parameters can then be estimated using either maximum likelihood method or Bayesian method. In terms of MLE, we can first write out the observed likelihood of the data, which is given in equation 2. Assume we have N subjects, given the random effects, the longitudinal and survival outcomes are independent. \
+\
+-9. The likelihood function for survival data is in this format, where h is the hazard function and S is the survival function, delta is the censoring indicator, where delta=1 meaning event while 0 means censoring. Big M stands for the complete longitudinal history. Maximization is challenging for this method, possible solutions are numerical integrations.\
+\
+- 10-11. Alternatively we can use the Bayesian method, to do so, we may write out the complete likelihood as in equation 3. According to Bayesian rule the posterior distribution of the parameters is proportional to the product of the complete likelihood and the prior distribution of the parameters. \
+\
+- 12. That\'92s something about JM, next i will talk about QR. The tau-th quantile or percentile of a continuous RV is define the inferior value of solution for the inverse CDF. Based on the definition of quantile, then quantile regression model is then defined as the quantile of the Y is a linear function of a set of covariates, similarly as the linear regression or mean regression. In mean regression we use the OLS method to get the parameter estimation. while in QR the parameter estimation is obtain by solving this optimization problem, in which the lose function is defined as \'85 and it involves an indication function of Y. as you can see, there is closed solution for this equation and usually people use so-called linear programming method to solve it.\
+\
+- 13. Here i will talk about ALD, the reason is that above mini problem can be formulated as a ML problem by using ALD. The general format of an ALD looks like this, where \'85 Here is a plot comparing ALD and LD. So if we assume the random error follows ALD, we can see that maximizing the likelihood function will lead to the same optimization problem as previous problem. \
+\
+- 14. Here are some recently researches that are more relevant to this dissertation work. The  Guo and Carlin 2004 paper is the first one that developed a fully Bayesian method to fit the JM, in which they implement the method in WinBUGS software. Brown and Rizopoulos extended the JM for multiple longitudinal outocme and Elashoff extended it to incorporating multiple failure time. In terms of predictions, xxx and xxx have done some work on it and Farcomeni is the first one, to our knowledge, to use QR in JM.\
+\
+- 15. Based on previously established results and this dissertation work tries to extend  current JM framework in the way of using the QR in the JM and make predictions for event probabilities. Specifically, first\'85 Second, third\'85\
+\
+- 16. In general, my dissertation work will contribute to the public health field in the following ways. \
+\
+- 17. Next, I will introduce the statistical methods that will be developed and used in this dissertation work. I will mainly focus on three components, which are Model estimation methods of the JM using LQR, dynamic prediction method for event probabilities and the evaluation method for the predictive performance of longitudinal biomarker\
+\
+- 18. As a natural extension of QR, the longitudinal QR is defined by adding random effects into the linear model. As it is longitudinal data, here Yij is \'85 And the likelihood function is similar as described before.\
+\
+- 19. As you can see, the standard format of ALD doesn\'92t belong to the common distributions and it\'92s hard to develop the Gibbs sampler directly for it. To overcome this problem, we refer to the location-scale mixture representation of the ALD, according to Kota 2001, if a RV ~ ALD, it can be reparameterized as the mixture of two RVs, one follows standard normal and the other follows exponential distribution. As a result\'85\
+\
+- 20. So far, 
+\f1\fs26 \expnd0\expndtw0\kerning0
+So far, we've described the longitudinal QR; a new version of JM is then developed by replacing the conventional linear mixed model (LMM) with the longitudinal QR. In Equation 12, the first model represent the longitudinal process while the second represent the time-to-event model. They are related by sharing fixed and random effects, different from previous JM, here we allow different association parameters for fixed and random effects respectively.\
+\
+- 21. To develop a Giibs sampler for parameter estimation. We use the location-scale representation of the ALD and write Yit and a normal RV. By choosing some non-informative priors for each parameter, parameters are estimates as the mean of the posterior samples from Gibbs sampler. \
+\
+- 22. The next topic is about making subject specific predictions for event probabilities. First of all let\'92s define some notations. \'85 This probability can be further developed as follows: the first equal sign comes from that it\'92s the joint dist. of Ti and ui and we then integrate out ui, the RE. Based on the model assumption, given the ui, Ti and Yi are independent\
+\
+- 23. 
+\fs24 \kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+We may approximate (13) by using the MCMC algorithm. Specifically, the posterior expectation of it. By using the following MC algorithm, we are able to collect K samples of pi and based on which to calculate the value pi.  we can then use the sample mean or median as its estimation.\
+\
+- 24. here are some sample plots of the predicted event probabilities, as we collect more measures for the subject we will be able to dynamically update our prediction for this patient.\
+\
+- 25. Another question that we care about in the prediction problem is that how well the longitudinal outcome can do in predicting the survival probability. Here we adopt the ROC based method to evaluate the predictive performance of the longitudinal biomarker.\
+Here in the definitions, we assume smaller value of Y indicates worse outcome. But in real world study, it will be convenient to switch to the other direction.\
+\
+- 26. Take sensitivity as an example, based on above definition we can continue and derive it as follows\'85 Use the similar trick that we used before, the numerator can be written as, and the denominator can be written as .. \
+\
+- 27. Similar MC algorithm can be then developed based on sampling and the estimate of the sensitivity can be calculated as the mean of the MC samples obtained. \
+\
+- 28. When both of sensitivity and specificity are obtained we can construct the ROC curves as shown here. The area under the ROC cure can be used as an indicator of how well the longitudinal can predict the event probabilities. \
+\
+- 29. Before implement our method into real data analysis, two Simulation studies are designed there o check the validity of our methods. The first simulation study is used to check the accuracy of our model estimating methods. Here we will simulate data from model 12 that was introduced previously and four different setting of simulation studies will be conduct by varying the values of association parameters.\
+\
+- 30-31. The second simulation study is used to check out prediction method, i.e. Algorithm 1 mentioned before.  To idea is that after simulating the data, we use algorithm 1 to make predictions, we will compare these predictions with the simulated data using Bland-Altman plot.  Here is an example of B-A plot, the x-axis is the average values from two calculating methods while the y-axis if the difference between two methods. We plot our predicted values with the simulated values (gold standard) to see how similar or different the predictions are from the true values.\
+\
+- 32. In this last slide, I will describe the real dataset based on which our parameter estimation will be obtained. 
+\f2 \expnd0\expndtw0\kerning0
+\uc0\u8232 \
+\
+
+\f0 \kerning1\expnd0\expndtw0 \
+}
